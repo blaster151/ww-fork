@@ -5,6 +5,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { XmlToJsonService } from './xml-to-json.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { XmlToJsonService } from './xml-to-json.service';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
   providers: [
