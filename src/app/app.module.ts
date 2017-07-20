@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { XmlToJsonService } from './xml-to-json.service';
 import { environment } from '../environments/environment';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { ArrayExtensionsService } from './array-extensions.service';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,11 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
     BootstrapModalModule
   ],
   providers: [
-    XmlToJsonService
+    XmlToJsonService, ArrayExtensionsService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(arrayExtensionsService: ArrayExtensionsService) {
+  }
+}
