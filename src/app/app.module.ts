@@ -7,6 +7,7 @@ import { XmlToJsonService } from './xml-to-json.service';
 import { environment } from '../environments/environment';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { ArrayExtensionsService } from './array-extensions.service';
+import { AudioPlayerService } from './audio-player.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ArrayExtensionsService } from './array-extensions.service';
     BootstrapModalModule
   ],
   providers: [
-    XmlToJsonService, ArrayExtensionsService
+    XmlToJsonService, ArrayExtensionsService, AudioPlayerService
   ],
   bootstrap: [AppComponent]
 })
