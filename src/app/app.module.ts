@@ -8,10 +8,14 @@ import { environment } from '../environments/environment';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { ArrayExtensionsService } from './array-extensions.service';
 import { AudioPlayerService } from './audio-player.service';
+import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
+import { TestHarnessComponent } from './test-harness/test-harness.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestHarnessGalleryComponent,
+    TestHarnessComponent
   ],
   imports: [
     BrowserModule,
