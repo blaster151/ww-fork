@@ -20,7 +20,6 @@ export class UrlLoaderService {
   parseFromUrl(url: string, topSelector: string, transformPattern: {}) {
     return new Promise((res, rej) => {
       this.getFromUrl(url).then($ => {
-        console.log('then1');
         res(this.parse($, topSelector, transformPattern));
       });
     });
@@ -39,7 +38,6 @@ export class UrlLoaderService {
         catch (e) {}
       });
 
-      console.log('end of parse');
       results.push(newObj);
     });
 
