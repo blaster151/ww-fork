@@ -10,6 +10,9 @@ import { ArrayExtensionsService } from './array-extensions.service';
 import { AudioPlayerService } from './audio-player.service';
 import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 import { TestHarnessComponent } from './test-harness/test-harness.component';
+import { AxiosService } from './axios.service';
+import { CheerioService } from './cheerio.service';
+import { UrlLoaderService } from './url-loader.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { TestHarnessComponent } from './test-harness/test-harness.component';
     BootstrapModalModule
   ],
   providers: [
-    XmlToJsonService, ArrayExtensionsService, AudioPlayerService
+    XmlToJsonService, ArrayExtensionsService, AudioPlayerService, AxiosService, CheerioService, UrlLoaderService
   ],
   bootstrap: [AppComponent]
 })
