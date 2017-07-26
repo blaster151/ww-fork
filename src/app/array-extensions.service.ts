@@ -33,6 +33,21 @@ function configureExtensionMethods() {
       return items;
     }, <IGroup<T>[]>[]);
   };
+
+  if (!Array.prototype.orderBy) {
+    Array.prototype.orderBy = function (propertyExpression: (item: any) => any) {
+      const result = [];
+      const compareFunction = (item1: any, item2: any): number => {
+        if (propertyExpression(item1) > propertyExpression(item2)) return 1;
+        if (propertyExpression(item2) > propertyExpression(item1)) return -1;
+        return 0;
+      }
+      for (let i = 0; i < (<Array<any>>this).length; i++) {
+        return (<Array<any>>this).sort(compareFunction);
+      }
+      return result;
+    }
+  }
 }
 
 declare global {
@@ -41,6 +56,7 @@ declare global {
     flatMap<U>(): Array<U>;
     groupBy(prop: string): IGroup<T>[];
     groupByFunc(func: any): IGroup<T>[];
+    orderBy(propertyExpression: (item: T) => any): T[];
   }
 }
 
