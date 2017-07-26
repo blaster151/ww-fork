@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { XmlToJsonService } from './xml-to-json.service';
 import { environment } from '../environments/environment';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-import { ArrayExtensionsService } from './array-extensions.service';
 import { AudioPlayerService } from './audio-player.service';
 import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 import { TestHarnessComponent } from './test-harness/test-harness.component';
 import { AxiosService } from './axios.service';
 import { CheerioService } from './cheerio.service';
 import { UrlLoaderService } from './url-loader.service';
+import * as extensions from './extensions';
 
 @NgModule({
   declarations: [
@@ -27,11 +27,12 @@ import { UrlLoaderService } from './url-loader.service';
     BootstrapModalModule
   ],
   providers: [
-    XmlToJsonService, ArrayExtensionsService, AudioPlayerService, AxiosService, CheerioService, UrlLoaderService
+    XmlToJsonService, AudioPlayerService, AxiosService, CheerioService, UrlLoaderService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(arrayExtensionsService: ArrayExtensionsService) {
+  constructor() {
+    extensions.configureExtensionMethods();
   }
 }

@@ -1,14 +1,4 @@
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class ArrayExtensionsService {
-
-  constructor() {
-    configureExtensionMethods();
-  }
-}
-
-function configureExtensionMethods() {
+export function configureExtensionMethods() {
   Array.prototype.distinct = function(a){return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b + 1) < 0; });
   Array.prototype.flatMap = function<U>() { return <U[]>this.reduce((a, b) => a.concat(b)); };
 
