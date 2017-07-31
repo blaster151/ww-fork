@@ -27,6 +27,7 @@ import { LogoComponent } from './logo/logo.component';
 import { GameLaunchComponent } from './game-launch/game-launch.component';
 import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
+import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)

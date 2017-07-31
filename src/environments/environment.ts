@@ -8,7 +8,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyBwclMUsqdXdadQCsMr4i7vJPSuu3-TIXW',
+    apiKey: 'AIzaSyBwclMUsqdXdadQCsMr4i7vJPSuu3-TaXW',
     authDomain: 'starwarsdestiny-eedf3.firebaseapp.com',
     databaseURL: 'https://starwarsdestiny-eedf3.firebaseio.com',
     projectId: 'starwarsdestiny-eedf3',
