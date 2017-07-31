@@ -28,15 +28,6 @@ import { GameLaunchComponent } from './game-launch/game-launch.component';
 import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
 
-declare global {
-  interface Array<T> {
-    distinct(): Array<T>;
-    flatMap<U>(): Array<U>;
-    groupBy(prop: string): IGroup<T>[];
-    groupByFunc(func: any): IGroup<T>[];
-  }
-}
-
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)
   {
