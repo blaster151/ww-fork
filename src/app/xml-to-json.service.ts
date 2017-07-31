@@ -15,49 +15,41 @@ export class XmlToJsonService {
     return (new DOMParser()).parseFromString(oString, "text/xml");
   }
 
-  xmlToJson(xml: Node) {
+  xmlToJson(xml: Node): any {
       // Thanks to https://davidwalsh.name/convert-xml-json
 
       // Create the return object
-      let obj = {};
+      var obj = {};
 
-      // text node
-      if (4 === xml.nodeType) {
-          obj = xml.nodeValue;
+      if (xml.nodeType == 1) { // element
+        // do attributes
+        if (xml.attributes.length > 0) {
+        obj['@attributes'] = {};
+          for (var j = 0; j < xml.attributes.length; j++) {
+            let attribute = xml.attributes.item(j);
+            obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+          }
+        }
+      } else if (xml.nodeType == 3) { // text
+        obj = xml.nodeValue;
       }
 
+      // do children
       if (xml.hasChildNodes()) {
-          for (let i = 0; i < xml.childNodes.length; i++) {
-              let TEXT_NODE_TYPE_NAME = '#text',
-                  item = xml.childNodes.item(i),
-                  nodeName = item.nodeName,
-                  content;
-
-              if (TEXT_NODE_TYPE_NAME === nodeName) {
-                  //single textNode or next sibling has a different name
-                  if ((null === xml.nextSibling) || (xml.localName !== xml.nextSibling.localName)) {
-                      content = xml.textContent;
-
-                  //we have a sibling with the same name
-                  } else if (xml.localName === xml.nextSibling.localName) {
-                      //if it is the first node of its parents childNodes, send it back as an array
-                      content = (xml.parentElement.childNodes[0] === xml) ? [xml.textContent] : xml.textContent;
-                  }
-                  return content;
-              } else {
-                  if ('undefined' === typeof(obj[nodeName])) {
-                      obj[nodeName] = this.xmlToJson(item);
-                  } else {
-                      if ('undefined' === typeof(obj[nodeName].length)) {
-                          var old = obj[nodeName];
-                          obj[nodeName] = [];
-                          obj[nodeName].push(old);
-                      }
-
-                      obj[nodeName].push(this.xmlToJson(item));
-                  }
-              }
+        for(let i = 0; i < xml.childNodes.length; i++) {
+          let item = xml.childNodes.item(i);
+          let nodeName = item.nodeName;
+          if (typeof(obj[nodeName]) == "undefined") {
+            obj[nodeName] = this.xmlToJson(item);
+          } else {
+            if (typeof(obj[nodeName].push) == "undefined") {
+              let old = obj[nodeName];
+              obj[nodeName] = [];
+              obj[nodeName].push(old);
+            }
+            obj[nodeName].push(this.xmlToJson(item));
           }
+        }
       }
       return obj;
   }
