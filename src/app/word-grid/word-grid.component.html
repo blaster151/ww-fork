@@ -1,0 +1,9 @@
+<div class="grid" style="overflow: hidden" (mousemove)="onMouseMoveOverGrid($event)">
+  <div class="gridRow" *ngFor="let row of puzzle.rows;let i = index">
+    <div class="cell" [class.isCircled]="puzzle.rows[i].cells[j].isCircled" [class.isHighlighted]="puzzle.rows[i].cells[j].isHighlighted" *ngFor="let cell of puzzle.rows[i].cells;let j = index" (click)="this.letterClicked(puzzle.rows[i].cells[j].letter)">
+      <span [ngClass]="{ highlightedLetter: puzzle.rows[i].cells[j].isHighlighted }">{{puzzle.rows[i].cells[j].letter}}</span>
+      <div appCell [cellcontents]="{ cell: puzzle.rows[i].cells[j], row: i+1, col: j+1 }" class="hotspot"></div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

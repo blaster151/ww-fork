@@ -1,0 +1,36 @@
+* {
+    font-size: 1.2em;
+}
+
+.wordContainer {
+    user-select: none;
+}
+
+@media only screen and (max-width: 768px)
+{
+    #wordList
+    {
+        clear: both;
+        float: none;
+        width: 50%;
+    }
+}
+
+div {
+    color: AFD275;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .wordContainer 
+    {
+        display: inline-block;
+    }
+
+    .wordContainer app-word:after {
+        content: ",\00a0";
+    }
+    .wordContainer app-word:after:last-child {
+        content: "";
+    }
+}

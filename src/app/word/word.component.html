@@ -1,0 +1,4 @@
+<div style="position: relative" class="word" [class.selected]="this.word.isSelected" (mousedown)="toggleSelected($event, true)" (mouseup)="toggleSelected($event, false)" (mouseleave)="toggleSelected($event, false)" (contextmenu)="indicate($event)">
+  <div class="completed" *ngIf="this.word.isFound" style="position: absolute; left: 0px; top: 0px; height: 50%; width: 100%"></div>
+  {{this.word.word}}
+</div>

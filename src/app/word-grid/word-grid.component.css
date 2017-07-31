@@ -1,0 +1,99 @@
+.grid {
+    cursor: pointer;
+    width: 30em;
+    height: 30em;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+
+}
+
+.cell {
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    border: .15em solid rgba(0,0,0,0);
+    padding-top: .15em;
+    padding-left: .03em;
+}
+
+    .isCircled {
+        border: solid .15em red;
+        border-radius: 10em;
+    }
+
+.hotspot {
+    position: relative;
+    margin-top: -1.45em;
+    left: .25em;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 1em;
+}
+
+.cell.isHighlighted
+{
+    background: gray;
+    border-radius: 2em;
+    color: white;
+}
+
+@media (max-width: 415px)
+{
+    .grid 
+    {
+        width: 104%;
+        height: 100%;
+    }
+
+    .cell 
+    {
+        width: 6.66%;
+        height: 6.66%;
+    }
+}
+
+/* iPad portrait mode */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+{
+    .grid 
+    {
+        background: orange;
+        width: 51.5em;
+        height: 51.5em;
+    }
+
+    .gridRow {
+        height: 6.66%;
+    }
+
+    .cell 
+    {
+        width: 6.66%;
+        height: 100%;
+        font-size: 2em;
+    }
+
+    .hotspot {
+    }
+}
+
+/* Size override for iPhone 6 */
+@media (max-width: 380px)
+{
+    .grid 
+    {
+        width: 104%;
+        height: 100%;
+    }
+
+    .cell 
+    {
+        width: 6.66%;
+        height: 6.66%;
+    }
+}

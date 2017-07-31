@@ -1,0 +1,39 @@
+<div class="container" style="overflow: hidden" (mousemove)="onMouseMove()">
+  <div class="row">
+    <div id="wordGridContainer" style="position: relative; float: left; margin-right: 1em;">
+      <div style="position: relative;">
+        <div style="float: left">
+          <div id="puzzleTitle">
+            {{this.puzzle.title}}
+
+          </div>
+        </div>
+        <div style="text-align: right; float: right">
+          <app-timer style="display: inline-block"></app-timer>
+          <div style="display: inline-block">
+            <div [class.hidden]="!this.isPaused" class="glyphicon glyphicon-play" (click)="this.unpause()"></div>
+            <div [class.hidden]="this.isPaused" class="glyphicon glyphicon-pause" (click)="this.pause()"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: relative; clear: both">
+        <div [class.hidden]="!this.isPaused" class="pauseShield">PAUSED</div>
+
+        <app-word-grid [puzzle]="this.puzzle">
+          <!-- Word being selected -->
+          <div style="position: absolute;    top: 0px;    left: 0px;    height: 100%;    width: 100%;pointer-events: none;">
+            <app-word-selection-overlay *ngIf="this.wordBeingSelected" style="position: absolute; pointer-events: none; height: 100%; width: 100%; top: 0px; left: 0px;" [coords]="this.wordBeingSelected.coords" [color]="'green'" >
+            </app-word-selection-overlay>
+          </div>
+        </app-word-grid>
+      </div>
+    </div>
+    <div id="wordList" style="float: left">
+      <div *ngIf="this.puzzle">Solution: {{this.puzzle.solution.length}} letters</div>
+      <div class="wordList">
+        <app-word-list  [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
+      </div>
+    </div>
+  </div>
+</div>

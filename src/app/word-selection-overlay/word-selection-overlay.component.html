@@ -1,0 +1,16 @@
+<div class="overlay">
+  <div class="svgContainer" style="height: 100%; width: 100%">
+    <svg:svg class="innerSvg" height="100%" width="100%" [style.transform]="this.transform" [style.transform-origin]="this.originShift">
+      <svg:path id="p1" [attr.d]="this.path1" [attr.stroke]="this.color" [attr.stroke-width]="this.strokeWidth" fill-opacity="0" />
+      <svg:path id="p2" [attr.d]="this.path2" [attr.stroke]="this.color" [attr.stroke-width]="this.strokeWidth" fill-opacity="0" />
+      <svg:path id="p3" [attr.d]="this.path3" [attr.stroke]="this.color" [attr.stroke-width]="this.strokeWidth" fill-opacity="0" />
+      <svg:path id="p4" [attr.d]="this.path4" [attr.stroke]="this.color" [attr.stroke-width]="this.strokeWidth" fill-opacity="0" />
+    </svg:svg>
+  </div>
+
+  <input type="text" [(ngModel)]="this.rotation" />
+  <input type="text" [(ngModel)]="this.transformOffsetX" />
+  <input type="text" [(ngModel)]="this.transformOffsetY" />
+  <pre>{{this.transform}}</pre>
+  <pre>{{this.originShift}}</pre>
+</div>
