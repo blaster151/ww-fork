@@ -1,38 +1,76 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AppComponent } from './app.component';
-import { XmlToJsonService } from './xml-to-json.service';
-import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, Http } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-import { AudioPlayerService } from './audio-player.service';
-import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
+
+import { AppComponent } from './app.component';
 import { TestHarnessComponent } from './test-harness/test-harness.component';
-import { AxiosService } from './axios.service';
-import { CheerioService } from './cheerio.service';
-import { UrlLoaderService } from './url-loader.service';
+import { WordComponent } from './word/word.component';
+import { WordListComponent } from './word-list/word-list.component';
+import { WordGridComponent } from './word-grid/word-grid.component';
+
+import { XmlToJsonService } from './xml-to-json.service';
+import { GameContentService } from './game-content.service';
+import { CellDirective } from './cell.directive';
+import { WordSelectionStateService } from './word-selection-state.service';
+import { GameplayComponent } from './gameplay/gameplay.component';
+import { WordSelectionOverlayComponent } from './word-selection-overlay/word-selection-overlay.component';
+import { TimerService } from './timer.service';
+import { TimerComponent } from './timer/timer.component';
+import { LocalStorageService } from './local-storage.service';
+// import { Observable } from 'RxJs';
+import { EndOfGameCelebrationService } from './end-of-game-celebration.service';
+import { Overlay, OverlayRenderer, ModalModule } from 'angular2-modal';
+import { LogoComponent } from './logo/logo.component';
+import { GameLaunchComponent } from './game-launch/game-launch.component';
+import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
+
+declare global {
+  interface Array<T> {
+    distinct(): Array<T>;
+    flatMap<U>(): Array<U>;
+    groupBy(prop: string): IGroup<T>[];
+    groupByFunc(func: any): IGroup<T>[];
+  }
+}
+
+let contentPath = '/app/xml_samples';
+  if (window && window.frameElement)
+  {
+    let path = window.frameElement.getAttribute('data-content-path');
+    contentPath = path;
+  }
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestHarnessGalleryComponent,
-    TestHarnessComponent
+    TestHarnessComponent,
+    WordComponent,
+    WordListComponent,
+    WordGridComponent,
+    CellDirective,
+    GameplayComponent,
+    WordSelectionOverlayComponent,
+    TimerComponent,
+    LogoComponent,
+    GameLaunchComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    FormsModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [
-    XmlToJsonService, AudioPlayerService, AxiosService, CheerioService, UrlLoaderService
-  ],
-  bootstrap: [AppComponent]
+  providers: [ XmlToJsonService, GameContentService, WordSelectionStateService, TimerService, LocalStorageService, EndOfGameCelebrationService, Overlay, { provide: 'path', useValue: contentPath }, BandDrawerService ],
+  bootstrap: [GameLaunchComponent]
 })
 export class AppModule {
-  constructor() {
+  constructor(private http: Http) {
     extensions.configureExtensionMethods();
   }
 }
