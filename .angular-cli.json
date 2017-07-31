@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "jseed"
+    "name": "ww2"
   },
   "apps": [
     {
@@ -9,7 +9,15 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "samplePortraitMode.html",
+        "sampleLandscapeMode.html",
+        "sampleMobile.html",
+        "test.html",
+        "app/xml_samples/wwf170102-data.xml",
+        "app/xml_samples/wwf170106-data.xml",
+        "app/xml_samples/wwf170109-data.xml",
+        "app/xml_samples/wwf170113-data.xml"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,8 +27,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "./../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap-theme.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
