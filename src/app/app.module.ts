@@ -48,7 +48,8 @@ let contentPath = '/app/xml_samples';
     WordSelectionOverlayComponent,
     TimerComponent,
     LogoComponent,
-    GameLaunchComponent
+    GameLaunchComponent,
+    TestHarnessGalleryComponent
   ],
   imports: [
     BrowserModule,
