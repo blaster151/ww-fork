@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+.verticalCenter {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+}
