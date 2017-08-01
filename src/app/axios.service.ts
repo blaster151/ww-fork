@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 
-@Injectable()
 export class AxiosService {
   getUrlContents(url: string) {
     const result = new Promise<string>((res, rej) => {

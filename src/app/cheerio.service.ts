@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
 import * as ch from 'cheerio';
 
-@Injectable()
 export class CheerioService {
   constructor() { }
 
