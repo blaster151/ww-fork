@@ -30,7 +30,7 @@
 .letter {
     font-family: 'Sanchez';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
     font-size: 1.25em;
-    font-weight: normal;
+    font-weight: bold;
     margin-left: -.05em;
 }
 
