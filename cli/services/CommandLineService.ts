@@ -1,5 +1,6 @@
 import * as cp from 'child_process';
 import * as path from 'path';
+import { Promise } from '../../node_modules/es6-promise';
 
 export class CommandLineService {
     runCommand(cmd: string) {

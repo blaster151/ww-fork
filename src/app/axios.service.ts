@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
+import { Promise } from '../../node_modules/es6-promise';
 
 export class AxiosService {
   getUrlContents(url: string) {
