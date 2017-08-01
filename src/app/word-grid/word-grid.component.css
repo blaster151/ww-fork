@@ -15,13 +15,18 @@
     text-align: center;
     font-weight: bold;
     border: .15em solid rgba(0,0,0,0);
-    padding-left: .03em;
 }
 
     .isCircled {
         border: solid .15em red;
         border-radius: 10em;
     }
+
+.letter {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-left: -.05em;
+}
 
 .hotspot {
     position: relative;

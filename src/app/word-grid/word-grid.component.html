@@ -1,7 +1,7 @@
 <div class="grid" style="overflow: hidden" (mousemove)="onMouseMoveOverGrid($event)">
   <div class="gridRow" *ngFor="let row of puzzle.rows;let i = index">
     <div class="cell" [class.isCircled]="cell.isCircled" [class.isHighlighted]="cell.isHighlighted" *ngFor="let cell of puzzle.rows[i].cells;let j = index" (click)="this.letterClicked(puzzle.rows[i].cells[j].letter)">
-      <div class="verticalCenter" [ngClass]="{ highlightedLetter: cell.isHighlighted }">
+      <div class="verticalCenter letter" [ngClass]="{ highlightedLetter: cell.isHighlighted }">
         {{cell.letter}}
         <div appCell [cellcontents]="{ cell: cell, row: i+1, col: j+1 }" class="hotspot"></div>
       </div>
