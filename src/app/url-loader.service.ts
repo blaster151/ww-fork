@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
 import { CheerioService } from './cheerio.service';
 import { AxiosService } from './axios.service';
 
-@Injectable()
 export class UrlLoaderService {
 
   constructor(private axiosService: AxiosService, private cheerioService: CheerioService) { }
