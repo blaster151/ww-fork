@@ -33,10 +33,10 @@ export class WordSelectionStateService {
   {
       const priorCell = this.wordBeingSelected[0];
 
-      let verticalDifference = letter.row - priorCell.row;
-      let horizontalDifference = letter.col - priorCell.col;
+      const verticalDifference = letter.row - priorCell.row;
+      const horizontalDifference = letter.col - priorCell.col;
 
-      let wordLength = Math.max(Math.abs(verticalDifference), Math.abs(horizontalDifference)) + 1;
+      const wordLength = Math.max(Math.abs(verticalDifference), Math.abs(horizontalDifference)) + 1;
 
       let result: Direction = 0;
 
@@ -119,6 +119,10 @@ export class WordSelectionStateService {
 
       if (directionAndLength.wordLength > 1)
       {
+        const additionalLettersInWord = this.getLettersBetween(this.wordBeingSelected[0], endLetter);
+        console.log('need to push intermediate letters', additionalLettersInWord);
+        additionalLettersInWord.forEach(l => this.wordBeingSelected.push(l));
+
         this.wordBeingSelected.push(endLetter);  // Add most recent
       }
     }
@@ -128,6 +132,39 @@ export class WordSelectionStateService {
     }
 
     this.selectionChanges.emit(this.wordBeingSelected.map(w => w.cell));
+  }
+
+  private getLettersBetween(startLetter: ICellWithCoordinates, endLetter: ICellWithCoordinates) {
+    const result = <ICellWithCoordinates[]>[];
+
+    let next = this.getNextLetter(startLetter, endLetter);
+    while (next.row !== endLetter.row || next.col !== endLetter.col) {
+      console.log('adding letter ', next);
+      result.push(next);
+      next = this.getNextLetter(next, endLetter);
+    }
+
+    return result;
+  }
+
+  private getNextLetter(startLetter: ICellWithCoordinates, endLetter: ICellWithCoordinates) {
+    let rowInc = 0;
+    let colInc = 0;
+
+    if (startLetter.row > endLetter.row)
+      rowInc = -1;
+    else if (startLetter.row < endLetter.row)
+      rowInc = 1;
+
+    if (startLetter.col > endLetter.col)
+      colInc = -1;
+    else if (startLetter.col < endLetter.col)
+      colInc = 1;
+
+    console.log('about to return nextletter ', rowInc, colInc);
+    let result = this.currentPuzzle.getLetterAtCoordinate({row: startLetter.row + rowInc, column: startLetter.col + colInc});
+    console.log('result is ', result);
+    return result;
   }
 
   wordBeingSelectedAsString() {
