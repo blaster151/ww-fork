@@ -16,6 +16,7 @@ export class WordSelectionStateService {
   public currentPuzzle: Puzzle;
 
   doneWithWord() {
+    console.log('in done with word', this.wordBeingSelected);
     this.wordBeingSelected.forEach(c => c.cell.isHighlighted = false);
 
     const selectedWord = this.wordBeingSelected.map(w => w.cell);

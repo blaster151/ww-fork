@@ -18,6 +18,7 @@ export class WordGridComponent {
   }
 
   letterClicked(letter: string) {
+    console.log('emitting letter ');
     this.lettersClicked.emit(letter);
 
   }

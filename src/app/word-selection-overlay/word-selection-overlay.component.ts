@@ -91,6 +91,7 @@ export class WordSelectionOverlayComponent {
 
         this.isDiagonal = false;
         this.originShift = '';
+        this.transform = '';
 
         return;
       }
@@ -111,6 +112,8 @@ export class WordSelectionOverlayComponent {
       let isHorizontal = selectionHeightInCharacters === 1 && selectionWidthInCharacters >= 1;
       this.isDiagonal = selectionHeightInCharacters > 1 && selectionWidthInCharacters > 1;
       const isVertical = selectionHeightInCharacters > 1 && selectionWidthInCharacters === 1;
+
+      console.log('hdv', isHorizontal, this.isDiagonal, isVertical);
 
       let newSvg = this.element.nativeElement.querySelector('.innerSvg');
 
@@ -155,6 +158,8 @@ export class WordSelectionOverlayComponent {
         startingTop += (padInward / 10);
         newSvg.style = `transform: rotate(${rotation}deg); transform-origin: ${startingLeft + 3}px ${startingTop + padInward + 4}px`;
       }
+      else
+        {}
 
       if (this.isDiagonal) {
         // The line looks too thick after css scaling
@@ -224,6 +229,16 @@ export class WordSelectionOverlayComponent {
         this.calculateDiagonalTransform();
 
     }
+      else
+        {
+          // Do we need to reset the transform?
+          this.transform = '';
+        }
+
+    console.log('r', this.rotation);
+    console.log('st, sl', startingTop, startingLeft);
+    console.log(this.transform);
+    console.log(this.originShift);
   }
 
   calculateDiagonalTransform() {

@@ -70,13 +70,15 @@ export class CellDirective implements OnInit {
                 }
 
                 if (true) {
-                    if (this.wordSelectionStateService.lastElementMovedOver === this.cellcontents.cell) {
-                        evt.stopPropagation();
-                        evt.preventDefault();
-                        return false;
-                    } else {
-                        this.wordSelectionStateService.lastElementMovedOver = this.cellcontents.cell;
-                    }
+                    // if (this.wordSelectionStateService.lastElementMovedOver === this.cellcontents.cell) {
+                    //     console.log('short circuiting');
+                        
+                    //     // evt.stopPropagation();
+                    //     // evt.preventDefault();
+                    //     // return false;
+                    // } else {
+                    //     this.wordSelectionStateService.lastElementMovedOver = this.cellcontents.cell;
+                    // }
 
                     this.wordSelectionStateService.addLetter(this.cellcontents);
                 }
