@@ -16,7 +16,6 @@ export class WordSelectionStateService {
   public currentPuzzle: Puzzle;
 
   doneWithWord() {
-    console.log('in done with word', this.wordBeingSelected);
     this.wordBeingSelected.forEach(c => c.cell.isHighlighted = false);
 
     const selectedWord = this.wordBeingSelected.map(w => w.cell);
@@ -120,7 +119,6 @@ export class WordSelectionStateService {
       if (directionAndLength.wordLength > 1)
       {
         const additionalLettersInWord = this.getLettersBetween(this.wordBeingSelected[0], endLetter);
-        console.log('need to push intermediate letters', additionalLettersInWord);
         additionalLettersInWord.forEach(l => this.wordBeingSelected.push(l));
 
         this.wordBeingSelected.push(endLetter);  // Add most recent
@@ -139,7 +137,6 @@ export class WordSelectionStateService {
 
     let next = this.getNextLetter(startLetter, endLetter);
     while (next.row !== endLetter.row || next.col !== endLetter.col) {
-      console.log('adding letter ', next);
       result.push(next);
       next = this.getNextLetter(next, endLetter);
     }
@@ -161,9 +158,7 @@ export class WordSelectionStateService {
     else if (startLetter.col < endLetter.col)
       colInc = 1;
 
-    console.log('about to return nextletter ', rowInc, colInc);
     let result = this.currentPuzzle.getLetterAtCoordinate({row: startLetter.row + rowInc, column: startLetter.col + colInc});
-    console.log('result is ', result);
     return result;
   }
 

@@ -12,10 +12,8 @@ export class GameLaunchComponent implements OnInit {
   public puzzle: Puzzle;
 
   constructor(private gameContentService: GameContentService) {
-    console.log('top of GameLaunch ctr');
     let urlsearchparams = new URLSearchParams(window.location.search.replace(/\//g, ""));
     let puzzleId = urlsearchparams.get('?puzzle');
-    console.log('middle of GameLaunch ctr');
 
     if (!puzzleId) puzzleId = "170102";
 

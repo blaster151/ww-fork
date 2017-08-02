@@ -99,7 +99,6 @@ export class GameplayComponent implements OnInit {
       const coords = w.map(c => this.puzzle.getCoordinatesForCell(c));
 
       this.wordBeingSelected = { word: wordAsString, coords: coords };
-      console.log('wird being selected', this.wordBeingSelected);
     });
 
     // When a word completes, we're not mid-selection anymore

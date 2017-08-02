@@ -57,7 +57,6 @@ export class WordSelectionOverlayComponent {
 
   constructor(private element: ElementRef, private sanitizer: DomSanitizer, private bandDrawer: BandDrawerService) {
     this.element = element;
-    console.log('in constructor');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -66,10 +65,6 @@ export class WordSelectionOverlayComponent {
     }
   }
   
-  ngOnDestroy() {
-    console.log('in destroy');
-  }
-
   private drawSelectionOverlay() {
 
     // Initialize
@@ -113,11 +108,7 @@ export class WordSelectionOverlayComponent {
       this.isDiagonal = selectionHeightInCharacters > 1 && selectionWidthInCharacters > 1;
       const isVertical = selectionHeightInCharacters > 1 && selectionWidthInCharacters === 1;
 
-      console.log('hdv', isHorizontal, this.isDiagonal, isVertical);
-
       let newSvg = this.element.nativeElement.querySelector('.innerSvg');
-
-      //console.log(this.element.nativeElement.style);
 
       // If this element is styled at 100%, it might not know its own size yet
       let thisElementHeight = this.element.nativeElement.parentNode.clientHeight;  //this.element.nativeElement.style.height;
@@ -234,11 +225,6 @@ export class WordSelectionOverlayComponent {
           // Do we need to reset the transform?
           this.transform = '';
         }
-
-    console.log('r', this.rotation);
-    console.log('st, sl', startingTop, startingLeft);
-    console.log(this.transform);
-    console.log(this.originShift);
   }
 
   calculateDiagonalTransform() {

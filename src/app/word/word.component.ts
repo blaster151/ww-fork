@@ -33,9 +33,6 @@ export class WordComponent implements OnInit {
     {
       this.word.isSelected = newValue;
 
-      // console.log('setting isComplete to ', newValue);
-      // this.isComplete = newValue.toString();
-
       this.wordSelected.emit({ word: this.word, selected: this.word.isSelected });
     }
   }
