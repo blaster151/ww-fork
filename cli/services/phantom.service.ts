@@ -6,17 +6,19 @@ export class PhantomService {
 
   constructor() { }
 
-  openFrom(url: string): Promise<any> {
+  openFrom(url: string, cookies: ICookie[]): Promise<any> {
     const result = new Promise<any>((res, rej) => {
       phantom.create().then(p => {
         p.createPage().then(page => {
-          page.open('url').then(rsp => {
-            console.log('page opened with phantom');
-            page.close();
-            res(null);
+          cookies.forEach(c => page.addCookie(c));
+
+          page.open(url).then((rsp) => {
+            setTimeout(() => {
+              res(page.property('content'));
+              page.close();
+            }, 0);
 
             setTimeout(() => {
-              console.log('p.exit()');
               p.exit();
             }, 500);
           })
@@ -26,4 +28,11 @@ export class PhantomService {
 
     return result;
   }
+}
+
+export interface ICookie {
+  name: string,
+  value: string,
+  domain: string,
+  path: string
 }
