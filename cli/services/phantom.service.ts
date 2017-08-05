@@ -15,6 +15,7 @@ export class PhantomService {
           page.open(url).then((rsp) => {
             setTimeout(() => {
               res(page.property('content'));
+              page.render('screen.jpg');
               page.close();
             }, 0);
 
