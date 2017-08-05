@@ -3,20 +3,23 @@ import { AxiosService } from '../src/app/axios.service';
 import { CheerioService } from '../src/app/cheerio.service';
 import { PhantomService } from './services/phantom.service';
 import { Promise } from '../node_modules/es6-promise';
+import { BrainscapeService } from './services/brainscape.service';
+import { JiraService } from './services/jira.service';
 
 console.log('Hello, world');
 
-new CommandLineService().runCommand('dir').then(result => {
-    console.log('Ran dir command; lines ', result.stdout.length);
+const jiraService = new JiraService();
+    jiraService.get().then(rsp => {
+        console.log(rsp);
+    });
 
-    new AxiosService().getUrlContents('http://www.amazon.com')
-        .then(rsp => {
-            console.log('received ', rsp);
-            const phantomPromise = new PhantomService().openFrom('http://www.slashdot.org');
-            phantomPromise.then((resulting) => {
-                console.log('after phantom promise');
-            });
-        });
+const brainscapeService = new BrainscapeService();
 
-});
+// brainscapeService.getSubjects().then(rsp => {
+//     brainscapeService.getDecksForSubject(rsp[0].link).then(rsp2 => {
+//         brainscapeService.getDeck(rsp2[0].id).then(rsp3 => {
+//             console.log('resp 3', rsp3[0]);
+//         });
+//     });
+// });
 

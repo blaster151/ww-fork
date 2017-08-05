@@ -8,6 +8,9 @@ import { Puzzle } from '../models/puzzle';
 import { Word } from 'app/models/word';
 import { IWordWithCoordinates } from '../ww.interfaces';
 import { EndOfGameCelebrationService } from '../end-of-game-celebration.service';
+import { AxiosService } from '../axios.service';
+import { CheerioService } from '../cheerio.service';
+import { UrlLoaderService } from '../url-loader.service';
 
 @Component({
   selector: 'app-test-harness',
