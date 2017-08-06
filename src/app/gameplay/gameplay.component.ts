@@ -33,6 +33,8 @@ export class GameplayComponent implements OnInit {
 
   pause = () => {
     this.isPaused = true; this.timerService.isPaused = true;
+
+    this.persistProgress();
   }
   unpause = () => {
     this.isPaused = false; this.timerService.isPaused = false;
