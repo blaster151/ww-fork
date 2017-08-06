@@ -55,6 +55,7 @@ div {
 /deep/ .grid{
     background: #FCFEFE;    /* Almost white */
     color: black; 
+    border-bottom-left-radius: .5em;
 }
 
 /deep/ #puzzleTitle {
