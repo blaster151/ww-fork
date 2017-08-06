@@ -43,6 +43,7 @@ div {
 .container {
     background: #71A0FF;
     color: white; 
+    cursor: pointer;
 }
 
 /deep/ #wordList {
