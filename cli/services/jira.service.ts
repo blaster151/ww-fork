@@ -9,17 +9,6 @@ export class JiraService {
 
   constructor() { }
 
-  get() {
-    return this.getAndParse('https://jira.corp.docusign.com/browse/DTRMONT-690',
-      {
-        topLevelSelector: '.issue-body-content',
-        params: {
-          status: 'span#status-val',
-          assignee: '#assignee-val'
-        }
-      });
-  }
-
   getIssue(issueId: string) {
     return this.getAndParse('https://jira.corp.docusign.com/browse/' + issueId, 
       {
