@@ -9,13 +9,29 @@ export class JiraService {
 
   constructor() { }
 
-  get() {
-    return this.getAndParse('https://jira.corp.docusign.com/browse/DTRMONT-690',
+  getIssue(issueId: string) {
+    return this.getAndParse('https://jira.corp.docusign.com/browse/' + issueId, 
       {
         topLevelSelector: '.issue-body-content',
         params: {
-          status: 'span#status-val',
-          assignee: '#assignee-val'
+          status: 'span#status-val span',
+          assignee: '#assignee-val span'
+        }
+      });
+  }
+
+  getOpenIssues() {
+    // https://jira.corp.docusign.com/issues/?filter=-1&jql=assignee%20%3D%20currentUser()%20AND%20status%20!%3D%20%27Closed%27%20ORDER%20BY%20updatedDate%20DESC
+    return this.getAndParse('https://jira.corp.docusign.com/issues/?filter=-1&jql=assignee%20%3D%20currentUser()%20AND%20status%20!%3D%20%27Closed%27%20ORDER%20BY%20updatedDate%20DESC',
+      {
+        topLevelSelector: '.issuerow',
+        params: {
+          issueLink: { selector: '.issue-link', attribute: 'href' },
+          issueId: { selector: '.issue-link', attribute: 'data-issue-key' },
+          status: 'td.status span',
+          assignee: 'td.assignee a',
+          resolution: 'td.resolution em',
+          summary: 'td.summary a'
         }
       });
   }
@@ -26,7 +42,7 @@ export class JiraService {
 
       cookies.push({
         'name': 'JSESSIONID',
-        'value': '7127B94F5F7EC2D750865867D74440FA',
+        'value': 'CC2AB09598143EE5621B7BA32DEF1AB9',
         'domain': 'jira.corp.docusign.com',
         path: '/'
       });
@@ -36,6 +52,7 @@ export class JiraService {
           const $ = new CheerioService().loadDom(rsp);
           const results = new DomParseService($).parse(settings);
 
+          // console.log('phantom got ', results);
           res(results);
         });
       });

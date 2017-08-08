@@ -9,8 +9,13 @@ import { JiraService } from './services/jira.service';
 console.log('Hello, world');
 
 const jiraService = new JiraService();
-    jiraService.get().then(rsp => {
+    jiraService.getOpenIssues().then(rsp => {
         console.log(rsp);
+
+        let issueId = rsp[0].issueId;
+        jiraService.getIssue(issueId).then(rsp2 => {
+            console.log(rsp2);
+        });
     });
 
 const brainscapeService = new BrainscapeService();
