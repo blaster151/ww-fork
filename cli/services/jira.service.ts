@@ -20,6 +20,17 @@ export class JiraService {
       });
   }
 
+  getIssue(issueId: string) {
+    return this.getAndParse('https://jira.corp.docusign.com/browse/' + issueId, 
+      {
+        topLevelSelector: '.issue-body-content',
+        params: {
+          status: 'span#status-val span',
+          assignee: '#assignee-val span'
+        }
+      });
+  }
+
   getOpenIssues() {
     // https://jira.corp.docusign.com/issues/?filter=-1&jql=assignee%20%3D%20currentUser()%20AND%20status%20!%3D%20%27Closed%27%20ORDER%20BY%20updatedDate%20DESC
     return this.getAndParse('https://jira.corp.docusign.com/issues/?filter=-1&jql=assignee%20%3D%20currentUser()%20AND%20status%20!%3D%20%27Closed%27%20ORDER%20BY%20updatedDate%20DESC',
@@ -30,7 +41,8 @@ export class JiraService {
           issueId: { selector: '.issue-link', attribute: 'data-issue-key' },
           status: 'td.status span',
           assignee: 'td.assignee a',
-          resolution: 'td.resolution'
+          resolution: 'td.resolution em',
+          summary: 'td.summary a'
         }
       });
   }
