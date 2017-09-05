@@ -63,8 +63,23 @@ export class CellDirective implements OnInit {
                     if (realTarget === this.element.nativeElement) {
                         console.log('same');
                     } else {
-                        console.log('dispatching');
-                       // (<any>realTarget).dispatchEvent(<any>new Event('touchmove', {}));
+                        console.log('dispatching', realTarget.innerHTML);
+                        let a = realTarget.getAttribute("ngReflectCellcontents");
+                        console.log(JSON.stringify(a));
+
+                       if ((<any>realTarget).dispatchEvent) {
+                           console.log('realTarget is not weird');
+                            (<any>realTarget).dispatchEvent(<any>new Event('touchmove', {}));
+                            (<any>realTarget).trigger("touchmove");
+
+                       }
+                       else {
+                           if ((<any>realTarget).trigger)
+                            {
+                                console.log('realTarget is something weird');
+                                (<any>realTarget).trigger("touchmove");
+                            }
+                       }
                     }
 
                 }
@@ -80,6 +95,7 @@ export class CellDirective implements OnInit {
                     //     this.wordSelectionStateService.lastElementMovedOver = this.cellcontents.cell;
                     // }
 
+                    console.log('about to addletter ', this.cellcontents);
                     this.wordSelectionStateService.addLetter(this.cellcontents);
                 }
 
