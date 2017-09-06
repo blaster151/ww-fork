@@ -16,3 +16,12 @@
         border-bottom: 2px solid red;
         height: 50%;
     }
+
+/* Size override for iPhone 6 Plus */
+@media (max-width: 415px)
+{
+    .word
+    {
+        font-size: 18px;
+    }
+}
