@@ -146,7 +146,6 @@ and (max-device-width : 1024px)
 @media (max-width: 415px)
 {
     .grid {
-        background: green;
         width: 405px;
         height: 405px;
     }

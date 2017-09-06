@@ -38,18 +38,5 @@ div {
 /* Size override for iPhone 6 Plus */
 @media (max-width: 415px)
 {
-    .grid {
-        background: green;
-        width: 405px;
-        height: 405px;
-    }
-    .gridRow {
-        height: 26.989px;
-    }
-    .cell 
-    {
-        width: 6.666%;
-        height: 26.989px;
-    }
 
 }

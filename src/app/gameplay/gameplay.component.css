@@ -99,3 +99,11 @@ h3 {
         width: 100%;
     }
 }
+
+/* Size override for iPhone 6 Plus */
+@media (max-width: 414px)
+{
+    #wordList {
+        height: 300px;
+    }        
+}
