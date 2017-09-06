@@ -3,7 +3,7 @@
     width: 300%;
     top: -100px;
     left: -100px;
-    position: absolute;
+    position: relative;
     overflow: hidden;
 }
 
@@ -15,4 +15,20 @@
 .innerSvg {
     top: 0px;
     left: 0px;
+}
+
+/* Size override for iPhone 6 */
+@media (max-width: 380px)
+{
+    .overlay {
+        left: -102px;
+    }   
+}
+
+/* Size override for Galaxy 5 */
+@media (max-width: 360px)
+{
+    .overlay {
+        left: -102px;
+    }   
 }

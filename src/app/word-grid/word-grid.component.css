@@ -71,7 +71,6 @@ and (max-device-width : 1024px)
 {
     .grid 
     {
-        background: orange;
         width: 51.5em;
         height: 51.5em;
     }
@@ -96,13 +95,49 @@ and (max-device-width : 1024px)
 {
     .grid 
     {
-        width: 104%;
-        height: 100%;
+        width: 365px;
+        height: 365px;
+    }
+
+    /* Seems to not help on mobile?  */
+    .verticalCenter {
+        /* transform: none;
+        -webkit-transform: none; */
+    }
+
+    .gridRow {
+        height: 24.5px;
     }
 
     .cell 
     {
-        width: 6.66%;
-        height: 6.66%;
+        width: 6.666%;
+        height: 24.5px;
     }
+
+    .letter {
+        margin-left: -.15em;
+    }
+}
+
+/* Size override for Galaxy 5 */
+@media (max-width: 360px)
+{
+    .grid 
+    {
+        width: 353px;
+        height: 353px;
+    }
+    .gridRow {
+        height: 23.52px;
+    }
+    .cell 
+    {
+        width: 6.666%;
+        height: 23.52px;
+    }
+    .letter {
+        margin-left: -.17em;
+    }
+
 }
