@@ -46,6 +46,10 @@ export class TimerService {
   setElapsedTime(time: ITimer) {
     this.currentTime = time;
   }
+
+  resetElapsedTime() {
+    this.currentTime = { hours: 0, minutes: 0, seconds: 0};
+  }
 }
 
 export interface ITimer {
