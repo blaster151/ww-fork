@@ -42,7 +42,7 @@ export class JiraService {
 
       cookies.push({
         'name': 'JSESSIONID',
-        'value': 'CC2AB09598143EE5621B7BA32DEF1AB9',
+        'value': 'BE499B9B87E48D0A70F5526AE0892689',
         'domain': 'jira.corp.docusign.com',
         path: '/'
       });
