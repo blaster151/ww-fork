@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlLoaderService } from '../url-loader.service';
 
 @Component({
   selector: 'app-test-harness-gallery',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestHarnessGalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private urlLoaderService: UrlLoaderService) { }
 
   ngOnInit() {
+    console.log('got to ngoninit');
+
+    this.urlLoaderService.parseFromUrl('http://slashdot.org', 'div', {}).then(
+      r => console.log('got into rsp')
+    );
   }
 
 }

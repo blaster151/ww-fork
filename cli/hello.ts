@@ -5,6 +5,8 @@ import { PhantomService } from './services/phantom.service';
 import { Promise } from '../node_modules/es6-promise';
 import { BrainscapeService } from './services/brainscape.service';
 import { JiraService } from './services/jira.service';
+import '../node_modules/reflect-metadata';
+// import '../node_modules/zone.js';
 
 //console.log('Hello, world');
 
