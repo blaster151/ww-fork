@@ -1,7 +1,7 @@
 import * as ch from 'cheerio';
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable()
+// @Injectable()
 export class CheerioService {
   constructor() { }
 
