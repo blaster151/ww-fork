@@ -5,8 +5,8 @@
 
 .grid {
     cursor: pointer;
-    width: 30em;
-    height: 30em;
+    /* width: 30em;
+    height: 30em; */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -14,8 +14,8 @@
 }
 
 .cell {
-    width: 2em;
-    height: 2em;
+    /* width: 2em;
+    height: 2em; */
     display: inline-block;
     text-align: center;
     font-weight: bold;
@@ -49,7 +49,14 @@
     color: white;
 }
 
-@media (max-width: 415px)
+/* Size override for iPhone 6 portrait mode */
+
+
+/* Size override for iPhone 6 plus
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait)
 {
     .grid 
     {
@@ -62,10 +69,10 @@
         width: 6.66%;
         height: 6.66%;
     }
-}
+} */
 
 /* iPad portrait mode */
-@media only screen 
+/* @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)
 {
@@ -88,40 +95,12 @@ and (max-device-width : 1024px)
 
     .hotspot {
     }
-}
+} */
 
-/* Size override for iPhone 6 */
-@media (max-width: 380px)
-{
-    .grid 
-    {
-        width: 365px;
-        height: 365px;
-    }
 
-    /* Seems to not help on mobile?  */
-    .verticalCenter {
-        /* transform: none;
-        -webkit-transform: none; */
-    }
-
-    .gridRow {
-        height: 24.5px;
-    }
-
-    .cell 
-    {
-        width: 6.666%;
-        height: 24.5px;
-    }
-
-    .letter {
-        margin-left: -.15em;
-    }
-}
 
 /* Size override for Galaxy 5 */
-@media (max-width: 360px)
+/* @media (max-width: 360px)
 {
     .grid 
     {
@@ -140,14 +119,18 @@ and (max-device-width : 1024px)
         margin-left: -.17em;
     }
 
-}
+} */
 
 /* Size override for iPhone 6 Plus */
-@media (max-width: 415px)
+/* @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait)
 {
     .grid {
         width: 405px;
         height: 405px;
+        background: orange;
     }
     .gridRow {
         height: 26.989px;
@@ -157,4 +140,4 @@ and (max-device-width : 1024px)
         width: 6.666%;
         height: 26.989px;
     }
-}
+} */

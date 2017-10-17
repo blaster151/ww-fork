@@ -1,29 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
-.verticalCenter {
-  position: relative;
-  display: inline-block;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* could move back; doesn't vary by orientation */
-.gridRow {
-  height: 6.667%;
-}
-
-/* could move back; doesn't vary by orientation */
-.cell {
-  height: 100%;
-  width: 6.667%;
-}
-
-/* Overrides for bootstrap modals */
-.modal-footer {
-  /* display: none;   */
-}
-
-/* All portrait mode modifications */
+/* Universal portrait mode modifications */
 @media only screen and (orientation : portrait)
 {
     .wordContainer 
@@ -59,6 +34,4 @@
     .wordContainer app-word:after:last-child {
         content: "";
     }
-
-
 }
