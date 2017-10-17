@@ -1,22 +1,31 @@
-/* Device specific size variations */
+/* iPhone 4S portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { }
+/* iPhone 4S forces portrait mode */
+
 /* iPhone 5 portrait */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { }
+/* iPhone 5 forces portrait mode */
 
 /* iPhone 6 portrait */
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) { }
+/* iPhone 6 forces portrait mode */
 
 /* iPhone 6 plus portrait */
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) { }
+/* iPhone 6 plus forces portrait mode */
+
 
 /* iPad portrait */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { }
+/* iPad forces portrait mode */
+
 
 /* iPad pro portrait */
 @media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : portrait) { }
+/* iPad pro forces portrait mode */
 
-/* Galaxy S5 */
+/* Galaxy S5 portrait */
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) { }
-
 
 
 
