@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 import { Promise } from '../../node_modules/es6-promise';
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable()
+// @Injectable()
 export class AxiosService {
   getUrlContents(url: string) {
     const result = new Promise<string>((res, rej) => {
