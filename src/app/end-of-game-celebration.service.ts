@@ -11,51 +11,66 @@ export class EndOfGameCelebrationService {
   }
 
   celebrate(secretWord: string) {
+    const interval = 1500;
+
     const modal = this.modal.alert()
       .size('lg')
-      .showClose(true)
+      .showClose(false)
       .title(`Puzzle Complete`)
-      .body(`<p><app-logo></app-logo>This puzzle has been finished!</p>`);
+      .body(`<app-logo></app-logo>You found all of the words!`)
+      .okBtnClass('hidden');
 
     const modalPromise = modal.open()
       .then(result => {
         setTimeout(() => {
-         result.close();
+          result.close();
 
-         const secondModal = this.modal.alert()
+          const secondModal = this.modal.alert()
             .size('lg')
-            .showClose(true)
+            .showClose(false)
             .title(`Puzzle Complete`)
-            .body(`<p>Second modal!  The secret word is ${secretWord}.</p>`);
+            .body(`And here's the WONDERWORD!`)
+            .okBtnClass('hidden');
 
           secondModal.open().then(result2 => {
-            setTimeout(function() {
+            setTimeout(() => {
               result2.close();
-            }, 1000);
+
+              const thirdModal = this.modal.alert()
+                .size('lg')
+                .showClose(true)
+                // .title(`Puzzle Complete`)
+                .body(`${secretWord}`)
+                .okBtnClass('hidden');
+
+              thirdModal.open().then(result3 => {
+                // Leave it open until user closes it
+              });
+            }, interval);
           });
-        }, 1000);
+        }, interval);
       });
   }
 
   offerToReset(puzzle: Puzzle) {
     const promise = new Promise<boolean>((res, rej) => {
-    const modal = this.modal.alert()
-      .size('lg')
-      .showClose(true)
-      .title(`Puzzle Complete`)
-      .body(`<p><app-logo></app-logo>You have completed this puzzle.  Would you like to restart?</p>`)
-      .okBtnClass('hidden')
-      .addButton('btn btn-primary', 'Yes', (r) => {
-        res(true);
+      const modal = this.modal.alert()
+        .size('lg')
+        .showClose(true)
+        .title(`Puzzle Complete`)
+        .body(`<p><app-logo></app-logo>You have completed this puzzle.  Would you like to restart?</p>`)
+        .okBtnClass('hidden')
+        .addButton('btn btn-primary', 'Yes', (r) => {
+          res(true);
 
-        r.dialog.close();
-      })
-      .addButton('btn btn-secondary', 'No', (r) => {
-        res(false);
-        r.dialog.close();
-      });
+          r.dialog.close();
+        })
+        .addButton('btn btn-secondary', 'No', (r) => {
+          res(false);
+          r.dialog.close();
+        });
 
-    modal.open();
+      modal.open();
     });
 
     return promise;
