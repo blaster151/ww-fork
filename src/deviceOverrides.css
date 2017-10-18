@@ -3,7 +3,7 @@
 /* iPhone 4S forces portrait mode */
 
 /* iPhone 5 portrait */
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { }
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait)  { }
 /* iPhone 5 forces portrait mode */
 
 /* iPhone 6 portrait */
@@ -28,11 +28,20 @@
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) { }
 
 
+/* iPhone 5 landscape */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) 
+{
+  .grid { width: 294px; height: 294px; }
+  body { font-size: 10px; }
+  #wordList { width: 45%; }    
+}
+
 
 /* iPhone 5 portrait */
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 568px)
+and (orientation : portrait) 
 {
   .grid { width: 312px; height: 312px; }
 }

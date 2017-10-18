@@ -2,13 +2,13 @@ import { CheerioService } from './cheerio.service';
 import { AxiosService } from './axios.service';
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
 export class UrlLoaderService {
-
   constructor(private axiosService: AxiosService, private cheerioService: CheerioService) { }
 
   getFromUrl(url: string) {
-    return new Promise<CheerioStatic>((res, rej) => {
+    return new Promise<any>((res, rej) => {
       this.axiosService.getUrlContents(url)
         .then(rsp => {
           const $ = this.cheerioService.loadDom(rsp);
@@ -25,7 +25,7 @@ export class UrlLoaderService {
     });
   }
 
-  parse($: CheerioStatic, topSelector: string, transformPattern: {}) {
+  parse($: any, topSelector: string, transformPattern: {}) {
     const results = [];
     $(topSelector).each((i, e) => {
       const newObj = <any>{};

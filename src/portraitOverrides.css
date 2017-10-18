@@ -6,16 +6,9 @@
         display: inline-block;
     }
 
-    #wordList
+    /deep/ #wordList
     {
-      background: pink;
-        clear: both;
-        float: none;
-        width: 50%;
-    }
-
-    .wordList
-    {
+        width: 100%;
         height: 100%;
         overflow: hidden;
         font-size: .85em;

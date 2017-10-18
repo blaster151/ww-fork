@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
 import { AppComponent } from './app.component';
 import { TestHarnessComponent } from './test-harness/test-harness.component';
@@ -22,7 +22,7 @@ import { TimerComponent } from './timer/timer.component';
 import { LocalStorageService } from './local-storage.service';
 // import { Observable } from 'RxJs';
 import { EndOfGameCelebrationService } from './end-of-game-celebration.service';
-import { Overlay, OverlayRenderer, ModalModule } from 'angular2-modal';
+import { Overlay, OverlayRenderer, ModalModule } from 'ngx-modialog';
 import { LogoComponent } from './logo/logo.component';
 import { GameLaunchComponent } from './game-launch/game-launch.component';
 import { BandDrawerService } from './band-drawer.service';

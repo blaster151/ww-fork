@@ -4,14 +4,11 @@ div {
     -moz-user-drag: none;
 }
 
-#wordList {
+/* #wordList {
     width: auto;
-}
-
-#wordList {
     margin-top: 1%;
     padding: 1%;
-}
+} */
 
 .wordList
 {
@@ -49,8 +46,9 @@ div {
 /deep/ #wordList {
     background: #666666;
     color: white;
-    width: 100%;
     height: 100%;
+    margin-top: 1.3%;
+    padding: 1%;
 }
 
 /deep/ .grid{
@@ -65,19 +63,10 @@ div {
     /* color: #FFD400; */
 }
 
-/* Previous */
-/* .wordList {  }
-.container { background: #1F2833; color: #C5C6C7; }
-/deep/ .grid{ background: #45A29E; color: #adfffa; } */
-
 .container {
     font-family: Roboto;
     
     border-radius: 1em;
-    /* padding-top: 1em;
-    padding-left: 2em;
-    padding-bottom: 1em;
-    padding-right: 2em; */
 }
 
 #wordGridContainer{
@@ -88,26 +77,6 @@ h3 {
     margin-top: 0px;
 }
 
-/* @media only screen and (max-width: 768px)
-{
-    #wordList {
-        width: 100%;
-        font-size: .85em;
-   }
-    .wordList {
-        column-count: 1;
-        width: 100%;
-    }
-} */
-/* 
-Size override for iPhone 6 portrait mode
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (orientation : portrait)
-{
-    .wordList {
-        background: pink;
-        height: 300px;
-    }        
-} */
+#wordList {
+    font-size: .85em;
+}
