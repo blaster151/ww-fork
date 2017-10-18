@@ -39,11 +39,19 @@
   margin-left: -.05em;
 }
 
-.wordList
+#wordGridContainer{
+  /* padding: 1%; */
+}
+
+#wordList
 {
     height: 100%;
     overflow: hidden;
     font-size: .85em;
+}
+
+.row {
+  padding: 1%;
 }
 
 @media only screen and (orientation : landscape)
