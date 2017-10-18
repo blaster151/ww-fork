@@ -42,7 +42,7 @@
 {
   .grid { width: 312px; height: 312px; }
   .overlay { left: -94px; top: -94px; }
-
+  .letter { margin-left: -.25em; }
   /* body { font-size: 12px; } */
 }
 

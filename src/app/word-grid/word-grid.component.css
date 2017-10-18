@@ -24,13 +24,6 @@
         border-radius: 10em;
     }
 
-.letter {
-    font-family: 'Sanchez';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-left: -.05em;
-}
-
 .hotspot {
     position: relative;
     margin-top: -1.45em;
