@@ -24,7 +24,7 @@
     .wordContainer app-word:after {
         content: ",\00a0";
     }
-    .wordContainer app-word:after:last-child {
+    .wordContainer:last-child app-word:after {
         content: "";
     }
 }

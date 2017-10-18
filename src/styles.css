@@ -22,3 +22,31 @@
 .modal-footer {
   /* display: none;   */
 }
+
+.overlay {
+  height: 300%;
+  width: 300%;
+  top: -100px;
+  left: -100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wordList
+{
+    height: 100%;
+    overflow: hidden;
+    font-size: .85em;
+}
+
+@media only screen and (orientation : landscape)
+{
+  .wordList {
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+  }
+}

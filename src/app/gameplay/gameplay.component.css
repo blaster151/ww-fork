@@ -10,20 +10,6 @@ div {
     padding: 1%;
 } */
 
-.wordList
-{
-    height: 100%;
-    overflow: hidden;
-    font-size: .85em;
-
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-count: 3;
-    -moz-column-gap: 2em;
-    -webkit-column-gap: 2em;
-    column-gap: 2em;
-}
-
 #puzzleTitle {
     font-weight: bold;
 }

@@ -32,18 +32,18 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) 
 {
   .grid { width: 294px; height: 294px; }
-  body { font-size: 10px; }
+  body { font-size: 11px; }
   #wordList { width: 45%; }    
 }
 
 
 /* iPhone 5 portrait */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px)
-and (orientation : portrait) 
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) 
 {
   .grid { width: 312px; height: 312px; }
+  .overlay { left: -94px; top: -94px; }
+
+  /* body { font-size: 12px; } */
 }
 
 /* iPhone 6 portrait */
@@ -53,6 +53,7 @@ and (max-device-width : 667px)
 and (orientation : portrait)
 {
   .grid { width: 366px; height: 366px; }
+  .overlay { left: -102px; }   
 }
 
 /* iPhone 6 plus portrait */
@@ -88,4 +89,5 @@ and (orientation : portrait)
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3)
 {
   .grid { width: 352px; height: 352px; }
+  .overlay { left: -102px; }
 }
