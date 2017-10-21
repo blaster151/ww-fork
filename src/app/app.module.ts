@@ -29,6 +29,7 @@ import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
 import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
+import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)
@@ -51,7 +52,8 @@ let contentPath = '/app/xml_samples';
     LogoComponent,
     GameLaunchComponent,
     TestHarnessGalleryComponent,
-    BiggestPossibleSquareDirective
+    BiggestPossibleSquareDirective,
+    DynamicFontSizeDirective
   ],
   imports: [
     BrowserModule,

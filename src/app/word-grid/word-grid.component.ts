@@ -3,6 +3,7 @@ import { WordSelectionStateService } from './../word-selection-state.service';
 import { Observable } from 'rxjs';
 import { Puzzle } from '../models/puzzle';
 import { Http } from '@angular/http';
+import { DynamicFontSizeDirective } from '../dynamic-font-size.directive';
 
 @Component({
   selector: 'app-word-grid',
@@ -19,7 +20,6 @@ export class WordGridComponent {
 
   letterClicked(letter: string) {
     this.lettersClicked.emit(letter);
-
   }
 
   onMouseMoveOverGrid($event: MouseEvent) {
