@@ -50,16 +50,13 @@ body {
 .letter {
   font-family: 'Sanchez';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
   font-weight: bold;
-  margin-top: 10%;
+  line-height: 0px;
 }
 
 .ww-container {
   height: 100%;
   /* padding: .3em; */
 }
-
-/* todo remove this garbage */
-.ww-row { height: 100%; }
 
 #wordGridContainer{
   padding: 1%;

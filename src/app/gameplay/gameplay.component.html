@@ -2,7 +2,7 @@
     <div id="wordGridContainer" style="position: relative; float: left;">
       <div id="timerBar" style="position: relative;">
         <div style="float: left">
-          <div id="puzzleTitle">
+          <div id="puzzleTitle" appDynamicFontSize=".05">
             {{this.puzzle.title}}
           </div>
         </div>
@@ -29,7 +29,7 @@
     </div>
     <div id="wordList">
       <div *ngIf="this.puzzle">Solution: {{this.puzzle.solution.length}} letters</div>
-      <div class="wordList">
+      <div class="wordList" appDynamicFontSize=".035">
         <app-word-list  [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
       </div>
     </div>

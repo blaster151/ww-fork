@@ -1,4 +1,4 @@
-<div appBiggestPossibleSquare class="grid" appDynamicFontSize style="overflow: hidden" (mousemove)="onMouseMoveOverGrid($event)">
+<div appBiggestPossibleSquare class="grid" appDynamicFontSize="0.0454545" style="overflow: hidden" (mousemove)="onMouseMoveOverGrid($event)">
   <div class="gridRow" *ngFor="let row of puzzle.rows;let i = index">
     <div class="cell" [class.isCircled]="cell.isCircled" [class.isHighlighted]="cell.isHighlighted" *ngFor="let cell of puzzle.rows[i].cells;let j = index" (click)="this.letterClicked(puzzle.rows[i].cells[j].letter)">
       <div class="verticalCenter letter" [ngClass]="{ highlightedLetter: cell.isHighlighted }">
