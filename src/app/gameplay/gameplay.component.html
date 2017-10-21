@@ -1,5 +1,4 @@
 <div class="ww-container" style="overflow: hidden" (mousemove)="onMouseMove()">
-  <div class="ww-row">
     <div id="wordGridContainer" style="position: relative; float: left;">
       <div id="timerBar" style="position: relative;">
         <div style="float: left">
@@ -34,5 +33,4 @@
         <app-word-list  [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
       </div>
     </div>
-  </div>
 </div>

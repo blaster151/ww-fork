@@ -8,11 +8,10 @@ export class BiggestPossibleSquareDirective {
   constructor(private elementRef: ElementRef) {
     console.log('in ctr of biggestpossiblesquare');
   }
-
   ngOnInit() {
     setTimeout(() => {
       this.resizeSquare();
-    }, 100);
+    }, 50);
 
     window.addEventListener('resize', () => { setTimeout(() => { this.resizeSquare() }, 50) }, false);
   }
