@@ -8,6 +8,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
 
+    background: orange;
 }
 
 .cell {
@@ -16,7 +17,7 @@
     display: inline-block;
     text-align: center;
     font-weight: bold;
-    border: .15em solid rgba(0,0,0,0);
+    border: .015% solid rgba(0,0,0,0);
 }
 
     .isCircled {
@@ -26,15 +27,15 @@
 
 .hotspot {
     position: relative;
-    margin-top: -1.45em;
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: 1em;
+    margin-top: -1.045%;
+    height: 1.05%;
+    width: 1.05%;
+    border-radius: 1%;
 }
 
 .cell.isHighlighted
 {
     background: gray;
-    border-radius: 2em;
+    border-radius: 2%;
     color: white;
 }

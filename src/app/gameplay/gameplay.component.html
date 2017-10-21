@@ -1,11 +1,10 @@
-<div class="container" style="overflow: hidden" (mousemove)="onMouseMove()">
-  <div class="row">
+<div class="ww-container" style="overflow: hidden" (mousemove)="onMouseMove()">
+  <div class="ww-row">
     <div id="wordGridContainer" style="position: relative; float: left;">
-      <div style="position: relative;">
+      <div id="timerBar" style="position: relative;">
         <div style="float: left">
           <div id="puzzleTitle">
             {{this.puzzle.title}}
-
           </div>
         </div>
         <div style="text-align: right; float: right">
@@ -17,7 +16,7 @@
         </div>
       </div>
 
-      <div style="position: relative; clear: both">
+      <div id="actualContainerOfWordGrid" style="position: relative; clear: both">
         <div [class.hidden]="!this.isPaused" class="pauseShield">PAUSED</div>
 
         <app-word-grid [puzzle]="this.puzzle">
@@ -29,7 +28,7 @@
         </app-word-grid>
       </div>
     </div>
-    <div id="wordList" style="float: left">
+    <div id="wordList">
       <div *ngIf="this.puzzle">Solution: {{this.puzzle.solution.length}} letters</div>
       <div class="wordList">
         <app-word-list  [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>

@@ -1,4 +1,4 @@
-/* iPhone 4S portrait */
+iPhone 4S portrait
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { }
 /* iPhone 4S forces portrait mode */
 
@@ -31,29 +31,30 @@
 /* iPhone 5 landscape */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) 
 {
-  .grid { width: 294px; height: 294px; }
+  /* .grid { width: 294px; height: 294px; } */
   body { font-size: 11px; }
-  #wordList { width: 45%; }    
+  /* #wordList { width: 45%; } */
 }
 
 
 /* iPhone 5 portrait */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) 
 {
-  .grid { width: 312px; height: 312px; }
+  /* .grid { width: 312px; height: 312px; } */
   .overlay { left: -94px; top: -94px; }
-  .letter { margin-left: -.25em; }
+  body { font-size: 11.67347px }
+  /* .letter { margin-left: -.25em; } */
   /* body { font-size: 12px; } */
 }
 
 /* iPhone 6 portrait */
 @media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (orientation : portrait)
+and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
 {
-  .grid { width: 366px; height: 366px; }
+  /* .grid { width: 366px; height: 366px; } */
   .overlay { left: -102px; }   
+  body { font-size: 13.69388px }
+  /* .letter { margin-left: -.15em; } */
 }
 
 /* iPhone 6 plus portrait */
@@ -62,7 +63,8 @@ and (min-device-width : 414px)
 and (max-device-width : 736px) 
 and (orientation : portrait)
 {
-  .grid { width: 402px; height: 402px; }
+  /* .grid { width: 402px; height: 402px; } */
+  body { font-size: 15.04082px }
 }
 
 /* iPad portrait */
@@ -71,8 +73,8 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : portrait)
 {
-  .grid { width: 744px; height: 744px; }
-  body { font-size: 24px; }
+  /* .grid { width: 744px; height: 744px; } */
+  body { font-size: 27.83px; }
 }
 
 /* iPad pro portrait */
@@ -81,13 +83,13 @@ and (min-device-width : 1024px)
 and (max-device-width : 1366px) 
 and (orientation : portrait)
 {
-  .grid { width: 944px; height: 944px; }
-  body { font-size: 36px; }
+  /* .grid { width: 1000px; height: 1000px; } */
+  body { font-size: 37.4149px; }
 }
 
 /* Galaxy S5 */
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3)
 {
-  .grid { width: 352px; height: 352px; }
+  /* .grid { width: 352px; height: 352px; } */
   .overlay { left: -102px; }
 }

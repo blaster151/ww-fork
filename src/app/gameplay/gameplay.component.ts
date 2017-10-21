@@ -11,6 +11,7 @@ import { ISavedPuzzle } from '../ww.interfaces';
 import { Puzzle } from '../models/puzzle';
 import { PuzzleCell } from '../models/puzzleCell';
 import { EndOfGameCelebrationService } from '../end-of-game-celebration.service';
+import { BiggestPossibleSquareDirective } from '../biggest-possible-square.directive';
 
 @Component({
   selector: 'app-gameplay',
@@ -123,7 +124,7 @@ export class GameplayComponent implements OnInit {
         this.foundWords.push({ word: w, coords: coords });
         coords.forEach(cell => cell.cell.isCircled = true);
       });
-
+      
       this.timerService.setElapsedTime(savedPuzzle.elapsedTime);
 
       if (savedPuzzle.foundWords.distinct().length === this.puzzle.words.length) {

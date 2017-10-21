@@ -28,6 +28,7 @@ import { GameLaunchComponent } from './game-launch/game-launch.component';
 import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
 import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
+import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
 
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)
@@ -49,7 +50,8 @@ let contentPath = '/app/xml_samples';
     TimerComponent,
     LogoComponent,
     GameLaunchComponent,
-    TestHarnessGalleryComponent
+    TestHarnessGalleryComponent,
+    BiggestPossibleSquareDirective
   ],
   imports: [
     BrowserModule,

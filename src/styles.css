@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+
 .verticalCenter {
   position: relative;
   display: inline-block;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%;
+  transform: translateY(-50%); */
 }
 
 /* could move back; doesn't vary by orientation */
@@ -15,12 +22,21 @@
 /* could move back; doesn't vary by orientation */
 .cell {
   height: 100%;
-  width: 6.667%;
+  width: 6.666667%;
+  background: red;
 }
 
 /* Overrides for bootstrap modals */
 .modal-footer {
   /* display: none;   */
+}
+
+#timerBar {
+  height: 10%;
+}
+
+#actualContainerOfWordGrid {
+  height: 90%;
 }
 
 .overlay {
@@ -34,24 +50,37 @@
 
 .letter {
   font-family: 'Sanchez';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
-  font-size: 1.25em;
+  font-size: 100%;
   font-weight: bold;
-  margin-left: -.05em;
+  margin-left: -.015em;
 }
 
+.ww-container {
+  height: 100%;
+  /* padding: .3em; */
+}
+
+/* todo remove this garbage */
+.ww-row { height: 100%; }
+
 #wordGridContainer{
-  /* padding: 1%; */
+  padding: 1%;
+  background: purple;
+  height: 100%;
 }
 
 #wordList
 {
-    height: 100%;
+    /* height: 100%; */
     overflow: hidden;
     font-size: .85em;
 }
 
 .row {
   padding: 1%;
+  margin: 0px;
+  padding: 0px;
+  /* width: auto; */
 }
 
 @media only screen and (orientation : landscape)
@@ -60,8 +89,8 @@
     -moz-column-count: 3;
     column-count: 3;
     -webkit-column-count: 3;
-    -moz-column-gap: 1.5em;
-    -webkit-column-gap: 1.5em;
-    column-gap: 1.5em;
+    -moz-column-gap: 1.5%;
+    -webkit-column-gap: 1.5%;
+    column-gap: 1.5%;
   }
 }

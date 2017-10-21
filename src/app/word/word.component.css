@@ -13,7 +13,7 @@
     /* From http://stackoverflow.com/questions/4364263/css-line-through-with-a-color-different-from-the-text-color */
     .completed {
         position: absolute;
-        border-bottom: 2px solid red;
+        border-bottom: 1% solid red;
         height: 50%;
     }
 
