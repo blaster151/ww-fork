@@ -1,6 +1,16 @@
 /* Universal portrait mode modifications */
 @media only screen and (orientation : portrait)
 {
+    #wordGridContainer {
+        height: auto;
+        width: 100%;
+    }
+
+    #actualContainerOfWordGrid
+    {
+        /* width: 60%; */
+    }
+
     .wordContainer 
     {
         display: inline-block;

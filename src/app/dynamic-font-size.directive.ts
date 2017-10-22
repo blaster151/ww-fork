@@ -23,7 +23,10 @@ export class DynamicFontSizeDirective {
   }
 
   resizeFont() {
-    let fontSize = Math.round(document.querySelector("body").offsetHeight * this.ratio);//this.elementRef.nativeElement.offsetHeight
+    // Discern somehow whether we're in portrait mode
+    let ratioToUse = this.ratio * 0.6;
+
+    let fontSize = Math.round(document.querySelector("body").offsetHeight * ratioToUse);//this.elementRef.nativeElement.offsetHeight
     console.log('font size ', fontSize);
     this.elementRef.nativeElement.style.fontSize = fontSize + "px";
     //this.elementRef.nativeElement.style.lineHeight = fontSize + "px";
