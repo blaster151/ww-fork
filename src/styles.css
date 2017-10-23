@@ -9,7 +9,7 @@ body {
 
 .verticalCenter {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   /* top: 50%;
   transform: translateY(-50%); */
 }
@@ -26,6 +26,10 @@ body {
 }
 
 /* Overrides for bootstrap modals */
+body {
+  line-height: 16px;
+}
+
       .modal-lg {
         width: 50%;
       }
@@ -74,7 +78,7 @@ body {
     /* */
 
 
-    
+
     
     body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
         margin: auto;
@@ -128,12 +132,15 @@ body {
   left: -100px;
   position: relative;
   overflow: hidden;
+  /* background: orange; */
 }
 
 .letter {
   font-family: 'Sanchez';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
   font-weight: bold;
-  line-height: 0px;
+  /* line-height: 0px; */
+  height: 100%;
+  width: 100%;
 }
 
 .ww-container {

@@ -66,7 +66,7 @@ export class DynamicFontSizeDirective {
     let fontSize = Math.round(this.getInitialBodyHeight() * ratioToUse);//this.elementRef.nativeElement.offsetHeight
     console.log('font size ', fontSize);
     this.elementRef.nativeElement.style.fontSize = fontSize + "px";
-    //this.elementRef.nativeElement.style.lineHeight = fontSize + "px";
+    this.elementRef.nativeElement.style.lineHeight = fontSize + "px";
     console.log('body ', document.querySelector("body").offsetHeight);
 
     if (this.setbody)

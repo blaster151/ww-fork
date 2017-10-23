@@ -57,6 +57,8 @@ export class WordSelectionOverlayComponent {
 
   constructor(private element: ElementRef, private sanitizer: DomSanitizer, private bandDrawer: BandDrawerService) {
     this.element = element;
+
+    console.log('overlay ctr');
   }
 
   ngOnChanges(changes: SimpleChanges) {
