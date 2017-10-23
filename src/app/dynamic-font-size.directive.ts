@@ -47,19 +47,20 @@ export class DynamicFontSizeDirective {
 
   private getInitialBodyHeight() {
     let bodyHeight = document.querySelector("body").offsetHeight;
-
-    console.log('bodyheight ', bodyHeight);
-    return bodyHeight;
+    let bodyWidth = document.querySelector("body").offsetWidth;
+    
+    console.log('bodyheight ', bodyHeight, bodyWidth);
+    return Math.min(bodyHeight, bodyWidth);
   }
   resizeFont() {
     // Discern somehow whether we're in portrait mode
-    let ratioToUse = this.ratio * 1.1;  // Default to landscape
+    let ratioToUse = this.ratio * 1.0;  // Default to landscape
 
     // Adjust for portrait mode
     if (this.portraitMode)
     {
       console.log('adjusting for portrait mode');
-      ratioToUse *= 1.0;
+      ratioToUse = this.ratio * 1.0;
     }
 
     let fontSize = Math.round(this.getInitialBodyHeight() * ratioToUse);//this.elementRef.nativeElement.offsetHeight
