@@ -18,49 +18,43 @@ export class EndOfGameCelebrationService {
       .showClose(false)
       .title(`Puzzle Complete`)
       .body(`<app-logo></app-logo>You found all of the words!`)
-      .okBtnClass('hidden');
+      .okBtnClass('hidden')
+      .addButton('btn btn-primary', 'Ok', (r) => {
+        const secondModal = this.modal.alert()
+          .size('lg')
+          .showClose(false)
+          .title(`Puzzle Complete`)
+          .body(`And here's the WONDERWORD!`)
+          .okBtnClass('hidden')
+          .addButton('btn btn-primary', 'Ok', (r2) => {
+            r2.dialog.close();
+            
+            const thirdModal = this.modal.alert()
+              .size('lg')
+              .showClose(true)
+              .title(`Puzzle Complete`)
+              .body(`${secretWord}`)
+              .okBtnClass('hidden')
+              .addButton('btn btn-primary', 'Ok', (r3) => {
+                r3.dialog.close();
+              }).open();
 
-    const modalPromise = modal.open()
-      .then(result => {
-        setTimeout(() => {
-          result.close();
-
-          const secondModal = this.modal.alert()
-            .size('lg')
-            .showClose(false)
-            .title(`Puzzle Complete`)
-            .body(`And here's the WONDERWORD!`)
-            .okBtnClass('hidden');
-
-          secondModal.open().then(result2 => {
-            setTimeout(() => {
-              result2.close();
-
-              const thirdModal = this.modal.alert()
-                .size('lg')
-                .showClose(true)
-                .title(`Puzzle Complete`)
-                .body(`${secretWord}`)
-                .okBtnClass('hidden');
-
-              thirdModal.open().then(result3 => {
-                // Leave it open until user closes it
-
-                let interval = 0;
-                puzzle.rows.forEach(r => r.cells.forEach(c => {
-                  if (!c.isCircled)
-                  {
-                    interval += 250;
-                    setTimeout(() => {
-                      c.isHighlighted = true;
-                    }, interval);
-                  }
-                }));
-              });
-            }, interval);
-          });
-        }, interval);
+              let interval = 0;
+              puzzle.rows.forEach(r => r.cells.forEach(c => {
+                if (!c.isCircled)
+                {
+                  interval += 250;
+                  setTimeout(() => {
+                    c.isHighlighted = true;
+                  }, interval);
+                }
+              }));
+          }).open();
+          
+        r.dialog.close();
       });
+
+    const modalPromise = modal.open();
   }
 
   offerToReset(puzzle: Puzzle) {
