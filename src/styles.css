@@ -48,18 +48,35 @@ body {
         font-size: initial;
       }
 
+      .modal-dialog {
+        /* top: 40%; */
+        font-family: 'Sanchez';
+      }
+
       .modal.fade .modal-dialog
       {
+        top: initial;
         transition: none;
       }
 
+      body.modal-open .modal[style]:not([style='display: none;']) {
+        display: flex !important;
+        height: 100%;
+    } 
+    
+    body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
+        margin: auto;
+    }
+
       .modal-body p {
-        font-family: 'Sanchez';
         margin-bottom: 0px;
       }
 
       .modal-footer {
         text-align: center;
+
+        /* Looks like an <hr> */
+        border-top: none;
       }
 
 
