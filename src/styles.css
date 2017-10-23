@@ -53,9 +53,17 @@ body {
         font-family: 'Sanchez';
       }
 
-      .modal.fade .modal-dialog
-      {
-        top: initial;
+      /* Fade and transition stuff */
+      .modal.fade {
+        opacity: 0;
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none;
+      }
+      body.modal-open .modal.fade.in, .modal-dialog {
+        opacity: 1;
+         -webkit-transition: none;
+        -o-transition: none;
         transition: none;
       }
 
@@ -63,6 +71,10 @@ body {
         display: flex !important;
         height: 100%;
     } 
+    /* */
+
+
+    
     
     body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
         margin: auto;

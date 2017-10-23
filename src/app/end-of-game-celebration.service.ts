@@ -27,8 +27,6 @@ export class EndOfGameCelebrationService {
           .body(`And here's the WONDERWORD!`)
           .okBtnClass('hidden')
           .addButton('btn btn-primary', 'Ok', (r2) => {
-            r2.dialog.close();
-            
             const thirdModal = this.modal.alert()
               .size('lg')
               .showClose(true)
@@ -39,6 +37,8 @@ export class EndOfGameCelebrationService {
                 r3.dialog.close();
               }).open();
 
+              r2.dialog.close();
+              
               let interval = 0;
               puzzle.rows.forEach(r => r.cells.forEach(c => {
                 if (!c.isCircled)
