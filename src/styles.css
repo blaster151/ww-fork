@@ -26,9 +26,55 @@ body {
 }
 
 /* Overrides for bootstrap modals */
-.modal-footer {
-  /* display: none;   */
+      .modal-lg {
+        width: 50%;
+      }
+
+      .modal-footer {
+
+        /* display: none;   */
+      }
+
+      .modal-header {
+        display: none;
+      }
+
+      .modal-content {
+        background: darkcyan;
+        color: white;
+      }
+
+      .modal-body p {
+        font-family: 'Sanchez';
+        font-size: 150%;
+        margin-bottom: 0px;
+      }
+
+      .modal-footer {
+        text-align: center;
+      }
+
+
+.btn {
+  background-image: none;
+  background-color: cyan;
+  font-family: 'Sanchez';
+  font-weight: bold;
+  color: white;
+  border: none;
+  font-size: 150%;
+  border-radius: 10%;
 }
+
+.btn-primary {
+  background-position: inherit;
+}
+
+.btn-secondary {
+
+}
+
+
 
 #timerBar {
   height: 7%;
