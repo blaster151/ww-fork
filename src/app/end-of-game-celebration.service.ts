@@ -10,7 +10,7 @@ export class EndOfGameCelebrationService {
 
   }
 
-  celebrate(secretWord: string) {
+  celebrate(secretWord: string, puzzle: Puzzle) {
     const interval = 1500;
 
     const modal = this.modal.alert()
@@ -39,12 +39,23 @@ export class EndOfGameCelebrationService {
               const thirdModal = this.modal.alert()
                 .size('lg')
                 .showClose(true)
-                // .title(`Puzzle Complete`)
+                .title(`Puzzle Complete`)
                 .body(`${secretWord}`)
                 .okBtnClass('hidden');
 
               thirdModal.open().then(result3 => {
                 // Leave it open until user closes it
+
+                let interval = 0;
+                puzzle.rows.forEach(r => r.cells.forEach(c => {
+                  if (!c.isCircled)
+                  {
+                    interval += 250;
+                    setTimeout(() => {
+                      c.isHighlighted = true;
+                    }, interval);
+                  }
+                }));
               });
             }, interval);
           });

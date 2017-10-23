@@ -88,7 +88,7 @@ export class GameplayComponent implements OnInit {
 
     puzzleWordsFound.subscribe(w => {
       if (this.puzzle.isComplete()) {
-        this.endOfGameCelebrationService.celebrate(this.puzzle.solution);
+        this.endOfGameCelebrationService.celebrate(this.puzzle.solution, this.puzzle);
       }
     });
 
@@ -144,6 +144,11 @@ export class GameplayComponent implements OnInit {
     }
 
     this.timerService.intervals.subscribe(i => this.persistProgress());
+
+
+
+    // Artificial
+    this.endOfGameCelebrationService.celebrate("PRODUCTIVITY", this.puzzle);
   }
 
   persistProgress() {

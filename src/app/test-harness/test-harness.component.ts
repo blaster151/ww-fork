@@ -74,6 +74,6 @@ export class TestHarnessComponent implements OnInit {
   }
 
   previewEndGameModal() {
-    this.endOfGameService.celebrate('example');
+    this.endOfGameService.celebrate('example', this.samplePuzzle);
   }
 }
