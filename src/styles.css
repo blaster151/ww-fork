@@ -44,9 +44,17 @@ body {
         color: white;
       }
 
+      body.modal-open {
+        font-size: initial;
+      }
+
+      .modal.fade .modal-dialog
+      {
+        transition: none;
+      }
+
       .modal-body p {
         font-family: 'Sanchez';
-        font-size: 150%;
         margin-bottom: 0px;
       }
 
@@ -60,9 +68,9 @@ body {
   background-color: cyan;
   font-family: 'Sanchez';
   font-weight: bold;
+  font-size: inherit;
   color: white;
   border: none;
-  font-size: 150%;
   border-radius: 10%;
 }
 
