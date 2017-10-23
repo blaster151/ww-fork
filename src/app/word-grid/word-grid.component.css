@@ -35,4 +35,5 @@
 .cell.isHighlighted
 {
     background: gray;
+    color: white;
 }
