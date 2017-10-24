@@ -6,7 +6,7 @@ export class BandDrawerService {
 
   constructor() { }
 
-  renderProperlySizedBand(coords: ICellWithCoordinates[], cellSizePixels: number, isDiagonal: boolean, newOffset: number, wordLength: number): IPaths {
+  renderProperlySizedBand(coords: ICellWithCoordinates[], gridPixelSize: number, cellSizePixels: number, isDiagonal: boolean, newOffset: number, wordLength: number): IPaths {
     let selectionTopPosition = Math.min(...coords.map(c => c.row)) - 1;
     let selectionLeftPosition = Math.min(...coords.map(c => c.col)) - 1;
 
@@ -14,9 +14,9 @@ export class BandDrawerService {
 
     if (isDiagonal)
       heightOfBand *= .7;
-    let circleCurveAmount = 10;
 
-    let circleOutcurveDistance = 20;
+    let circleOutcurveDistance = gridPixelSize / 18.75;
+    let circleCurveAmount = circleOutcurveDistance / 2;
     let padInward = circleOutcurveDistance / 2;
 
     const selectionHeight = (padInward / 10);

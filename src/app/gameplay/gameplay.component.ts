@@ -148,7 +148,7 @@ export class GameplayComponent implements OnInit {
 
 
     // Artificial
-    this.endOfGameCelebrationService.celebrate("PRODUCTIVITY", this.puzzle);
+  //  this.endOfGameCelebrationService.celebrate("PRODUCTIVITY", this.puzzle);
   }
 
   persistProgress() {

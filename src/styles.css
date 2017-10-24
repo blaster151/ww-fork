@@ -10,8 +10,8 @@ body {
 .verticalCenter {
   position: relative;
   /* display: inline-block; */
-  /* top: 50%;
-  transform: translateY(-50%); */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* could move back; doesn't vary by orientation */
@@ -119,6 +119,21 @@ body {
 
 #timerBar {
   height: 7%;
+}
+
+#timerBar #pauseButtons {
+  height: .1%;
+  overflow: hidden;
+}
+
+#timerBar img {
+  /* height: 1%; */
+  /* width: 5%; */
+  /* max-height: initial; */
+}
+
+.glyphicon {
+  /* height: 10%; */
 }
 
 #actualContainerOfWordGrid {

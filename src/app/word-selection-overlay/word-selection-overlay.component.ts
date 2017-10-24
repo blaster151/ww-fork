@@ -129,14 +129,15 @@ export class WordSelectionOverlayComponent {
 
 
 
-      let bandPaths = this.bandDrawer.renderProperlySizedBand(coords, cellSizePixels, this.isDiagonal, this.newOffset, wordLength);
+      let bandPaths = this.bandDrawer.renderProperlySizedBand(coords, pixelsGridSize, cellSizePixels, this.isDiagonal, this.newOffset, wordLength);
       this.path1 = bandPaths.path1;
       this.path2 = bandPaths.path2;
       this.path3 = bandPaths.path3;
       this.path4 = bandPaths.path4;
 
       // Repeated
-      let circleOutcurveDistance = 20;
+      console.log('circ', pixelsGridSize);
+      let circleOutcurveDistance = pixelsGridSize / 18.35;
       let padInward = circleOutcurveDistance / 2;
 
       // Rotate if necessary
@@ -148,18 +149,50 @@ export class WordSelectionOverlayComponent {
       // I don't really know if this is appropriate use of padInward
       if (isVertical) {
         const rotation = 90;
+
+        console.log('90  startingTop', startingTop);
         startingTop += (padInward / 10);
-        newSvg.style = `transform: rotate(${rotation}deg); transform-origin: ${startingLeft + 3}px ${startingTop + padInward + 4}px`;
+        console.log('new startingTop', startingTop);
+
+        console.log('cellSizePixels', cellSizePixels);
+
+        console.log('pixelsGridSize', pixelsGridSize);
+
+        let topPad = -(pixelsGridSize / 150); // Desperate hack
+
+
+
+        // Blindly copying this from below
+        
+        this.transformOffsetX = cellSizePixels * (selectionLeftPosition);
+        this.transformOffsetX += (cellSizePixels / 2);
+
+        this.transformOffsetY = cellSizePixels * (selectionTopPosition);
+        this.transformOffsetY += (cellSizePixels / 2);
+
+        this.transformOffsetX += this.newOffset;
+        this.transformOffsetY += this.newOffset + (padInward / 10);
+
+        console.log('TOX TOY', this.transformOffsetX, this.transformOffsetY);
+        this.rotation = 90;
+        let newStyle = `transform: rotate(${this.rotation}deg); transform-origin: ${this.transformOffsetX}px ${this.transformOffsetY}px`;
+        console.log('newStyle', newStyle);
+        newSvg.style = newStyle;
       }
       else
         {}
 
+var proposedDiagonalStrokeWidth = pixelsGridSize / 126.875;
+var proposedRegularStrokeWidth = pixelsGridSize / 81.2;
+
+      console.log('diag/reg', pixelsGridSize, proposedDiagonalStrokeWidth, proposedRegularStrokeWidth);
+
       if (this.isDiagonal) {
         // The line looks too thick after css scaling
-        this.strokeWidth = 3.2;
+        this.strokeWidth = proposedDiagonalStrokeWidth;
       }
       else {
-        this.strokeWidth = 5;
+        this.strokeWidth = proposedRegularStrokeWidth;
       }
 
       if (this.isDiagonal) {
