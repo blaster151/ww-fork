@@ -164,7 +164,7 @@ body {
 }
 
 #wordGridContainer{
-  padding: 1%;
+  padding: .5% 1% 1% 1%;
   height: 100%;
 }
 

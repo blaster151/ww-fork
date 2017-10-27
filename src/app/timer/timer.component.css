@@ -9,3 +9,9 @@ div {
 span {
     color: white;
 }
+
+.vc-parent {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}

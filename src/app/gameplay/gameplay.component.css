@@ -22,6 +22,12 @@ div {
     padding-top: 40%;
 }
 
+.vc-parent {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
 /* Theme */
 .ww-container {
     background: #71A0FF;
