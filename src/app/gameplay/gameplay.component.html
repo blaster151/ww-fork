@@ -18,7 +18,7 @@
       <div id="actualContainerOfWordGrid" style="position: relative; clear: both">
         <div [class.hidden]="!this.isPaused" class="pauseShield">PAUSED</div>
 
-        <app-word-grid [puzzle]="this.puzzle">
+        <app-word-grid [puzzle]="this.puzzle" style="position: relative">
           <!-- Word being selected -->
           <div style="position: absolute;    top: 0px;    left: 0px;    height: 100%;    width: 100%;pointer-events: none;">
             <app-word-selection-overlay *ngIf="this.wordBeingSelected" style="position: absolute; pointer-events: none; height: 100%; width: 100%; top: 0px; left: 0px;" [coords]="this.wordBeingSelected.coords" [color]="'blue'" >
@@ -30,7 +30,9 @@
     <div id="wordList">
       <div *ngIf="this.puzzle">Solution: {{this.puzzle.solution.length}} letters</div>
       <div class="wordList" appDynamicFontSize=".035">
-        <app-word-list  [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
+        <app-word-list [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
       </div>
+
+      <app-end-of-game *ngIf="this.puzzle.isComplete()" [puzzle]="this.puzzle" (resetRequested)="resetRequested()"></app-end-of-game>
     </div>
 </div>

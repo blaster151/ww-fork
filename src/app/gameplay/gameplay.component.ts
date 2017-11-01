@@ -88,6 +88,7 @@ export class GameplayComponent implements OnInit {
 
     puzzleWordsFound.subscribe(w => {
       if (this.puzzle.isComplete()) {
+        this.timerService.isPaused = true;
         this.endOfGameCelebrationService.celebrate(this.puzzle.solution, this.puzzle);
       }
     });
@@ -131,12 +132,7 @@ export class GameplayComponent implements OnInit {
         this.endOfGameCelebrationService.offerToReset(this.puzzle)
           .then(result => {
             if (result) {
-              this.puzzle.words.forEach(w => w.isFound = false);
-              this.foundWords.length = 0;
-              this.puzzle.rows.forEach(row => row.cells.forEach(c => c.isCircled = false));
-
-              this.timerService.resetElapsedTime();
-              this.persistProgress();
+              this.resetRequested();
             }
           });
       }
@@ -167,5 +163,16 @@ export class GameplayComponent implements OnInit {
     
     // Mouse left the grid area
     this.wordSelectionStateService.doneWithWord();
+  }
+
+  resetRequested() {
+    console.log('reset requested');
+
+    this.puzzle.words.forEach(w => w.isFound = false);
+    this.foundWords.length = 0;
+    this.puzzle.rows.forEach(row => row.cells.forEach(c => c.isCircled = false));
+
+    this.timerService.resetElapsedTime();
+    this.persistProgress();
   }
 }

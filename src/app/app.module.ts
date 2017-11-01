@@ -30,6 +30,7 @@ import * as extensions from './extensions';
 import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
 import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
+import { EndOfGameComponent } from './end-of-game/end-of-game.component';
 
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)
@@ -53,7 +54,8 @@ let contentPath = '/app/xml_samples';
     GameLaunchComponent,
     TestHarnessGalleryComponent,
     BiggestPossibleSquareDirective,
-    DynamicFontSizeDirective
+    DynamicFontSizeDirective,
+    EndOfGameComponent
   ],
   imports: [
     BrowserModule,

@@ -171,6 +171,7 @@ body {
 #wordList
 {
     /* height: 100%; */
+    position: relative;
     overflow: hidden;
     font-size: .85em;
 }
