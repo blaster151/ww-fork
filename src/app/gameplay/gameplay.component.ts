@@ -166,8 +166,6 @@ export class GameplayComponent implements OnInit {
   }
 
   resetRequested() {
-    console.log('reset requested');
-
     this.puzzle.words.forEach(w => w.isFound = false);
     this.foundWords.length = 0;
     this.puzzle.rows.forEach(row => row.cells.forEach(c => c.isCircled = false));

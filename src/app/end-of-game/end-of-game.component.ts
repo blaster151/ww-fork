@@ -35,7 +35,6 @@ export class EndOfGameComponent implements OnInit {
   }
 
   restart() {
-    console.log('restart requested');
     this.resetRequested.emit(true);
   }
 }

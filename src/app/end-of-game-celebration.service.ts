@@ -11,6 +11,7 @@ export class EndOfGameCelebrationService {
   }
 
   celebrate(secretWord: string, puzzle: Puzzle) {
+    
     // const interval = 1500;
 
     // const modal = this.modal.alert()
