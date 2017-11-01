@@ -29,13 +29,6 @@ export class DynamicFontSizeDirective {
     }, 100);
 
     let setBodyAttribute = this.elementRef.nativeElement.getAttribute('setbody');
-    console.log('setBodyAttribute',setBodyAttribute);
-    console.log(this.setbody);
-    if (setBodyAttribute)
-    {
-      console.log('discerned setBody');
-
-    } 
     window.addEventListener('resize', () => { setTimeout(() => { this.detectPortraitMode(); this.resizeFont() }, 50) }, false);
   }
 
@@ -49,9 +42,9 @@ export class DynamicFontSizeDirective {
     let bodyHeight = document.querySelector("body").offsetHeight;
     let bodyWidth = document.querySelector("body").offsetWidth;
     
-    console.log('bodyheight ', bodyHeight, bodyWidth);
     return Math.min(bodyHeight, bodyWidth);
   }
+  
   resizeFont() {
     // Discern somehow whether we're in portrait mode
     let ratioToUse = this.ratio * 1.0;  // Default to landscape
@@ -59,20 +52,16 @@ export class DynamicFontSizeDirective {
     // Adjust for portrait mode
     if (this.portraitMode)
     {
-      console.log('adjusting for portrait mode');
       ratioToUse = this.ratio * 1.0;
     }
 
     let fontSize = Math.round(this.getInitialBodyHeight() * ratioToUse);//this.elementRef.nativeElement.offsetHeight
-    console.log('font size ', fontSize);
     this.elementRef.nativeElement.style.fontSize = fontSize + "px";
     this.elementRef.nativeElement.style.lineHeight = fontSize + "px";
-    console.log('body ', document.querySelector("body").offsetHeight);
 
     if (this.setbody)
     {
       document.querySelector("body").style.fontSize = fontSize + "px";
-      console.log('body px set');
     }
   }
 }
