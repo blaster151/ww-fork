@@ -62,6 +62,9 @@ export class DynamicFontSizeDirective {
     if (this.setbody)
     {
       document.querySelector("body").style.fontSize = fontSize + "px";
+
+      // Make the line-height slightly larger than the font size
+      document.querySelector("body").style.lineHeight = (fontSize * 1.2) + "px";
     }
   }
 }
