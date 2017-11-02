@@ -1,5 +1,5 @@
-<div id="end-of-game" >
-  <div id="one" *ngIf="step == 1">
+<div id="end-of-game">
+  <div class="step" id="one" *ngIf="step == 1">
     
     <div>You found all of the words!</div>
     <div>
@@ -7,13 +7,13 @@
     </div>
   </div>
 
-  <div id="two" *ngIf="step === 2">
+  <div class="step" id="two" *ngIf="step === 2">
     <div>And here's the WONDERWORD!</div>
     
     <button class="btn btn-primary" (click)="nextMessage()">Ok</button>
   </div>
 
-  <div id="three" *ngIf="step === 3">
+  <div class="step" id="three" *ngIf="step === 3">
     <div id="solution">{{this.puzzle.solution}}</div>
 
     <div>

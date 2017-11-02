@@ -33,6 +33,6 @@
         <app-word-list [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
       </div>
 
-      <app-end-of-game *ngIf="this.puzzle.isComplete()" [puzzle]="this.puzzle" (resetRequested)="resetRequested()"></app-end-of-game>
+      <app-end-of-game *ngIf="this.puzzle.isComplete()" [puzzle]="this.puzzle" (resetRequested)="resetRequested()" style="height: 100%"></app-end-of-game>
     </div>
 </div>

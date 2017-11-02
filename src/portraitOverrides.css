@@ -37,4 +37,9 @@
     .wordContainer:last-child app-word:after {
         content: "";
     }
+
+    /* Modals */
+    .modal-lg {
+        width: 80%;
+      }
 }

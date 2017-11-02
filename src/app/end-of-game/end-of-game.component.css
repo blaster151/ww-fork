@@ -11,14 +11,34 @@
     background: #265a88;
     color: white;
     font-family: 'Sanchez';
-    font-size: 1.3em;
+    font-size: 1.4em;
+    line-height: 1.4em;
     text-align: center;
 }
 
-#end-of-game div {
-    margin-bottom: 5%;
+#end-of-game .step {
+    margin-bottom: 0px;
+    padding: 5% 3% 5% 3%;
 }
-    
+
+#end-of-game .step button {
+    margin-top: 3%;
+}
+
     #solution {
-        font-size: 110%;
+        font-size: 120%;
     }
+
+@media only screen and (orientation : portrait)
+{
+    #end-of-game {
+        height: 41.5%;  /* todo - should fill to the remaining allocated space */
+    }
+
+    #end-of-game .step {
+        /* background: orange; */
+        margin-top: 0px;
+        margin-bottom: 0px;
+        /* height - no explicit height */
+    }
+}
