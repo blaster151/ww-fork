@@ -1,14 +1,14 @@
 <div id="end-of-game">
   <div class="step" id="one" *ngIf="step == 1">
     
-    <div>You found all of the words!</div>
+    <div>Congratulations! You found all the words</div>
     <div>
       <button class="btn btn-primary" (click)="nextMessage()">Ok</button>
     </div>
   </div>
 
   <div class="step" id="two" *ngIf="step === 2">
-    <div>And here's the WONDERWORD!</div>
+    <div>Click here for the Wonderword.</div>
     
     <button class="btn btn-primary" (click)="nextMessage()">Ok</button>
   </div>
