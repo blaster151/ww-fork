@@ -8,7 +8,7 @@ import { Puzzle } from '../models/puzzle';
 })
 export class EndOfGameComponent implements OnInit {
 
-  private step: number = 1;
+  public step: number = 1;
   @Input() puzzle: Puzzle;
   @Output() resetRequested = new EventEmitter<boolean>();
   constructor() { }

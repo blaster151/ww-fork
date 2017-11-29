@@ -1,6 +1,6 @@
 <div>
   <div class="container">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12">
         <app-logo></app-logo>
       </div>
@@ -11,25 +11,42 @@
           Preview End-Game Modal
         </button>
       </div>
+    </div> -->
+    
+    <div class="row">
+      <div class="col-md-12" style="height: 400px; width: 700px; background: pink">
+        <app-gameplay *ngIf="samplePuzzle" [puzzle]="samplePuzzle"></app-gameplay>
+      </div>
     </div>
-    <!--<div class="row">
-      <div style="position: relative; height: 500px; width: 500px; background: lightgray">
-        <app-word-selection-overlay *ngIf="this.sampleWordStraightR" [coords]="this.sampleWordStraightR"></app-word-selection-overlay>
-        <app-word-selection-overlay *ngIf="this.sampleWordStraightD" [coords]="this.sampleWordStraightD"></app-word-selection-overlay>
+  
+    <div class="row">
+      <div style="position: relative; height: 300px; width: 300px; background: lightgray">
+        <app-word-selection-overlay style="position: relative" *ngIf="this.sampleWordStraightR" [coords]="this.sampleWordStraightR"></app-word-selection-overlay>
+        <!-- <app-word-selection-overlay *ngIf="this.sampleWordStraightD" [coords]="this.sampleWordStraightD"></app-word-selection-overlay>
         <app-word-selection-overlay *ngIf="this.sampleWordUL" [coords]="this.sampleWordUL"></app-word-selection-overlay>
         <app-word-selection-overlay *ngIf="this.sampleWordUR" [coords]="this.sampleWordUR"></app-word-selection-overlay>
         <app-word-selection-overlay *ngIf="this.sampleWordDR" [coords]="this.sampleWordDR"></app-word-selection-overlay>
-        <app-word-selection-overlay *ngIf="this.sampleWordDL" [coords]="this.sampleWordDL"></app-word-selection-overlay>
+        <app-word-selection-overlay *ngIf="this.sampleWordDL" [coords]="this.sampleWordDL"></app-word-selection-overlay> -->
       </div>
-    </div>-->
-    <!--<div class="row">
+    </div>
+    <div class="row">
+      <div style="position: relative; height: 200px; width: 200px; background: lightgray">
+        <app-word-selection-overlay style="position: relative" *ngIf="this.sampleWordStraightR" [coords]="this.sampleWordStraightR"></app-word-selection-overlay>
+      </div>
+    </div>
+    <div class="row">
+        <div style="position: relative; height: 150px; width: 150px; background: lightgray">
+          <app-word-selection-overlay style="position: relative" *ngIf="this.sampleWordStraightR" [coords]="this.sampleWordStraightR"></app-word-selection-overlay>
+        </div>
+      </div>
+      <!--<div class="row">
       <div class="col-md-4">Timer</div>
       <div class="col-md-4"><app-timer></app-timer></div>
       <div class="col-md-4"></div>
     </div>-->
     <!-- ACTUAL GAME -->
     <div class="row">
-      <div class="col-md-12" style="height: 100%;">
+      <div class="col-md-12" style="height: 500px; width: 800px; background: pink">
         <app-gameplay *ngIf="samplePuzzle" [puzzle]="samplePuzzle"></app-gameplay>
       </div>
     </div>

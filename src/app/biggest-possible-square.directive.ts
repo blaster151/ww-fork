@@ -17,13 +17,23 @@ export class BiggestPossibleSquareDirective {
   }
 
   resizeSquare() {
-    this.elementRef.nativeElement.style.height = "0px";
-    this.elementRef.nativeElement.style.width = "0px";
-
     let parentHeight = this.elementRef.nativeElement.parentNode.parentNode.offsetHeight;
     let parentWidth = this.elementRef.nativeElement.parentNode.parentNode.offsetWidth;
 
+    console.log('parentWidth', parentWidth);
+    
     let squareSize = Math.max(parentHeight, parentWidth);
+
+    if (parentHeight === 0)
+    {
+      parentHeight = this.elementRef.nativeElement.parentNode.parentNode.parentNode.offsetHeight;
+      parentWidth = this.elementRef.nativeElement.parentNode.parentNode.parentNode.offsetWidth;
+      squareSize = Math.max(parentHeight, parentWidth);
+      
+      console.log('modified parentWidth', parentWidth);
+    }
+    this.elementRef.nativeElement.style.height = "0px";
+    this.elementRef.nativeElement.style.width = "0px";
 
     this.elementRef.nativeElement.style.height = squareSize + "px";
     this.elementRef.nativeElement.style.width = squareSize + "px";

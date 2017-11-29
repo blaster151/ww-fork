@@ -137,6 +137,10 @@ export class GameplayComponent implements OnInit {
           });
       }
 
+      this.wordBeingSelected = { word: '', coords: [
+        { cell: this.puzzle.rows[1].cells[1], row: 1, col: 1 }
+      ] };
+  
     }
 
     this.timerService.intervals.subscribe(i => this.persistProgress());

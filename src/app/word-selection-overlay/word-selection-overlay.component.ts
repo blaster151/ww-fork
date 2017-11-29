@@ -55,13 +55,19 @@ export class WordSelectionOverlayComponent {
   public transform: any = "";
   public originShift = "";
 
+  private hasWaited: boolean = false;
+
   constructor(private element: ElementRef, private sanitizer: DomSanitizer, private bandDrawer: BandDrawerService) {
     this.element = element;
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['coords']) {
-      this.drawSelectionOverlay();
+      if (this.hasWaited)
+        this.drawSelectionOverlay();
+        else {
+          setTimeout(() => { this.hasWaited = true; this.drawSelectionOverlay(); }, 50);
+        }
     }
   }
   
@@ -115,7 +121,6 @@ export class WordSelectionOverlayComponent {
 
       let pixelsGridSize = thisElementHeight;//.replace('px', '');
       let cellSizePixels = pixelsGridSize / gridSize;
-
 
       let wordLength = Math.max(selectionHeightInCharacters, selectionWidthInCharacters);
 
@@ -258,6 +263,7 @@ var proposedRegularStrokeWidth = pixelsGridSize / 81.2;
           // Do we need to reset the transform?
           this.transform = '';
         }
+        
   }
 
   calculateDiagonalTransform() {

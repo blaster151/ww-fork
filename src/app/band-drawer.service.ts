@@ -19,8 +19,6 @@ export class BandDrawerService {
     let circleCurveAmount = circleOutcurveDistance / 2;
     let padInward = circleOutcurveDistance / 2;
 
-    const selectionHeight = (padInward / 10);
-
     const renderProperlySizedBand2 = (): IPaths => {
       const topOfBand = (selectionTopPosition * cellSizePixels) + (cellSizePixels / 2) - (heightOfBand / 2);
       const determineOpeningHalfCircle = () => {
