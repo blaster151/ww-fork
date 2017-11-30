@@ -30,6 +30,12 @@ export class GameplayComponent implements OnInit {
     private timerService: TimerService,
     private endOfGameCelebrationService: EndOfGameCelebrationService) {
     this.wordSelectionStateService = wordSelectionStateService;
+
+    /* Prevent body scrolling when viewed from iOS */
+    console.log('disabling body scrolling');
+    document.ontouchstart = function(e) {
+      e.preventDefault();
+    };
   }
 
   pause = () => {

@@ -26,13 +26,14 @@
 
 .hotspot {
     position: absolute;
-    height: 70%;
-    width: 70%;
+    height: 80%;
+    width: 80%;
     border-radius: 50%;
     /* background: pink; */
-    margin-left: 15%;
+    margin-left: 13%;
     opacity: .7;
-    top: 15%;
+    top: 12%;
+    background: orange;
 }
 
 .cell.isHighlighted

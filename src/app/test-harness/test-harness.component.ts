@@ -28,7 +28,7 @@ export class TestHarnessComponent implements OnInit {
   public sampleXmlToJson: any;
   public sampleLoadedGame: any;
 
-  private sampleWordStraightR: ICellWithCoordinates[];
+  public sampleWordStraightR: ICellWithCoordinates[];
   private sampleWordStraightD: ICellWithCoordinates[];
   private sampleWordUL: ICellWithCoordinates[];
   private sampleWordUR: ICellWithCoordinates[];
