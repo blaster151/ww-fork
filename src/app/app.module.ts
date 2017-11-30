@@ -31,6 +31,7 @@ import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness
 import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
 import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
+import { EnlargeFontToFitDirective } from './enlarge-font-to-fit.directive';
 
 let contentPath = '/app/xml_samples';
   if (window && window.frameElement)
@@ -55,7 +56,8 @@ let contentPath = '/app/xml_samples';
     TestHarnessGalleryComponent,
     BiggestPossibleSquareDirective,
     DynamicFontSizeDirective,
-    EndOfGameComponent
+    EndOfGameComponent,
+    EnlargeFontToFitDirective
   ],
   imports: [
     BrowserModule,

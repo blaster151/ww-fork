@@ -29,7 +29,7 @@
     </div>
     <div id="wordList">
       <div *ngIf="this.puzzle">Solution: {{this.puzzle.solution.length}} letters</div>
-      <div class="wordList" appDynamicFontSize=".035">
+      <div class="wordList" appDynamicFontSize=".0145" appEnlargeFontToFit>
         <app-word-list [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>
       </div>
 

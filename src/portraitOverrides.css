@@ -16,12 +16,15 @@
         display: inline-block;
     }
 
-    /deep/ #wordList
+    #wordList
     {
         width: 100%;
-        height: 100%;
+
+        /* Explicitly for 6S demo */
+        height: 320px !important;
+        color: yellow !important;
         overflow: hidden;
-        font-size: .85em;
+        /* font-size: .85em; */
     
         -moz-column-count: 1;
         column-count: 1;
