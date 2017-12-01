@@ -35,6 +35,28 @@
         column-gap: 0em;
     }
 
+
+    @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
+    {
+        #wordList
+        {
+            width: 100%;
+    
+            /* Explicitly for 6 demo */
+            height: 130px !important;
+            /* color: green;          */
+        }
+    }    
+
+    @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait)
+    {
+        #wordList {
+            /* Explicitly for 6 plus demo */
+            height: 140px !important;
+            /* color: red;          */
+        }
+    }  
+
     .wordContainer app-word:after {
         content: ",\00a0";
     }
