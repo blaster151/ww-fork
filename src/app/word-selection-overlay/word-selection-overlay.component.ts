@@ -64,9 +64,16 @@ export class WordSelectionOverlayComponent {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['coords']) {
       if (this.hasWaited)
-        this.drawSelectionOverlay();
+      {
+      console.log('1');
+      this.drawSelectionOverlay();
+    }
         else {
-          setTimeout(() => { this.hasWaited = true; this.drawSelectionOverlay(); }, 50);
+          setTimeout(() => { 
+            console.log('2');
+            this.hasWaited = true;
+            console.log('3');
+            this.drawSelectionOverlay(); }, 50);
         }
     }
   }
@@ -86,6 +93,9 @@ export class WordSelectionOverlayComponent {
     this.transform = '';
     this.originShift = '';
     let coords = this.coords;
+
+    console.log('a');
+    
     let svg = this.element.nativeElement.querySelector('svg');
       if (coords === null || coords.length === 0) {
         this.element.nativeElement.style.display = 'none';
@@ -99,7 +109,8 @@ export class WordSelectionOverlayComponent {
       else {
         this.element.nativeElement.style.display = '';
       }
-
+      console.log('b');
+      
       // TODO - @ViewChild
 
       let gridSize = 15;
@@ -115,7 +126,8 @@ export class WordSelectionOverlayComponent {
       const isVertical = selectionHeightInCharacters > 1 && selectionWidthInCharacters === 1;
 
       let newSvg = this.element.nativeElement.querySelector('.innerSvg');
-
+      console.log('c');
+      
       // If this element is styled at 100%, it might not know its own size yet
       let thisElementHeight = this.element.nativeElement.parentNode.clientHeight;  //this.element.nativeElement.style.height;
 
@@ -129,7 +141,8 @@ export class WordSelectionOverlayComponent {
 
 
 
-
+      console.log('d');
+      
 
 
       let bandPaths = this.bandDrawer.renderProperlySizedBand(coords, pixelsGridSize, cellSizePixels, this.isDiagonal, this.newOffset, wordLength);
@@ -146,11 +159,14 @@ export class WordSelectionOverlayComponent {
       // Rotate if necessary
       let startingTop = selectionTopPosition * cellSizePixels;
       let startingLeft = (selectionLeftPosition * cellSizePixels) + padInward;
-
+      console.log('e');
+      
       startingLeft += this.newOffset; startingTop += this.newOffset;
 
       // I don't really know if this is appropriate use of padInward
       if (isVertical) {
+        console.log('f');
+        
         const rotation = 90;
 
         console.log('90  startingTop', startingTop);
@@ -175,15 +191,28 @@ export class WordSelectionOverlayComponent {
 
         this.transformOffsetX += this.newOffset;
         this.transformOffsetY += this.newOffset + (padInward / 10);
-
+        console.log('g');
+        
         console.log('TOX TOY', this.transformOffsetX, this.transformOffsetY);
         this.rotation = 90;
         let newStyle = `transform: rotate(${this.rotation}deg); transform-origin: ${this.transformOffsetX}px ${this.transformOffsetY}px`;
         console.log('newStyle', newStyle);
-        newSvg.style = newStyle;
+
+        this.transform = this.sanitizer.bypassSecurityTrustStyle(`rotate(${this.rotation}deg)`);
+        this.originShift = `${this.transformOffsetX}px ${this.transformOffsetY}px`;
+  
+        try {
+          console.log('h');
+          //newSvg.cssText = newStyle;
+        }
+        catch(err) {
+          console.log('err', err);
+        }
+
+        console.log('i');
       }
       else
-        {}
+      {}
 
 var proposedDiagonalStrokeWidth = pixelsGridSize / 126.875;
 var proposedRegularStrokeWidth = pixelsGridSize / 81.2;
@@ -261,13 +290,15 @@ var proposedRegularStrokeWidth = pixelsGridSize / 81.2;
       else
         {
           // Do we need to reset the transform?
-          this.transform = '';
+         // this.transform = '';
         }
         
   }
 
   calculateDiagonalTransform() {
     if (this.isDiagonal) {
+      console.log('d1');
+      
       this.transform = this.sanitizer.bypassSecurityTrustStyle(`scale(1.4) rotate(${this.rotation}deg)`);
       this.originShift = `${this.transformOffsetX}px ${this.transformOffsetY}px`;
     }
