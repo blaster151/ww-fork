@@ -43,8 +43,6 @@ export class EnlargeFontToFitDirective {
     var actualHeight = 0;
     var availableHeight = 0;
 
-    console.log('in getheightinfo');
-
     if (document.createRange) {
         var range = document.createRange();
         range.selectNodeContents(this.element.nativeElement.parentNode);

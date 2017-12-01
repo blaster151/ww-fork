@@ -113,15 +113,16 @@ export class WordSelectionStateService {
       }
 
       let endLetter = this.currentPuzzle.getLetterAtCoordinate({ row: newRow, column: newCol });
-
-      this.wordBeingSelected.splice(1);     // Clear all but first
-
-      if (directionAndLength.wordLength > 1)
+      if (endLetter)
       {
-        const additionalLettersInWord = this.getLettersBetween(this.wordBeingSelected[0], endLetter);
-        additionalLettersInWord.forEach(l => this.wordBeingSelected.push(l));
+        this.wordBeingSelected.splice(1);     // Clear all but first
 
-        this.wordBeingSelected.push(endLetter);  // Add most recent
+        if (directionAndLength.wordLength > 1) {
+          const additionalLettersInWord = this.getLettersBetween(this.wordBeingSelected[0], endLetter);
+          additionalLettersInWord.forEach(l => this.wordBeingSelected.push(l));
+
+          this.wordBeingSelected.push(endLetter);  // Add most recent
+        }
       }
     }
     else {
