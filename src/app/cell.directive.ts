@@ -102,12 +102,33 @@ export class CellDirective implements OnInit {
 
                 }
 
-                this.wordSelectionStateService.addLetter(this.cellcontents);
+                if (!this.sameCellAsBefore())
+                {
+                    this.wordSelectionStateService.addLetter(this.cellcontents);
+                }
+                else 
+                {
+                    console.log('optimizing away a call to addLetter');
+                }
 
                 evt.stopPropagation();
                 evt.preventDefault();
                 return false;
             });
+
         });
     }
+
+    private sameCellAsBefore(): boolean {
+        if (this.wordSelectionStateService.wordBeingSelected.length > 0)
+        {
+            if (this.cellcontents.cell === this.wordSelectionStateService.wordBeingSelected[this.wordSelectionStateService.wordBeingSelected.length - 1].cell)
+            {
+                return true;
+            }
+        }
+
+        console.log('returned false');
+        return false;
+    } 
 }

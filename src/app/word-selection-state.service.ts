@@ -85,6 +85,7 @@ export class WordSelectionStateService {
   addLetter(letter: ICellWithCoordinates) {
     if (this.wordBeingSelected.length > 0)
     {
+      //console.log('in addLetter');
       const directionAndLength = this.getDirection(letter);
 
       // Choose which letter should ACTUALLY be considered the "end letter" of the word
@@ -115,6 +116,7 @@ export class WordSelectionStateService {
       let endLetter = this.currentPuzzle.getLetterAtCoordinate({ row: newRow, column: newCol });
       if (endLetter)
       {
+        console.log('before splice');
         this.wordBeingSelected.splice(1);     // Clear all but first
 
         if (directionAndLength.wordLength > 1) {
