@@ -18,10 +18,9 @@ export class EnlargeFontToFitDirective {
 
   evaluateNeedToIncreaseFontSize() {
     // Get actual height
-    let actualHeight = this.getActualHeight();
-    let availableHeight = this.getAvailableHeight();
+    let heightInformation = this.getHeightInformation();
 
-    if ((actualHeight + this.paddingDesired) < availableHeight) {
+    if ((heightInformation.actualHeight + this.paddingDesired) < heightInformation.availableHeight) {
       this.increaseFontSize();
       setTimeout(() => {
         this.evaluateNeedToIncreaseFontSize();
@@ -40,40 +39,25 @@ export class EnlargeFontToFitDirective {
     }
   }
 
-  getActualHeight() {
-    var height = 0;
-    if (document.createRange) {
-        var range = document.createRange();
-        range.selectNodeContents(this.element.nativeElement.parentNode);
-        if (range.getBoundingClientRect) {
-            var rect = range.getBoundingClientRect();
-            if (rect) {
-                height = rect.bottom - rect.top;
-                // console.log('existingSize actual height', height);
-                // console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
-            }
-        }
-    }
-
-    return height;
-  }
-
-  getAvailableHeight() {
+  getHeightInformation() {
+    var actualHeight = 0;
     var availableHeight = 0;
+
+    console.log('in getheightinfo');
+
     if (document.createRange) {
         var range = document.createRange();
         range.selectNodeContents(this.element.nativeElement.parentNode);
         if (range.getBoundingClientRect) {
             var rect = range.getBoundingClientRect();
             if (rect) {
+                actualHeight = rect.bottom - rect.top;
                 availableHeight = this.element.nativeElement.parentNode.offsetHeight;
-                // console.log('existingSize actual height', availableHeight);
-                // console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
             }
         }
     }
 
-    return availableHeight;
+    return { actualHeight, availableHeight };
   }
 
   increaseFontSize() {
