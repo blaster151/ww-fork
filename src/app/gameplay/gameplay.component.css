@@ -37,7 +37,7 @@ div {
 
  #wordList {
     background: #666666;
-    color: green;
+    /* color: green; */
     height: 100%;
     padding: 1%;
 }

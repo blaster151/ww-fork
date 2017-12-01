@@ -34,7 +34,7 @@ export class EnlargeFontToFitDirective {
         // Decrement and be done
         let existingSize: string = this.element.nativeElement.style.fontSize;
         
-            console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
+            // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
         
             existingSize = existingSize.replace('px', '');
         
@@ -54,8 +54,8 @@ export class EnlargeFontToFitDirective {
             var rect = range.getBoundingClientRect();
             if (rect) {
                 height = rect.bottom - rect.top;
-                console.log('existingSize actual height', height);
-                console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
+                // console.log('existingSize actual height', height);
+                // console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
             }
         }
     }
@@ -72,8 +72,8 @@ export class EnlargeFontToFitDirective {
             var rect = range.getBoundingClientRect();
             if (rect) {
                 availableHeight = this.element.nativeElement.parentNode.offsetHeight;
-                console.log('existingSize actual height', availableHeight);
-                console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
+                // console.log('existingSize actual height', availableHeight);
+                // console.log('existingSize actual elem height', this.element.nativeElement.parentNode.offsetHeight);
             }
         }
     }

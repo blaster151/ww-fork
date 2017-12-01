@@ -33,9 +33,9 @@ export class GameplayComponent implements OnInit {
 
     /* Prevent body scrolling when viewed from iOS */
     console.log('disabling body scrolling');
-    document.ontouchstart = function(e) {
-      e.preventDefault();
-    };
+    // document.ontouchstart = function(e) {
+    //   e.preventDefault();
+    // };
   }
 
   pause = () => {
@@ -143,9 +143,10 @@ export class GameplayComponent implements OnInit {
           });
       }
 
-      this.wordBeingSelected = { word: '', coords: [
-        { cell: this.puzzle.rows[1].cells[1], row: 1, col: 1 }
-      ] };
+      // Debugging purposes only
+      // this.wordBeingSelected = { word: '', coords: [
+      //   { cell: this.puzzle.rows[1].cells[1], row: 1, col: 1 }
+      // ] };
   
     }
 

@@ -12,15 +12,15 @@ export class DynamicFontSizeDirective {
   }
 
   ngOnInit() {
-    console.log('orientation');
-    console.log(window);
+    // console.log('orientation');
+    // console.log(window);
 
     this.detectPortraitMode();
 
-    console.log('in dynamic FS directive', this.elementRef);
-    console.log('in dynamic FS directive', this.elementRef.nativeElement);
-    console.log('in dynamic FS directive', this.elementRef.nativeElement.offsetHeight);
-    console.log('in ngOnInit of dfsd', this.ratio);
+    // console.log('in dynamic FS directive', this.elementRef);
+    // console.log('in dynamic FS directive', this.elementRef.nativeElement);
+    // console.log('in dynamic FS directive', this.elementRef.nativeElement.offsetHeight);
+    // console.log('in ngOnInit of dfsd', this.ratio);
     if (!this.ratio)
       this.ratio = .1;
 

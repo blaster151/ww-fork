@@ -21,8 +21,9 @@
         width: 100%;
 
         /* Explicitly for 6S demo */
-        height: 320px !important;
-        color: yellow !important;
+        height: 130px !important;
+
+        /* color: yellow !important; */
         overflow: hidden;
         /* font-size: .85em; */
     

@@ -41,7 +41,7 @@ iPhone 4S portrait
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) 
 {
   /* .grid { width: 312px; height: 312px; } */
-  .overlay { left: -94px; top: -94px; }
+  /* .overlay { left: -94px; top: -94px; } */
   body { font-size: 11.67347px }
   /* .letter { margin-left: -.25em; } */
   /* body { font-size: 12px; } */
@@ -52,7 +52,7 @@ iPhone 4S portrait
 and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
 {
   /* .grid { width: 366px; height: 366px; } */
-  .overlay { left: -102px; }   
+  /* .overlay { left: -102px; }    */
   body { font-size: 13.69388px }
   /* .letter { margin-left: -.15em; } */
 }
@@ -91,5 +91,5 @@ and (orientation : portrait)
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3)
 {
   /* .grid { width: 352px; height: 352px; } */
-  .overlay { left: -102px; }
+  /* .overlay { left: -102px; } */
 }

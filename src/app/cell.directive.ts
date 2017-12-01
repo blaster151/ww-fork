@@ -65,18 +65,28 @@ export class CellDirective implements OnInit {
                     } else {
                         console.log('dispatching', realTarget.innerHTML);
                         let a = realTarget.getAttribute("ngReflectCellcontents");
-                        console.log(JSON.stringify(a));
+                        console.log('actual target, we think', JSON.stringify(a));
 
                        if ((<any>realTarget).dispatchEvent) {
-                           console.log('realTarget is not weird');
                             (<any>realTarget).dispatchEvent(<any>new Event('touchmove', {}));
+
+                           if ((<any>realTarget).trigger) {
+                            console.log('realTarget has a dispatchEvent AND it also has trigger');
                             (<any>realTarget).trigger("touchmove");
+                           }
+                           else {
+                               console.log('weird short circuit - does this make selection work again?');
+                               evt.stopPropagation();
+                               evt.preventDefault();
+                               return false;
+
+                           }
 
                        }
                        else {
                            if ((<any>realTarget).trigger)
                             {
-                                console.log('realTarget is something weird');
+                                console.log('realTarget has no dispatchEvent but it does have trigger');
                                 (<any>realTarget).trigger("touchmove");
                             }
                        }
