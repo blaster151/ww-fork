@@ -36,6 +36,9 @@
     }
 
 
+
+
+
     @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
     {
         #wordList
@@ -43,16 +46,16 @@
             width: 100%;
     
             /* Explicitly for 6 demo */
-            height: 130px !important;
+            height: 225px !important;
             /* color: green;          */
         }
     }    
 
-    @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait)
+    @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3) and (orientation : portrait)
     {
         #wordList {
             /* Explicitly for 6 plus demo */
-            height: 140px !important;
+            height: 130px !important;
             /* color: red;          */
         }
     }  
