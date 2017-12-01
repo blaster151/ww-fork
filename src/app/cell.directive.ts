@@ -10,19 +10,25 @@ export class CellDirective implements OnInit {
     private element: ElementRef;
     private wordSelectionStateService: WordSelectionStateService;
 
+    private controlSchemes: { move: string, up: string, down: string }[];
     constructor(element: ElementRef, wordSelectionStateService: WordSelectionStateService, private renderer: Renderer) {
         this.element = element;
         this.wordSelectionStateService = wordSelectionStateService;
+
+        this.controlSchemes = [
+            { move: 'mousemove', up: 'mouseup', down: 'mousedown' },
+            { move: 'touchmove', up: 'touchend', down: 'touchstart' }
+        ];
     }
 
-    private wireMouseUp() {
+    private wireUpHandler() {
         const body = document.querySelector('body');
 
         if (body.getAttribute('data-gridwired') !== 'true') {
             body.setAttribute('data-gridwired', 'true');
 
-            'mouseup touchend'.split(' ').forEach((evtType) => {
-                body.addEventListener(evtType, (evt) => {
+            this.controlSchemes.forEach((controlScheme) => {
+                body.addEventListener(controlScheme.up, (evt) => {
                     if (this.wordSelectionStateService.isSelectingWord)
                     {
                         this.wordSelectionStateService.isSelectingWord = false;
@@ -33,9 +39,9 @@ export class CellDirective implements OnInit {
         }
     }
 
-    ngOnInit() {
-        'mousedown touchstart'.split(' ').forEach((evtType) => {
-            this.element.nativeElement.addEventListener(evtType, (evt) => {
+    private wireDownHandler() {
+        this.controlSchemes.forEach((controlScheme) => {
+            this.element.nativeElement.addEventListener(controlScheme.down, (evt) => {
                 this.wordSelectionStateService.lastElementMovedOver = null;
 
                 this.wordSelectionStateService.isSelectingWord = true;
@@ -44,12 +50,14 @@ export class CellDirective implements OnInit {
                 evt.preventDefault();
             });
         });
+    }
 
-        this.wireMouseUp();
+    ngOnInit() {
+        this.wireDownHandler();
+        this.wireUpHandler();
 
-        'mousemove touchmove'.split(' ').forEach((evtType) => {
-
-            this.element.nativeElement.addEventListener(evtType, (evt) => {
+        this.controlSchemes.forEach((controlScheme) => {
+            this.element.nativeElement.addEventListener(controlScheme.move, (evt) => {
                 if (!this.wordSelectionStateService.isSelectingWord) {
                     evt.stopPropagation();
                     evt.preventDefault();
@@ -68,11 +76,11 @@ export class CellDirective implements OnInit {
                         //console.log('actual target, we think', JSON.stringify(a));
 
                        if ((<any>realTarget).dispatchEvent) {
-                            (<any>realTarget).dispatchEvent(<any>new Event('touchmove', {}));
+                            (<any>realTarget).dispatchEvent(<any>new Event(controlScheme.move, {}));
 
                            if ((<any>realTarget).trigger) {
                             //console.log('realTarget has a dispatchEvent AND it also has trigger');
-                            (<any>realTarget).trigger("touchmove");
+                            (<any>realTarget).trigger(controlScheme.move);
                            }
                            else {
                                //console.log('weird short circuit - does this make selection work again?');
@@ -87,7 +95,7 @@ export class CellDirective implements OnInit {
                            if ((<any>realTarget).trigger)
                             {
                                 //console.log('realTarget has no dispatchEvent but it does have trigger');
-                                (<any>realTarget).trigger("touchmove");
+                                (<any>realTarget).trigger(controlScheme.move);
                             }
                        }
                     }
