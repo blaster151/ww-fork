@@ -61,21 +61,21 @@ export class CellDirective implements OnInit {
                     const realTarget = document.elementFromPoint(myLocation.clientX, myLocation.clientY);
 
                     if (realTarget === this.element.nativeElement) {
-                        console.log('same');
+                        //console.log('same');
                     } else {
-                        console.log('dispatching', realTarget.innerHTML);
+                        //console.log('dispatching', realTarget.innerHTML);
                         let a = realTarget.getAttribute("ngReflectCellcontents");
-                        console.log('actual target, we think', JSON.stringify(a));
+                        //console.log('actual target, we think', JSON.stringify(a));
 
                        if ((<any>realTarget).dispatchEvent) {
                             (<any>realTarget).dispatchEvent(<any>new Event('touchmove', {}));
 
                            if ((<any>realTarget).trigger) {
-                            console.log('realTarget has a dispatchEvent AND it also has trigger');
+                            //console.log('realTarget has a dispatchEvent AND it also has trigger');
                             (<any>realTarget).trigger("touchmove");
                            }
                            else {
-                               console.log('weird short circuit - does this make selection work again?');
+                               //console.log('weird short circuit - does this make selection work again?');
                                evt.stopPropagation();
                                evt.preventDefault();
                                return false;
@@ -86,7 +86,7 @@ export class CellDirective implements OnInit {
                        else {
                            if ((<any>realTarget).trigger)
                             {
-                                console.log('realTarget has no dispatchEvent but it does have trigger');
+                                //console.log('realTarget has no dispatchEvent but it does have trigger');
                                 (<any>realTarget).trigger("touchmove");
                             }
                        }
@@ -94,20 +94,7 @@ export class CellDirective implements OnInit {
 
                 }
 
-                if (true) {
-                    // if (this.wordSelectionStateService.lastElementMovedOver === this.cellcontents.cell) {
-                    //     console.log('short circuiting');
-                        
-                    //     // evt.stopPropagation();
-                    //     // evt.preventDefault();
-                    //     // return false;
-                    // } else {
-                    //     this.wordSelectionStateService.lastElementMovedOver = this.cellcontents.cell;
-                    // }
-
-                    console.log('about to addletter ', this.cellcontents);
-                    this.wordSelectionStateService.addLetter(this.cellcontents);
-                }
+                this.wordSelectionStateService.addLetter(this.cellcontents);
 
                 evt.stopPropagation();
                 evt.preventDefault();

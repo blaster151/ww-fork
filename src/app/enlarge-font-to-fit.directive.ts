@@ -17,32 +17,27 @@ export class EnlargeFontToFitDirective {
   }
 
   evaluateNeedToIncreaseFontSize() {
-      // Get actual height
-      let actualHeight = this.getActualHeight();
-      let availableHeight = this.getAvailableHeight();
+    // Get actual height
+    let actualHeight = this.getActualHeight();
+    let availableHeight = this.getAvailableHeight();
 
-      if ((actualHeight + this.paddingDesired) < availableHeight)
-      {
-        console.log('incrementing');
-        this.increaseFontSize();
-        setTimeout(() => {
-          this.evaluateNeedToIncreaseFontSize();
-        }, 0);
-      }
-      else 
-      {
-        // Decrement and be done
-        let existingSize: string = this.element.nativeElement.style.fontSize;
-        
-            // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
-        
-            existingSize = existingSize.replace('px', '');
-        
-            let newSize = parseFloat(existingSize) - this.increment;
-            this.element.nativeElement.style.fontSize = newSize + 'px';
-        
-            console.log('existingSize new', this.element.nativeElement.style.fontSize);
-      }
+    if ((actualHeight + this.paddingDesired) < availableHeight) {
+      this.increaseFontSize();
+      setTimeout(() => {
+        this.evaluateNeedToIncreaseFontSize();
+      }, 0);
+    }
+    else {
+      // Decrement and be done
+      let existingSize: string = this.element.nativeElement.style.fontSize;
+
+      // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
+
+      existingSize = existingSize.replace('px', '');
+
+      let newSize = parseFloat(existingSize) - this.increment;
+      this.element.nativeElement.style.fontSize = newSize + 'px';
+    }
   }
 
   getActualHeight() {
@@ -84,13 +79,13 @@ export class EnlargeFontToFitDirective {
   increaseFontSize() {
     let existingSize: string = this.element.nativeElement.style.fontSize;
 
-    console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
+    // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
 
     existingSize = existingSize.replace('px', '');
 
     let newSize = parseFloat(existingSize) + this.increment;
     this.element.nativeElement.style.fontSize = newSize + 'px';
 
-    console.log('existingSize new', this.element.nativeElement.style.fontSize);
+    // console.log('existingSize new', this.element.nativeElement.style.fontSize);
   }
 }

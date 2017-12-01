@@ -32,7 +32,6 @@ export class GameplayComponent implements OnInit {
     this.wordSelectionStateService = wordSelectionStateService;
 
     /* Prevent body scrolling when viewed from iOS */
-    console.log('disabling body scrolling');
     // document.ontouchstart = function(e) {
     //   e.preventDefault();
     // };

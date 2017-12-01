@@ -12,15 +12,8 @@ export class DynamicFontSizeDirective {
   }
 
   ngOnInit() {
-    // console.log('orientation');
-    // console.log(window);
-
     this.detectPortraitMode();
 
-    // console.log('in dynamic FS directive', this.elementRef);
-    // console.log('in dynamic FS directive', this.elementRef.nativeElement);
-    // console.log('in dynamic FS directive', this.elementRef.nativeElement.offsetHeight);
-    // console.log('in ngOnInit of dfsd', this.ratio);
     if (!this.ratio)
       this.ratio = .1;
 
@@ -55,16 +48,16 @@ export class DynamicFontSizeDirective {
       ratioToUse = this.ratio * 1.0;
     }
 
-    let fontSize = Math.round(this.getInitialBodyHeight() * ratioToUse);//this.elementRef.nativeElement.offsetHeight
-    this.elementRef.nativeElement.style.fontSize = fontSize + "px";
-    this.elementRef.nativeElement.style.lineHeight = fontSize + "px";
+    let fontSize = Math.round(this.getInitialBodyHeight() * ratioToUse);
+    this.elementRef.nativeElement.style.fontSize = fontSize + 'px';
+    this.elementRef.nativeElement.style.lineHeight = fontSize + 'px';
 
     if (this.setbody)
     {
-      document.querySelector("body").style.fontSize = fontSize + "px";
+      document.querySelector('body').style.fontSize = fontSize + 'px';
 
       // Make the line-height slightly larger than the font size
-      document.querySelector("body").style.lineHeight = (fontSize * 1.2) + "px";
+      document.querySelector('body').style.lineHeight = (fontSize * 1.2) + 'px';
     }
   }
 }
