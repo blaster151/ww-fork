@@ -7,15 +7,16 @@ import 'rxjs/add/operator/toPromise';
 import { Puzzle } from './models/puzzle';
 import { Word } from 'app/models/word';
 import { PuzzleRow } from './models/puzzleRow';
+import { ContentPathService } from './content-path.service';
 
 @Injectable()
 export class GameContentService {
-  public path: string = "/app/xml_samples/";
+  public path: string;
 
-  constructor(private xmlService: XmlToJsonService, private http: Http, @Inject('path')path: string) {
+  constructor(private xmlService: XmlToJsonService, private http: Http, contentPathService: ContentPathService) {
     this.xmlService = xmlService;
     this.http = http;
-    this.path = path;
+    this.path = contentPathService.getContentPath();
   }
 
   loadGame(id: string): Promise<Puzzle> {

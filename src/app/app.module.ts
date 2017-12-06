@@ -32,13 +32,7 @@ import { BiggestPossibleSquareDirective } from './biggest-possible-square.direct
 import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
 import { EnlargeFontToFitDirective } from './enlarge-font-to-fit.directive';
-
-let contentPath = '/app/xml_samples';
-  if (window && window.frameElement)
-  {
-    let path = window.frameElement.getAttribute('data-content-path');
-    contentPath = path;
-  }
+import { ContentPathService } from './content-path.service';
 
 @NgModule({
   declarations: [
@@ -67,8 +61,8 @@ let contentPath = '/app/xml_samples';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [ XmlToJsonService, GameContentService, WordSelectionStateService, TimerService, LocalStorageService, EndOfGameCelebrationService, Overlay, { provide: 'path', useValue: contentPath }, BandDrawerService ],
-  bootstrap: [GameLaunchComponent]
+  providers: [ XmlToJsonService, GameContentService, WordSelectionStateService, TimerService, LocalStorageService, EndOfGameCelebrationService, Overlay, ContentPathService, BandDrawerService ],
+  bootstrap: [GameLaunchComponent]  
 })
 export class AppModule {
   constructor(private http: Http) {

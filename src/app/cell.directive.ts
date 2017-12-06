@@ -78,26 +78,21 @@ export class CellDirective implements OnInit {
                        if ((<any>realTarget).dispatchEvent) {
                             (<any>realTarget).dispatchEvent(<any>new Event(controlScheme.move, {}));
 
-                           if ((<any>realTarget).trigger) {
+
+
+                        }
+
+                        if ((<any>realTarget).trigger) {
                             //console.log('realTarget has a dispatchEvent AND it also has trigger');
                             (<any>realTarget).trigger(controlScheme.move);
-                           }
-                           else {
-                               //console.log('weird short circuit - does this make selection work again?');
-                               evt.stopPropagation();
-                               evt.preventDefault();
-                               return false;
+                        }
+                        else {
+                            //console.log('weird short circuit - does this make selection work again?');
+                            evt.stopPropagation();
+                            evt.preventDefault();
+                            return false;
 
-                           }
-
-                       }
-                       else {
-                           if ((<any>realTarget).trigger)
-                            {
-                                //console.log('realTarget has no dispatchEvent but it does have trigger');
-                                (<any>realTarget).trigger(controlScheme.move);
-                            }
-                       }
+                        }
                     }
 
                 }
