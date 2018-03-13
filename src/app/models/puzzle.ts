@@ -93,10 +93,21 @@ export class Puzzle {
     return result;
   }
 
-  highlightLetter(letter: string, value: boolean = true) {
+  getAllCells() {
+    const result: PuzzleCell[] = [];
+
     this.rows.forEach(r => r.cells.forEach(c => {
-      if (c.letter === letter)
-        c.isHighlighted = value;
+      result.push(c);
     }));
+
+    return result;
+  }
+
+  highlightLetter(letter: string, value: boolean = true) {
+    this.getAllCells().forEach(c => {
+      if (c.letter === letter) {
+        c.isHighlighted = value;
+      }
+    });
   }
 }

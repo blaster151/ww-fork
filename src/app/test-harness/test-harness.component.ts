@@ -72,8 +72,4 @@ export class TestHarnessComponent implements OnInit {
 
   onLettersClicked(letter: string, x) {
   }
-
-  previewEndGameModal() {
-    this.endOfGameService.celebrate('example', this.samplePuzzle);
-  }
 }

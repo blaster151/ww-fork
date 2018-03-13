@@ -22,23 +22,22 @@ export class EndOfGameComponent implements OnInit {
     if (this.step === 3)
     {
       let interval = 0;
-      this.puzzle.rows.forEach(r => r.cells.forEach(c => {
+      this.puzzle.getAllCells().forEach(c => {
         if (!c.isCircled) {
           interval += 250;
           setTimeout(() => {
             c.isHighlighted = true;
           }, interval);
         }
-      }));
-
+      });
     }
   }
 
   restart() {
     // Reset highlight state of all cells
-    this.puzzle.rows.forEach(r => r.cells.forEach(c => {
+    this.puzzle.getAllCells().forEach(c => {
       c.isHighlighted = false;
-    }));
+    });
 
     this.resetRequested.emit(true);
   }
