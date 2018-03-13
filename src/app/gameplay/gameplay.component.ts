@@ -35,6 +35,10 @@ export class GameplayComponent implements OnInit {
     // document.ontouchstart = function(e) {
     //   e.preventDefault();
     // };
+    // This helps prevent body scrolling in WBG
+    document.ontouchmove = function (e) {
+      e.preventDefault();
+    };
   }
 
   pause = () => {
@@ -140,12 +144,6 @@ export class GameplayComponent implements OnInit {
             }
           });
       }
-
-      // Debugging purposes only
-      // this.wordBeingSelected = { word: '', coords: [
-      //   { cell: this.puzzle.rows[1].cells[1], row: 1, col: 1 }
-      // ] };
-  
     }
 
     this.timerService.intervals.subscribe(i => this.persistProgress());

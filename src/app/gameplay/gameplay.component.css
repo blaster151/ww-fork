@@ -1,7 +1,7 @@
 div {
-    user-drag: none;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
 }
 
 /* #wordList {
@@ -11,60 +11,63 @@ div {
 } */
 
 #puzzleTitle {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .pauseShield {
-    position: absolute; top: 0px; left: 0px; z-index: 2000; background: #1F2833; width: 100%; height: 100%;
-    text-align: center;
-    font-size: 3em;
-    font-weight: bold;
-    padding-top: 40%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  background: #1f2833;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+  padding-top: 40%;
 }
 
 .vc-parent {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 /* Theme */
 .ww-container {
-    background: #71A0FF;
-    color: white; 
-    cursor: pointer;
-}
-
- #wordList {
-    background: #666666;
-    /* color: green; */
-    height: 100%;
-    padding: 1%;
-}
-
-
-
-/deep/ .grid{
-    background: #FCFEFE;    /* Almost white */
-    color: black; 
-}
-
-/deep/ #puzzleTitle {
-
-    color: white;
-    /* color: #FFD400; */
-}
-
-.ww-container {
-    font-family: Roboto;
-    
-    /* border-radius: 1em; */
-}
-
-h3 {
-    margin-top: 0px;
+  background: #71a0ff;
+  color: white;
+  cursor: pointer;
 }
 
 #wordList {
-    font-size: .85em;
+  background: #666666;
+  /* color: green; */
+  height: 100%;
+  padding: 1%;
+}
+
+/deep/ .grid {
+  background: #fcfefe; /* Almost white */
+  color: black;
+}
+
+/deep/ #puzzleTitle {
+  color: white;
+  /* color: #FFD400; */
+}
+
+.ww-container {
+  font-family: Roboto;
+
+  /* border-radius: 1em; */
+}
+
+h3 {
+  margin-top: 0px;
+}
+
+#wordList {
+  font-size: 0.85em;
 }

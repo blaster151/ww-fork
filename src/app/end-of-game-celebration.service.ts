@@ -4,7 +4,7 @@ import { Modal } from 'ngx-modialog/plugins/bootstrap';
 import { Puzzle } from './models/puzzle';
 
 @Injectable()
-export class EndOfGameCelebrationService {
+export class EndOfGameCelebrationService { 
   public vcRef: ViewContainerRef;
   constructor(overlay: Overlay, public modal: Modal) {
 

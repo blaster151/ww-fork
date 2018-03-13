@@ -1,26 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Puzzle } from '../models/puzzle';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Puzzle } from "../models/puzzle";
 
 @Component({
-  selector: 'app-end-of-game',
-  templateUrl: './end-of-game.component.html',
-  styleUrls: ['./end-of-game.component.css']
+  selector: "app-end-of-game",
+  templateUrl: "./end-of-game.component.html",
+  styleUrls: ["./end-of-game.component.css"]
 })
 export class EndOfGameComponent implements OnInit {
-
   public step: number = 1;
   @Input() puzzle: Puzzle;
   @Output() resetRequested = new EventEmitter<boolean>();
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   nextMessage() {
     this.step++;
 
-    if (this.step === 3)
-    {
+    if (this.step === 3) {
       let interval = 0;
       this.puzzle.getAllCells().forEach(c => {
         if (!c.isCircled) {
