@@ -35,6 +35,11 @@ export class EndOfGameComponent implements OnInit {
   }
 
   restart() {
+    // Reset highlight state of all cells
+    this.puzzle.rows.forEach(r => r.cells.forEach(c => {
+      c.isHighlighted = false;
+    }));
+
     this.resetRequested.emit(true);
   }
 }

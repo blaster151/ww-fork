@@ -12,11 +12,6 @@
         @import url('https://fonts.googleapis.com/css?family=Roboto');
         @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
         h1, h2 {
             font-family: "Fjalla One";
         }
@@ -31,18 +26,60 @@
             font-size: 1.25em;
         }
 
-        .embeddedGame {
+        .well.embeddedGame {
             text-align: center;
-            background: pink;
-            width: 100%;
-            height: 100%;
         }
-    </style>
+
+        .embeddedGame.portrait
+        {
+            width: 344px; height: 478px;
+            /* background: purple; */
+        }
+
+        /* iPhone 6 */
+        @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait)
+        {
+            .embeddedGame.portrait
+            {
+                width: 304px; height: 540.4444px;
+                /* background: orange; */
+                
+            }  
+        }
+
+        /* iPhone 6S */
+        @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3) and (orientation : portrait) { 
+            .embeddedGame.portrait
+            {
+                width: 344px; height: 478px;
+                /* background: purple; */
+            }
+        }
+</style>
 </head>
 
-<body ng-cloak style="width: 100%; height: 100%";>
-    <div class="embeddedGame">
-        <iframe src="./ww/?puzzle=170106" data-content-path="abcde.com/ww/app/xml_samples" width="100%" height="100%" style="width: 100%; height: 100%; border-width: 0px;"></iframe>
+<body ng-cloak>
+    <div id="galleryMain">
+        <div class="container">
+            <h1>WonderWord</h1>
+            <!--<h2>with David Ou</h2>-->
+
+            <div class="well">
+                <div>
+                    Hello!  Welcome to our demo site.  Below is working progress on WonderWord (in portrait mode).
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                window.puzzleId = 170102;
+            </script>
+
+            <div class="well">
+                <div class="embeddedGame portrait">
+                    <iframe src="./?puzzle=170106" data-content-path="./app/xml_samples" width="100%" height="100%" style="border-width: 0px;"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

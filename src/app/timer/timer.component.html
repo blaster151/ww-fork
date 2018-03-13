@@ -1,6 +1,7 @@
 <div *ngIf="this.timeElapsed" appDynamicFontSize=".04" style="height: 100%" class="vc-parent">
   <span [hidden]="this.isHidden">{{this.timeElapsedFormatted}}</span>
   <span (click)="this.toggleShown()">
-    <img src="./../assets/clock.png" />
+    <!-- Is looking here https://www.wonderword.com/assets/clock.png when it should be looking here https://www.wonderword.com/game/assets/clock.png -->
+    <img src="./assets/clock.png" />
   </span>
 </div>

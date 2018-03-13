@@ -26,13 +26,13 @@
 
 .hotspot {
     position: absolute;
-    height: 80%;
-    width: 80%;
+    height: 120%;
+    width: 120%;
     border-radius: 50%;
     /* background: pink; */
-    margin-left: 13%;
+    margin-left: -12%;
     opacity: .7;
-    top: 12%;
+    top: -9%;
     /* background: orange; */
 }
 
