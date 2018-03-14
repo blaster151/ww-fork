@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* @import url(https://fonts.googleapis.com/css?family=Zilla+Slab:300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic); */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+
 html {
   height: 100%;
 }
+
 body {
   height: 100%;
 }
@@ -153,13 +152,9 @@ body {
   overflow: hidden;
   /* background: orange; */
 }
-/* @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,regular,700);
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans:regular,italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-@import url(https://fonts.googleapis.com/css?family=Arimo:regular,italic,700,700italic); */
-@import url(https://fonts.googleapis.com/css?family=Muli:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
 .letter {
-  font-family: 'Muli';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
+  font-family: 'Lato';/* 'Zilla Slab'; */ /* Raleway; */ /*Montserrat*/
   font-weight: bold;
   /* font-size: 150%; */
   /* line-height: 0px; */
