@@ -33,6 +33,7 @@ import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
 import { EnlargeFontToFitDirective } from './enlarge-font-to-fit.directive';
 import { ContentPathService } from './content-path.service';
+import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ContentPathService } from './content-path.service';
     BiggestPossibleSquareDirective,
     DynamicFontSizeDirective,
     EndOfGameComponent,
-    EnlargeFontToFitDirective
+    EnlargeFontToFitDirective,
+    FillAllAvailableSpaceDirective
   ],
   imports: [
     BrowserModule,

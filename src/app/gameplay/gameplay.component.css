@@ -44,7 +44,6 @@ div {
 #wordList {
   background: #666666;
   /* color: green; */
-  height: 100%;
   padding: 1%;
 }
 
@@ -69,5 +68,9 @@ h3 {
 }
 
 #wordList {
-  font-size: 0.85em;
+  font-size: 0.2em;
+  line-height: .02em;
 }
+/* #wordList {
+  font-size: 0.85em;
+} */
