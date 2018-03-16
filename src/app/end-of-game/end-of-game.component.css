@@ -32,7 +32,6 @@
 @media only screen and (orientation : portrait)
 {
     #end-of-game {
-        height: 41.5%;  /* todo - should fill to the remaining allocated space */
     }
 
     #end-of-game .step {
