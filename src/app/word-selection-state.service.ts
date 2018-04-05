@@ -116,7 +116,6 @@ export class WordSelectionStateService {
       let endLetter = this.currentPuzzle.getLetterAtCoordinate({ row: newRow, column: newCol });
       if (endLetter)
       {
-        console.log('before splice');
         this.wordBeingSelected.splice(1);     // Clear all but first
 
         if (directionAndLength.wordLength > 1) {

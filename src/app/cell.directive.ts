@@ -101,10 +101,6 @@ export class CellDirective implements OnInit {
                 {
                     this.wordSelectionStateService.addLetter(this.cellcontents);
                 }
-                else 
-                {
-                    console.log('optimizing away a call to addLetter');
-                }
 
                 evt.stopPropagation();
                 evt.preventDefault();

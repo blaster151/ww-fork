@@ -49,6 +49,9 @@ export class TimerService {
 
   resetElapsedTime() {
     this.currentTime = { hours: 0, minutes: 0, seconds: 0};
+
+    this.isPaused = false;
+    this.intervals.next(this.currentTime);
   }
 }
 

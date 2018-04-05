@@ -33,7 +33,6 @@ export class FillAllAvailableSpaceDirective {
     var thisTop = this.elementRef.nativeElement.offsetTop;
     var desiredHeight = parentHeight - thisTop;
 
-    console.log('setting to desired height ', desiredHeight);
     //this.elementRef.nativeElement.height = desiredHeight;
     this.elementRef.nativeElement.style.height = desiredHeight + "px";
   }
