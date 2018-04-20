@@ -1,12 +1,12 @@
 <div class="ww-container" style="overflow: hidden" (mousemove)="onMouseMove()">
     <div id="wordGridContainer" style="position: relative; float: left;">
       <div id="timerBar" style="position: relative; height: 6%; overflow: hidden">
-        <div style="float: left; height: 100%;" class="vc-parent">
+        <div style="float: left; height: 100%; user-select: none" class="vc-parent">
           <div id="puzzleTitle" appDynamicFontSize=".04">
             {{this.puzzle.title}}
           </div>
         </div>
-        <div class="vc-parent" style="text-align: right; float: right; height: 100%;">
+        <div class="vc-parent" style="text-align: right; float: right; height: 100%; user-select: none">
           <app-timer style="height: 100%;"></app-timer>
           <div id="pauseButtons" style="height: 90%" class="vc-parent">
             <div class=" pauseButton" [class.hidden]="!this.isPaused" class="glyphicon glyphicon-play" (click)="this.unpause()"></div>

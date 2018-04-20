@@ -59,8 +59,23 @@ export class CellDirective implements OnInit {
         this.controlSchemes.forEach((controlScheme) => {
             this.element.nativeElement.addEventListener(controlScheme.move, (evt) => {
                 if (!this.wordSelectionStateService.isSelectingWord) {
+
+                    if (evt.buttons === 1)
+                    {
+                        // Special handling needed - user is entering the grid with
+                        // a mouse button already down
+
+                        // Do whatever happens in the "down event"
+                        this.wordSelectionStateService.lastElementMovedOver = null;
+                        this.wordSelectionStateService.isSelectingWord = true;
+
+                        evt.stopPropagation();
+                        evt.preventDefault();
+                    }
+
                     evt.stopPropagation();
                     evt.preventDefault();
+
                     return false;
                 }
 
