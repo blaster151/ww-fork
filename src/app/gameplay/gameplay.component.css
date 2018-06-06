@@ -67,6 +67,12 @@ h3 {
   margin-top: 0px;
 }
 
+#timerBar {
+  position: relative;
+  height: 1.5em;
+  overflow: hidden;
+}
+
 #wordList {
   font-size: 0.2em;
   line-height: .02em;
