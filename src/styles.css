@@ -130,13 +130,10 @@ body {
 }
 
 #timerBar img {
-  /* height: 1%; */
-  /* width: 5%; */
-  /* max-height: initial; */
 }
 
 .glyphicon {
-  /* height: 10%; */
+  top: 0px;
 }
 
 #actualContainerOfWordGrid {

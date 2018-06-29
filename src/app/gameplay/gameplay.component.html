@@ -8,7 +8,7 @@
         </div>
         <div class="vc-parent" style=" text-align: right; float: right; height: 100%; user-select: none">
           <app-timer style="height: 100%;"></app-timer>
-          <div id="pauseButtons" style="height: 90%; margin-left: .25em; padding-left: .25em; padding-right: .25em" class="vc-parent">
+          <div id="pauseButtons" style="height: 100%; margin-left: .25em; padding-left: .25em; padding-right: .25em" class="vc-parent">
             <div class=" pauseButton" [class.hidden]="!this.isPaused" class="glyphicon glyphicon-play" (click)="this.unpause()"></div>
             <div class=" pauseButton" [class.hidden]="this.isPaused" class="glyphicon glyphicon-pause" (click)="this.pause()"></div>
           </div>
