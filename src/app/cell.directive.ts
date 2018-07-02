@@ -59,7 +59,7 @@ export class CellDirective implements OnInit {
         this.controlSchemes.forEach((controlScheme) => {
             this.element.nativeElement.addEventListener(controlScheme.move, (evt) => {
                 if (!this.wordSelectionStateService.isSelectingWord) {
-
+                    // How would a touch event even have buttons?
                     if (evt.buttons === 1)
                     {
                         // Special handling needed - user is entering the grid with
@@ -120,8 +120,7 @@ export class CellDirective implements OnInit {
                 evt.stopPropagation();
                 evt.preventDefault();
                 return false;
-            });
-
+            }, { passive: false });
         });
     }
 

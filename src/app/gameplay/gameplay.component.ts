@@ -36,9 +36,10 @@ export class GameplayComponent implements OnInit {
     //   e.preventDefault();
     // };
     // This helps prevent body scrolling in WBG
-    document.ontouchmove = function (e) {
+    (<any>document).addEventListener('touchmove', function (e) {
       e.preventDefault();
-    };
+      return false;
+    }, { passive: false });
   }
 
   pause = () => {
