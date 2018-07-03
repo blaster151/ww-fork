@@ -120,7 +120,7 @@ export class CellDirective implements OnInit {
                 evt.stopPropagation();
                 evt.preventDefault();
                 return false;
-            }, { passive: false });
+            });
         });
     }
 

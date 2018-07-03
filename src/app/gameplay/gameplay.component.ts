@@ -39,7 +39,7 @@ export class GameplayComponent implements OnInit {
     (<any>document).addEventListener('touchmove', function (e) {
       e.preventDefault();
       return false;
-    }, { passive: false });
+    });
   }
 
   pause = () => {
