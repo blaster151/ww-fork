@@ -6,7 +6,7 @@ import { Directive, ElementRef } from '@angular/core';
 export class EnlargeFontToFitDirective {
 
   private readonly paddingDesired = 10;
-  private readonly increment = 0.25; //0.5;
+  private readonly increment = 0.75; //0.5;
 
   constructor(private element: ElementRef) { }
 
@@ -16,12 +16,14 @@ export class EnlargeFontToFitDirective {
     }, 100);
   }
 
+  iterations = 0;
   evaluateNeedToIncreaseFontSize() {
     // Get actual height
     let heightInformation = this.getHeightInformation();
 
     if ((heightInformation.actualHeight + this.paddingDesired) < heightInformation.availableHeight) {
       this.increaseFontSize();
+      this.iterations++;
 
       // This stepping function used to need a timeout!
       this.evaluateNeedToIncreaseFontSize();
@@ -36,6 +38,8 @@ export class EnlargeFontToFitDirective {
 
       let newSize = parseFloat(existingSize) - this.increment;
       this.element.nativeElement.style.fontSize = newSize + 'px';
+
+      console.log('total iterations', this.iterations);
     }
   }
 
