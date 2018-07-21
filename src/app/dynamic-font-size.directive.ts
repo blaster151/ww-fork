@@ -22,13 +22,22 @@ export class DynamicFontSizeDirective {
     }, 100);
 
     let setBodyAttribute = this.elementRef.nativeElement.getAttribute('setbody');
-    window.addEventListener('resize', () => { setTimeout(() => { this.detectPortraitMode(); this.resizeFont() }, 50) }, false);
+    window.addEventListener('resize', () => {
+      console.log('DynamicFontSizeDirective heard resize');
+
+      setTimeout(() => {
+        this.detectPortraitMode();
+        this.resizeFont()
+      }, 50)
+    }, false);
   }
 
   private detectPortraitMode() {
     if (window.innerHeight > window.innerWidth){
       this.portraitMode = true;
     }
+
+    console.log('detectPortraitMode says ', this.portraitMode);
   }
 
   private getInitialBodyHeight() {

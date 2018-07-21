@@ -22,6 +22,7 @@ export class WordGridComponent {
     this.lettersClicked.emit(letter);
   }
 
+  // I have no recollection why this is needed
   onMouseMoveOverGrid($event: MouseEvent) {
     $event.stopPropagation();
     $event.preventDefault();

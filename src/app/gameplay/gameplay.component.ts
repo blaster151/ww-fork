@@ -23,6 +23,7 @@ export class GameplayComponent implements OnInit {
   private foundWords: IWordWithCoordinates[] = [];
   public wordBeingSelected: IWordWithCoordinates = null;
 
+  public isVisible = true;
   public isPaused: boolean = false;
 
   constructor(private wordSelectionStateService: WordSelectionStateService,
@@ -146,6 +147,16 @@ export class GameplayComponent implements OnInit {
           });
       }
     }
+
+    window.addEventListener('resize', () => {
+      console.log('gameplay heard resize');
+
+      // Will this force everything to redraw?
+      this.isVisible = false;
+      setTimeout(() => {
+        this.isVisible = true;
+      }, 1000);
+    });
 
     this.timerService.intervals.subscribe(i => this.persistProgress());
   }

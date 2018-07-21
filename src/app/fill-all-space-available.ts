@@ -13,7 +13,7 @@ export class FillAllAvailableSpaceDirective {
     }, 100);
 
     window.addEventListener("resize", () => {
-      console.log("in heard resize");
+      console.log("FillAllAvailableSpaceDirective heard resize (doesn't currently do anything)");
     });
 
     this.triage();
