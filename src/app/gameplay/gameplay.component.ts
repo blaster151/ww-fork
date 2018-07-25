@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ICellWithCoordinates, IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
 import { WordSelectionStateService } from './../word-selection-state.service';
 import { Observable } from 'rxjs';
@@ -23,7 +23,6 @@ export class GameplayComponent implements OnInit {
   private foundWords: IWordWithCoordinates[] = [];
   public wordBeingSelected: IWordWithCoordinates = null;
 
-  public isVisible = true;
   public isPaused: boolean = false;
 
   constructor(private wordSelectionStateService: WordSelectionStateService,
@@ -148,16 +147,6 @@ export class GameplayComponent implements OnInit {
       }
     }
 
-    window.addEventListener('resize', () => {
-      console.log('gameplay heard resize');
-
-      // Will this force everything to redraw?
-      this.isVisible = false;
-      setTimeout(() => {
-        this.isVisible = true;
-      }, 1000);
-    });
-
     this.timerService.intervals.subscribe(i => this.persistProgress());
   }
 
@@ -183,6 +172,9 @@ export class GameplayComponent implements OnInit {
     this.puzzle.words.forEach(w => w.isFound = false);
     this.foundWords.length = 0;
     this.puzzle.getAllCells().forEach(c => c.isCircled = false);
+
+    // Resort words
+    this.puzzle.words = this.puzzle.words.orderBy(w => w.word);
 
     this.timerService.resetElapsedTime();
     this.persistProgress();
