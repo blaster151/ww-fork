@@ -147,6 +147,14 @@ export class GameplayComponent implements OnInit {
       }
     }
 
+    window.addEventListener('resize', () => {
+      // Might help with initial render in some cases
+      this.isVisible = false;
+      setTimeout(() => {
+        this.isVisible = true;
+      }, 1000);
+    });
+
     this.timerService.intervals.subscribe(i => this.persistProgress());
   }
 
