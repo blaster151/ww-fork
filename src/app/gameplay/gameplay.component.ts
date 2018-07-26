@@ -23,6 +23,7 @@ export class GameplayComponent implements OnInit {
   private foundWords: IWordWithCoordinates[] = [];
   public wordBeingSelected: IWordWithCoordinates = null;
 
+  public isVisible = true;
   public isPaused: boolean = false;
 
   constructor(private wordSelectionStateService: WordSelectionStateService,
