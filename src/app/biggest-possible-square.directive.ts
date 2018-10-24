@@ -10,14 +10,16 @@ export class BiggestPossibleSquareDirective {
 
   ngOnInit() {
     setTimeout(() => {
+      console.log('resizeSquare');
+      
       this.resizeSquare();
-    }, 50);
+    }, 120);
 
     window.addEventListener('resize', () => {
       console.log('BiggestPossibleSquareDirective heard resize');
       setTimeout(() => {
         this.resizeSquare()
-      }, 50)
+      }, 120)
     }, false);
   }
 
@@ -38,5 +40,8 @@ export class BiggestPossibleSquareDirective {
 
     this.elementRef.nativeElement.style.height = squareSize + "px";
     this.elementRef.nativeElement.style.width = squareSize + "px";
+
+    console.log('final squareSize ', squareSize);
+    
   }
 }
