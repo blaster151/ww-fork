@@ -150,6 +150,7 @@ export class GameplayComponent implements OnInit {
 
     window.addEventListener('resize', () => {
       // Might help with initial render in some cases
+      console.log('gameplay component heard resize');
       this.isVisible = false;
       setTimeout(() => {
         this.isVisible = true;

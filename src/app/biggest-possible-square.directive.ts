@@ -18,6 +18,7 @@ export class BiggestPossibleSquareDirective {
     window.addEventListener('resize', () => {
       console.log('BiggestPossibleSquareDirective heard resize');
       setTimeout(() => {
+        console.log('   BiggestPossibleSquareDirective about to resizeSquare after timeout');
         this.resizeSquare()
       }, 120)
     }, false);

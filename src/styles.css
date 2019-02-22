@@ -5,13 +5,13 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('assets/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Roboto'), local('Roboto-Regular'),
-       url('/assets/roboto-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/assets/roboto-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/assets/roboto-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/assets/roboto-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/roboto-v18-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+       url('assets/roboto-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/roboto-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/roboto-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('assets/roboto-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('assets/roboto-v18-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
 /* lato-regular - latin */
@@ -19,13 +19,13 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/lato-v14-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('assets/lato-v14-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Lato Regular'), local('Lato-Regular'),
-       url('/assets/lato-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/assets/lato-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/assets/lato-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/assets/lato-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/lato-v14-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+       url('assets/lato-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/lato-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/lato-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('assets/lato-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('assets/lato-v14-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
 }
 
 /* sanchez-regular - latin */
@@ -33,13 +33,13 @@
   font-family: 'Sanchez';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/sanchez-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('assets/sanchez-v6-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Sanchez'), local('Sanchez-Regular'),
-       url('/assets/sanchez-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/assets/sanchez-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/assets/sanchez-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/assets/sanchez-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/sanchez-v6-latin-regular.svg#Sanchez') format('svg'); /* Legacy iOS */
+       url('assets/sanchez-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/sanchez-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/sanchez-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('assets/sanchez-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('assets/sanchez-v6-latin-regular.svg#Sanchez') format('svg'); /* Legacy iOS */
 }
 
 html {
@@ -48,6 +48,7 @@ html {
 
 body {
   height: 100%;
+  margin: 0%;
 }
 
 .verticalCenter {
