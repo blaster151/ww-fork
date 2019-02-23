@@ -16,7 +16,7 @@ export class EnlargeFontToFitDirective {
     }, 100);
   }
 
-  iterations = 0;
+  private iterations = 0;
   evaluateNeedToIncreaseFontSize() {
     // Get actual height
     let heightInformation = this.getHeightInformation();
