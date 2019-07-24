@@ -7,9 +7,6 @@ export class TakeAllAvailableSpaceDirective {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    console.log('TakeAllAvailableSpaceDirective ngOnInit');
-    console.log(this.elementRef);
-
     // What can I access?
     let x = this.elementRef.nativeElement.getBoundingClientRect();
     let y = document.querySelector('body').getBoundingClientRect();

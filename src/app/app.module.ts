@@ -33,6 +33,7 @@ import { EnlargeFontToFitDirective } from './enlarge-font-to-fit.directive';
 import { ContentPathService } from './content-path.service';
 import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
 import { TakeAllAvailableSpaceDirective } from './take-all-available-space.directive';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { TakeAllAvailableSpaceDirective } from './take-all-available-space.direc
     EndOfGameComponent,
     EnlargeFontToFitDirective,
     FillAllAvailableSpaceDirective,
-    TakeAllAvailableSpaceDirective
+    TakeAllAvailableSpaceDirective,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

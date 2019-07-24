@@ -10,9 +10,9 @@
 
 <body style="margin: 0px">
   <div style="overflow: hidden">
-    <div style="height: 5%;">(WonderWord Header)</div>
+    <div style="height: 12%;">(WonderWord Header)</div>
 
-    <div style="height: 95%; padding: 0px 0px; background: #666666; overflow: hidden">
+    <div style="height: 88%; padding: 0px 0px; background: #666666;">
       <!-- I can reproduce the cropping weirdness with either padding or margin here  -->
       <iframe src="./?puzzle=170106" data-content-path="./app/xml_samples" style="border-width: 0px;"></iframe>
       <!--  -->
@@ -21,6 +21,10 @@
 
     <script type="text/javascript">
     setIFrameToFillAvailableSpace();
+    window.addEventListener('resize', () => {
+      console.log('outer resize heard');
+      setIFrameToFillAvailableSpace();
+    });
 
     function setIFrameToFillAvailableSpace() {
         let iframe = document.querySelector('iframe');

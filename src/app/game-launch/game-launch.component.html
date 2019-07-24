@@ -1,3 +1,7 @@
-<div appDynamicFontSize=".05" setbody="true">
-  <app-gameplay *ngIf="puzzle" [puzzle]="puzzle"></app-gameplay>
+<div id="gameLaunchContainer">
+  <div appDynamicFontSize=".05" setbody="true" *ngIf="_reload" style="display: inherit">
+    <app-gameplay *ngIf="puzzle" [puzzle]="puzzle" (viewInitialized)='this.gameplayInitialized()'></app-gameplay>
+  </div>
 </div>
+
+<app-spinner style="position: absolute; top: 0px; left: 0px; height: 100%; width: 100%;"></app-spinner>

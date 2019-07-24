@@ -8,7 +8,6 @@ export class FillAllAvailableSpaceDirective {
 
   ngOnInit() {
     setTimeout(() => {
-      console.log("After timeout in FillAllAvailableSpaceDirective");
       this.triage();
     }, 100);
 
@@ -33,8 +32,5 @@ export class FillAllAvailableSpaceDirective {
 
     //this.elementRef.nativeElement.height = desiredHeight;
     this.elementRef.nativeElement.style.height = desiredHeight + "px";
-
-    console.log('final triage from fill all available space ', desiredHeight);
-    
   }
 }

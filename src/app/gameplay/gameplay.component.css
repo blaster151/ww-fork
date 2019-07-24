@@ -80,3 +80,9 @@ h3 {
 /* #wordList {
   font-size: 0.85em;
 } */
+
+#solutionSizeLabel {
+  /* font-size: 0.7em; */
+  color: orange;
+  user-select: none;
+}
