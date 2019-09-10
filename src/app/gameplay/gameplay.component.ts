@@ -156,6 +156,7 @@ export class GameplayComponent implements OnInit {
       }
     }
 
+    // Is this needed?
     window.addEventListener('resize', () => {
       // Might help with initial render in some cases
       console.log('gameplay component heard resize');

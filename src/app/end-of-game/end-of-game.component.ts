@@ -12,7 +12,9 @@ export class EndOfGameComponent implements OnInit {
   @Output() resetRequested = new EventEmitter<boolean>();
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('endofgame oninit');
+  }
 
   nextMessage() {
     this.step++;

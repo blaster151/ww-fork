@@ -30,6 +30,8 @@
         -moz-column-gap: 0em;
         -webkit-column-gap: 0em;
         column-gap: 0em;
+
+        padding: 1% 0% 5% 0%;
     }
 
 

@@ -43,8 +43,16 @@ div {
 
 #wordList {
   background: #666666;
-  /* color: green; */
   padding: 1%;
+  /* color: green; */
+}
+
+/* Prevent a slight overlap with bottom text and gameport edge */
+@media only screen and (orientation : portrait)
+{
+  .wordList {
+    padding: 0% 0% 1% 0%;
+  }
 }
 
 /deep/ .grid {
