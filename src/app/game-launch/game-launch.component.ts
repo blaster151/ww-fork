@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Puzzle } from '../models/puzzle';
 import { GameContentService } from '../game-content.service';
 import { URLSearchParams } from '@angular/http';
@@ -11,17 +11,43 @@ import { URLSearchParams } from '@angular/http';
 export class GameLaunchComponent implements OnInit {
   public puzzle: Puzzle;
 
-  constructor(private gameContentService: GameContentService) {
+  public _reload = false;
+
+  private reload() {
+      setTimeout(() => { this._reload = false; });
+      setTimeout(() => { this._reload = true; }, 100);
+  }
+
+  constructor(private gameContentService: GameContentService, private cdr: ChangeDetectorRef) {
     let urlsearchparams = new URLSearchParams(window.location.search.replace(/\//g, ""));
     let puzzleId = urlsearchparams.get('?puzzle');
 
     if (!puzzleId) puzzleId = "170102";
 
     this.gameContentService.loadGame(puzzleId)
-      .then(p => this.puzzle = p);
+      .then(p => {this.puzzle = p; this._reload = true; });
+
+    // FIres before resize, as we would hope
+    window.addEventListener("orientationchange", (rsp) => {
+      (<any>document.querySelector('app-spinner')).style.display = 'inherit';
+      (<any>document.querySelector('#gameLaunchContainer')).style.display = 'none';
+
+      this.reload();
+
+      // I don't know if this helps anything
+      return false;
+    }, false);
   }
 
   ngOnInit() {
   }
 
+  gameplayInitialized() {
+    (<any>document.querySelector('#gameLaunchContainer')).style.display = 'inherit';
+    
+    // Give game a second to redraw itself
+    setTimeout(() => {
+      (<any>document.querySelector('app-spinner')).style.display = 'none';
+    }, 100);
+  }
 }

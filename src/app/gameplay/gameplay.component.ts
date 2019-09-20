@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ICellWithCoordinates, IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
 import { WordSelectionStateService } from './../word-selection-state.service';
 import { Observable } from 'rxjs';
@@ -26,6 +26,8 @@ export class GameplayComponent implements OnInit {
   public isVisible = true;
   public isPaused: boolean = false;
 
+  @Output() viewInitialized = new EventEmitter();
+
   constructor(private wordSelectionStateService: WordSelectionStateService,
     private localStorageService: LocalStorageService,
     private timerService: TimerService,
@@ -38,6 +40,7 @@ export class GameplayComponent implements OnInit {
     // };
     // This helps prevent body scrolling in WBG
     (<any>document).addEventListener('touchmove', function (e) {
+      console.log('touchmove preventing');
       e.preventDefault();
       return false;
     });
@@ -66,6 +69,11 @@ export class GameplayComponent implements OnInit {
     }
     else
       this.puzzle.highlightLetter(x.word.word.substring(0, 1), false);
+  }
+
+  ngAfterViewInit() {
+    console.log('gameplay ngAfterViewInit');
+    this.viewInitialized.emit();
   }
 
   ngOnInit() {
@@ -148,8 +156,10 @@ export class GameplayComponent implements OnInit {
       }
     }
 
+    // Is this needed?
     window.addEventListener('resize', () => {
       // Might help with initial render in some cases
+      console.log('gameplay component heard resize');
       this.isVisible = false;
       setTimeout(() => {
         this.isVisible = true;
