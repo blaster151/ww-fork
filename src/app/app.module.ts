@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
 import { AppComponent } from './app.component';
-import { TestHarnessComponent } from './test-harness/test-harness.component';
 import { WordComponent } from './word/word.component';
 import { WordListComponent } from './word-list/word-list.component';
 import { WordGridComponent } from './word-grid/word-grid.component';
@@ -27,7 +26,6 @@ import { LogoComponent } from './logo/logo.component';
 import { GameLaunchComponent } from './game-launch/game-launch.component';
 import { BandDrawerService } from './band-drawer.service';
 import * as extensions from './extensions';
-import { TestHarnessGalleryComponent } from './test-harness-gallery/test-harness-gallery.component';
 import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
 import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
@@ -38,7 +36,6 @@ import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
 @NgModule({
   declarations: [
     AppComponent,
-    TestHarnessComponent,
     WordComponent,
     WordListComponent,
     WordGridComponent,
@@ -48,7 +45,6 @@ import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
     TimerComponent,
     LogoComponent,
     GameLaunchComponent,
-    TestHarnessGalleryComponent,
     BiggestPossibleSquareDirective,
     DynamicFontSizeDirective,
     EndOfGameComponent,
