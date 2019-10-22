@@ -22,14 +22,14 @@ export class DynamicFontSizeDirective {
     }, 100);
 
     let setBodyAttribute = this.elementRef.nativeElement.getAttribute('setbody');
-    window.addEventListener('resize', () => {
-      console.log('DynamicFontSizeDirective heard resize');
+    // window.addEventListener('resize', () => {
+    //   console.log('Resize handler: DynamicFontSizeDirective');
 
-      setTimeout(() => {
-        this.detectPortraitMode();
-        this.resizeFont()
-      }, 50)
-    }, false);
+    //   setTimeout(() => {
+    //     this.detectPortraitMode();
+    //     this.resizeFont()
+    //   }, 50)
+    // }, false);
   }
 
   private detectPortraitMode() {

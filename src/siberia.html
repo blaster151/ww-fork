@@ -1,24 +1,25 @@
 ﻿<!DOCTYPE html>
-<html style="background: green; overflow: hidden; height: 100%">
+<html style="background: #71A0FF; overflow: hidden; height: 100%">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <met<!--a name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 </head>
 
-<body style="margin: 0px; padding: 0px; height: 100%; width: 100%; background: orange; user-select: none; overflow: hidden">
-        <div style="padding: 0px; height: 88%; width: 100%; background: #666666; user-select: none;">
+<body style="margin: 0px; padding: 0px; height: 100%; width: 100%; background: #71A0FF; user-select: none;">
             <!-- I can reproduce the cropping weirdness with either padding or margin here  -->
-            <iframe src="http://localhost:4200/mobile.html" style="border: none; overflow: hidden" hspace="0" vspace="0" marginHeight="0" marginWidth="0" height="700px" width="100%" scrolling="no" frameborder="0"></iframe>
-            <!--  -->
-        </div>
-        <div style="height: 12%;">(WonderWord Header)</div>
+
+            <!-- Pointing to actual deployed application  -->
+            <!-- <iframe src="https://www.wonderword.com/wonderword-app" style="border: none; overflow: hidden; background: #71A0FF;" hspace="0" vspace="0" marginHeight="0" marginWidth="0" height="99.5%" width="99%" scrolling="no" frameborder="0" data-content-path="./app/xml_samples"></iframe> -->
+
+            <!-- Pointing to local current code  -->
+            <iframe src="./" style="border: none; overflow: hidden; background: #71A0FF;" hspace="0" vspace="0" marginHeight="0" marginWidth="0" height="99.5%" width="99%" scrolling="no" frameborder="0" data-content-path="./app/xml_samples"></iframe>
 
     <script type="text/javascript">
         // setTimeout(function() {
         //     document.querySelector('iframe').setAttribute('src', 'https://www.wonderword.com/wonderword-app');
         // }, 7000);
-        // Doesn't seem to help?
+   -->      // Doesn't seem to help?
         document.querySelector('body').addEventListener('touchmove', function(evt) {
             evt.preventDefault();
             return false;

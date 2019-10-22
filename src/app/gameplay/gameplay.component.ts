@@ -156,10 +156,12 @@ export class GameplayComponent implements OnInit {
       }
     }
 
-    // Is this needed?
+    // Is this needed?  This seems to only make things
+    // jerkier
     window.addEventListener('resize', () => {
       // Might help with initial render in some cases
-      console.log('gameplay component heard resize');
+      console.log('Resize handler: Gameplay component');
+
       this.isVisible = false;
       setTimeout(() => {
         this.isVisible = true;

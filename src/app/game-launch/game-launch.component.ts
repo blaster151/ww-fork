@@ -14,6 +14,9 @@ export class GameLaunchComponent implements OnInit {
   public _reload = false;
 
   private reload() {
+    (<any>document.querySelector('app-spinner')).style.display = 'inherit';
+    (<any>document.querySelector('#gameLaunchContainer')).style.display = 'none';
+
       setTimeout(() => { this._reload = false; });
       setTimeout(() => { this._reload = true; }, 100);
   }
@@ -29,8 +32,16 @@ export class GameLaunchComponent implements OnInit {
 
     // FIres before resize, as we would hope
     window.addEventListener("orientationchange", (rsp) => {
-      (<any>document.querySelector('app-spinner')).style.display = 'inherit';
-      (<any>document.querySelector('#gameLaunchContainer')).style.display = 'none';
+      console.log('in orientationchange handler');
+
+      this.reload();
+
+      // I don't know if this helps anything
+      return false;
+    }, false);
+
+    window.addEventListener("resize", (rsp) => {
+      console.log('in resize handler');
 
       this.reload();
 
@@ -43,6 +54,8 @@ export class GameLaunchComponent implements OnInit {
   }
 
   gameplayInitialized() {
+    console.log('gameplay emitted gameplayInitialized event');
+
     (<any>document.querySelector('#gameLaunchContainer')).style.display = 'inherit';
     
     // Give game a second to redraw itself

@@ -13,11 +13,12 @@ export class BiggestPossibleSquareDirective {
       this.resizeSquare();
     }, 120);
 
-    window.addEventListener('resize', () => {
-      setTimeout(() => {
-        this.resizeSquare()
-      }, 120)
-    }, false);
+    // window.addEventListener('resize', () => {
+    //   console.log('Resize handler: BiggestPossibleSquareDirective');
+    //   setTimeout(() => {
+    //     this.resizeSquare()
+    //   }, 120)
+    // }, false);
   }
 
   resizeSquare() {
