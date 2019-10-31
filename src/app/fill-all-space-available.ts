@@ -11,8 +11,8 @@ export class FillAllAvailableSpaceDirective {
       this.triage();
     }, 100);
 
-    window.addEventListener('resize', () => {
-      console.log('Resize handler: FillAllAvailableSpaceDirective (does not currently do anything)');
+    this.elementRef.nativeElement.addEventListener('resize', () => {
+      console.log('JCB FillAllAvailableSpaceDirective Resize handler ON ELEMENT');
     });
   }
 

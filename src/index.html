@@ -9,10 +9,20 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- <script src="http://10.0.0.93:1337/vorlon.js"></script> -->
+
+  <!-- Within iframe -->
+  <script src="http://10.15.100.54:1337/vorlon.js"></script> <!-- 172.17.12.113 -->
 </head>
 
 <body style="overflow: hidden"> <!-- style="overflow: hidden" -->
   <app-game-launch></app-game-launch>
 </body>
+
+<script type="text/javascript">
+  window.addEventListener('resize', () => {
+    // When I run in Chrome device emulator, this doesn't appear to fire ever
+    console.log('JCB index.html resize handler', window.innerWidth, window.innerHeight);
+  });
+</script>
+
 </html>

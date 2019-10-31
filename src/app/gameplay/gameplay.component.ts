@@ -44,6 +44,9 @@ export class GameplayComponent implements OnInit {
       e.preventDefault();
       return false;
     });
+
+    console.log('JCB gameplay component constructed');
+    
   }
 
   pause = () => {
@@ -158,18 +161,27 @@ export class GameplayComponent implements OnInit {
 
     // Is this needed?  This seems to only make things
     // jerkier
-    window.addEventListener('resize', () => {
-      // Might help with initial render in some cases
-      console.log('Resize handler: Gameplay component');
 
-      this.isVisible = false;
-      setTimeout(() => {
-        this.isVisible = true;
-      }, 1000);
-    });
+
+    window.addEventListener('resize', this.resizeHandler);
 
     this.timerService.intervals.subscribe(i => this.persistProgress());
   }
+
+  ngOnDestroy() {
+    console.log('JCB GameplayComponent onDestroy; unsubscribing from windows resize events');
+    window.removeEventListener('resize', this.resizeHandler);
+  }
+
+  private resizeHandler = () => {
+    // Might help with initial render in some cases
+    console.log('JCB GameplayComponent Resize handler');
+
+    // this.isVisible = false;
+    // setTimeout(() => {
+    //   this.isVisible = true;
+    // }, 1000);
+  };
 
   persistProgress() {
     const key = this.puzzle.title;

@@ -37,7 +37,7 @@ export class DynamicFontSizeDirective {
       this.portraitMode = true;
     }
 
-    console.log('detectPortraitMode says ', this.portraitMode);
+    console.log('detectPortraitMode says ', JSON.stringify(this.portraitMode));
   }
 
   private getInitialBodyHeight() {

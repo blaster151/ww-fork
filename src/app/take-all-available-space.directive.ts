@@ -6,6 +6,7 @@ import { Directive, Input, ElementRef } from '@angular/core';
 export class TakeAllAvailableSpaceDirective {
   constructor(private elementRef: ElementRef) {}
 
+  // This obviously does nothing
   ngOnInit() {
     // What can I access?
     let x = this.elementRef.nativeElement.getBoundingClientRect();
