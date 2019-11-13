@@ -1,15 +1,20 @@
 import { Directive, ElementRef, Input } from "@angular/core";
+import { GameInitializationServiceService, LaunchSteps } from "./game-initialization-service.service";
 
 @Directive({
   selector: "[appFillAllSpaceAvailable]"
 })
 export class FillAllAvailableSpaceDirective {
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private g: GameInitializationServiceService) {}
 
   ngOnInit() {
-    setTimeout(() => {
-      this.triage();
-    }, 100);
+    this.g.orchestrator.subscribe(step => {
+      if (step == LaunchSteps.FillAllAvailableSpaceRequested)
+      {
+        console.log('In FillAllAvailableSpaceDirective triage()');
+        this.triage();
+      }
+    });
 
     this.elementRef.nativeElement.addEventListener('resize', () => {
       //console.log('JCB FillAllAvailableSpaceDirective Resize handler ON ELEMENT');

@@ -20,13 +20,13 @@ export class GameInitializationServiceService {
         setTimeout(() => {
           console.log('nextING from orchestrator');
           this.orchestrator.next(LaunchSteps.GameShowing);
-        }, 1000);
+        }, 200);
       }
       else if (step == LaunchSteps.FontDetermined)
       {
         setTimeout(() => {
           this.orchestrator.next(LaunchSteps.DisplayingWordlistFont);
-        }, 1000);
+        }, 200);
       }
     });
   }
@@ -38,6 +38,9 @@ export enum LaunchSteps {
   ContentLoaded,
   GameShowing,
   DisplayOutmostContainer,
+  
+  FillAllAvailableSpaceRequested,
+  EnlargeFontToFitRequested,
   
   FontDetermined,
   DisplayingWordlistFont

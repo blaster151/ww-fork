@@ -42,16 +42,14 @@ export class WordListComponent implements OnInit {
     this.g.orchestrator.subscribe(step => {
       if (step == LaunchSteps.FontDetermined)
       {
-        console.log('Notified that font has been determined');
+        setTimeout(() => {
+          console.log('Notified that font has been determined');
         
-        this.doneLoading = true;
-        this.c.detectChanges();
+          this.doneLoading = true;
+          this.c.detectChanges();
+        }, 200);
       }
     });
-
-    setTimeout(() => {
-      console.log('after timeout from ngafterviewinit');
-    }, 10);
   }
 
   onWordSelected(selectionChange: IWordSelectionChange) {

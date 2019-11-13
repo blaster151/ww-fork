@@ -14,16 +14,17 @@ export class EnlargeFontToFitDirective {
   constructor(private element: ElementRef, private g: GameInitializationServiceService) { }
 
   ngOnInit() {
-    let interval = setInterval(() => {
-      if (this.hasModifiedFontSizeAtLeastOnce) {
-        //console.log(' EnlargeFontToFitDirective has already run; clearing itself');
-        clearInterval(interval);
+    this.g.orchestrator.subscribe(step => {
+      if (step == LaunchSteps.EnlargeFontToFitRequested)
+      {
+        if (this.hasModifiedFontSizeAtLeastOnce) {
+        }
+        else {
+          this.evaluateNeedToIncreaseFontSize();
+          //console.log(' EnlargeFontToFitDirective running first time');
+        }
       }
-      else {
-        this.evaluateNeedToIncreaseFontSize();
-        //console.log(' EnlargeFontToFitDirective running first time');
-      }
-    }, 125);
+    });
   }
 
   private iterations = 0;

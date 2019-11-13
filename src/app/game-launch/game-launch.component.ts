@@ -64,25 +64,25 @@ export class GameLaunchComponent implements OnInit {
 
     let resizeCtr = 0;
     window.addEventListener("resize", (rsp) => {
-      console.log('JCB in GameLauncher resize handler', window.innerWidth, ' ', window.innerHeight);
-      console.log('JCB in GameLauncher resize handler', window.outerWidth, ' ', window.outerHeight, window.pageXOffset, window.pageYOffset);
-      console.log(JSON.stringify(this.elem.nativeElement.getBoundingClientRect()));
+      // console.log('JCB in GameLauncher resize handler', window.innerWidth, ' ', window.innerHeight);
+      // console.log('JCB in GameLauncher resize handler', window.outerWidth, ' ', window.outerHeight, window.pageXOffset, window.pageYOffset);
+      // console.log(JSON.stringify(this.elem.nativeElement.getBoundingClientRect()));
 
-      console.log('   before timeout');
-      console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
-      console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
+      // console.log('   before timeout');
+      // console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
+      // console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
 
 
-      setTimeout(() => {
-        console.log('   in timeout');
-        console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
-        console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
-      }, 0);
-      setTimeout(() => {
-        console.log('   in timeout');
-        console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
-        console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
-      }, 1500);
+      // setTimeout(() => {
+      //   console.log('   in timeout');
+      //   console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
+      //   console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
+      // }, 0);
+      // setTimeout(() => {
+      //   console.log('   in timeout');
+      //   console.log(JSON.stringify(document.querySelector('#gameLaunchContainer') ? document.querySelector('#gameLaunchContainer').getBoundingClientRect() : {}));
+      //   console.log(JSON.stringify(document.querySelector('#wordGridContainer') ? document.querySelector('#wordGridContainer').getBoundingClientRect() : {}));
+      // }, 1500);
 
       resizeCtr++;
       if (resizeCtr > 2)
@@ -112,6 +112,7 @@ export class GameLaunchComponent implements OnInit {
 
   gameplayInitialized() {
     console.log('Received gameplay emitted gameplayInitialized event');
+    
 
     // (<any>document.querySelector('#gameLaunchContainer')).style.display = 'inherit';
     

@@ -57,7 +57,18 @@ export class GameplayComponent implements OnInit {
 
         setTimeout(() => {
           this._showWordList = true;
-        }, 2000);
+
+          console.log('After showing word list, before invoking FillAllAvailableSpaceRequested');
+          setTimeout(() => {
+            console.log('invoking FillAllAvailableSpaceRequested');
+            this.gameInitializationService.orchestrator.next(LaunchSteps.FillAllAvailableSpaceRequested);
+
+            setTimeout(() => {
+              console.log('About to invoke EnlargeFontToFitRequested');
+              this.gameInitializationService.orchestrator.next(LaunchSteps.EnlargeFontToFitRequested);
+            }, 0);
+          }, 10);
+        }, 10);
       }
     });
   }
