@@ -34,6 +34,7 @@ import { ContentPathService } from './content-path.service';
 import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
 import { TakeAllAvailableSpaceDirective } from './take-all-available-space.directive';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { GameInitializationServiceService } from './game-initialization-service.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [ XmlToJsonService, GameContentService, WordSelectionStateService, TimerService, LocalStorageService, EndOfGameCelebrationService, Overlay, ContentPathService, BandDrawerService ],
+  providers: [ XmlToJsonService, GameContentService, WordSelectionStateService, TimerService, LocalStorageService, EndOfGameCelebrationService, Overlay, ContentPathService, BandDrawerService, GameInitializationServiceService ],
   bootstrap: [GameLaunchComponent]  
 })
 export class AppModule {

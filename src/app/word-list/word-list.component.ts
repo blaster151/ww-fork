@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { IWordSelectionChange } from './../ww.interfaces';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/mergeMap';
 import { Word } from 'app/models/word';
 import { trigger, state, transition, animate, style } from '@angular/animations';
+import { GameInitializationServiceService, LaunchSteps } from 'app/game-initialization-service.service';
 
 @Component({
   selector: 'app-word-list',
@@ -16,9 +17,11 @@ export class WordListComponent implements OnInit {
   @Output() public wordIndicated = new EventEmitter<IWordSelectionChange>();
   sortedWords: Word[] = [];
 
-  constructor() { }
+  constructor(private c: ChangeDetectorRef, private g: GameInitializationServiceService) { }
 
   private wordsFound = 0;
+  private doneLoading = false;
+
   ngDoCheck() {
     if (this.words.filter(w => w.isFound).length !== this.wordsFound)
     {
@@ -30,6 +33,25 @@ export class WordListComponent implements OnInit {
 
   ngOnInit() {
     this.sortedWords = this.words;
+    console.log('Word list done initting');
+  }
+
+  ngAfterViewInit() {
+    console.log('Word list done viewInitting');
+
+    this.g.orchestrator.subscribe(step => {
+      if (step == LaunchSteps.FontDetermined)
+      {
+        console.log('Notified that font has been determined');
+        
+        this.doneLoading = true;
+        this.c.detectChanges();
+      }
+    });
+
+    setTimeout(() => {
+      console.log('after timeout from ngafterviewinit');
+    }, 10);
   }
 
   onWordSelected(selectionChange: IWordSelectionChange) {

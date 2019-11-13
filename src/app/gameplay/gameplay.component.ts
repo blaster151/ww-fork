@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ContentChild, Output, EventEmitter } from '@angular/core';
 import { ICellWithCoordinates, IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
 import { WordSelectionStateService } from './../word-selection-state.service';
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ import { Puzzle } from '../models/puzzle';
 import { PuzzleCell } from '../models/puzzleCell';
 import { EndOfGameCelebrationService } from '../end-of-game-celebration.service';
 import { BiggestPossibleSquareDirective } from '../biggest-possible-square.directive';
+import { GameInitializationServiceService, LaunchSteps } from 'app/game-initialization-service.service';
 
 @Component({
   selector: 'app-gameplay',
@@ -23,15 +24,19 @@ export class GameplayComponent implements OnInit {
   private foundWords: IWordWithCoordinates[] = [];
   public wordBeingSelected: IWordWithCoordinates = null;
 
-  public isVisible = true;
+  public _showGrid = false;
+  public _showWordList = false;
+
   public isPaused: boolean = false;
 
   @Output() viewInitialized = new EventEmitter();
+  @ContentChild(BiggestPossibleSquareDirective) private biggestPossibleSquareDirective: BiggestPossibleSquareDirective;
 
   constructor(private wordSelectionStateService: WordSelectionStateService,
     private localStorageService: LocalStorageService,
     private timerService: TimerService,
-    private endOfGameCelebrationService: EndOfGameCelebrationService) {
+    private endOfGameCelebrationService: EndOfGameCelebrationService,
+    private gameInitializationService: GameInitializationServiceService) {
     this.wordSelectionStateService = wordSelectionStateService;
 
     /* Prevent body scrolling when viewed from iOS */
@@ -45,8 +50,16 @@ export class GameplayComponent implements OnInit {
       return false;
     });
 
-    console.log('JCB gameplay component constructed');
-    
+    this.gameInitializationService.orchestrator.subscribe(step => {
+      if (step == LaunchSteps.GameShowing)
+      {
+        this._showGrid = true;
+
+        setTimeout(() => {
+          this._showWordList = true;
+        }, 2000);
+      }
+    });
   }
 
   pause = () => {
@@ -77,6 +90,10 @@ export class GameplayComponent implements OnInit {
   ngAfterViewInit() {
     console.log('gameplay ngAfterViewInit');
     this.viewInitialized.emit();
+
+    console.log('gameplay calling its biggestPossibleSquareDirective.resizeSquare()');
+//    this.biggestPossibleSquareDirective.resizeSquare();
+// not picking up
   }
 
   ngOnInit() {
@@ -175,7 +192,7 @@ export class GameplayComponent implements OnInit {
 
   private resizeHandler = () => {
     // Might help with initial render in some cases
-    console.log('JCB GameplayComponent Resize handler');
+    // console.log('JCB GameplayComponent Resize handler');
 
     // this.isVisible = false;
     // setTimeout(() => {

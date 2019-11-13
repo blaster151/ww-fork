@@ -1,3 +1,3 @@
 <div class="wordContainer" *ngFor="let word of sortedWords;let i = index">
-  <app-word [word]="sortedWords[i]" (wordSelected)="this.onWordSelected($event)" (wordIndicated)="this.onWordIndicated($event)"></app-word>
+  <app-word [ngClass]="{ stillLoading: !this.doneLoading }" [word]="sortedWords[i]" (wordSelected)="this.onWordSelected($event)" (wordIndicated)="this.onWordIndicated($event)"></app-word>
 </div>

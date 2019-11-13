@@ -1,5 +1,5 @@
 <div appTakeAllAvailableSpace class="ww-container" style="overflow: hidden" (mousemove)="onMouseMove()">
-    <div id="wordGridContainer" style="position: relative; float: left;" *ngIf="this.isVisible">
+    <div id="wordGridContainer" style="position: relative; float: left;" *ngIf="this._showGrid">
       <div id="timerBar">
         <div style="float: left; height: 100%; user-select: none" class="vc-parent">
           <div id="puzzleTitle" appDynamicFontSize=".04">
@@ -27,7 +27,7 @@
         </app-word-grid>
       </div>
     </div>
-    <div id="wordList" appFillAllSpaceAvailable>
+    <div id="wordList" *ngIf="this._showWordList" appFillAllSpaceAvailable>
       <div id="solutionSizeLabel" *ngIf="this.puzzle && !this.puzzle.isComplete()" appDynamicFontSize=".03">Solution: {{this.puzzle.solution.length}} letters</div>
       <div *ngIf="!this.puzzle.isComplete()" class="wordList" style="font-size: 1em" appEnlargeFontToFit>
         <app-word-list [words]="this.puzzle.words" (wordSelected)="onWordSelected($event)" (wordIndicated)="onWordIndicated($event)"></app-word-list>

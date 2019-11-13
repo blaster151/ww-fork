@@ -1,4 +1,5 @@
 import { Directive, ElementRef } from '@angular/core';
+import { GameInitializationServiceService, LaunchSteps } from './game-initialization-service.service';
 
 @Directive({
   selector: '[appEnlargeFontToFit]'
@@ -10,7 +11,7 @@ export class EnlargeFontToFitDirective {
 
   private hasModifiedFontSizeAtLeastOnce = false;
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private g: GameInitializationServiceService) { }
 
   ngOnInit() {
     let interval = setInterval(() => {
@@ -51,6 +52,7 @@ export class EnlargeFontToFitDirective {
       this.element.nativeElement.style.fontSize = newSize + 'px';
 
       console.log('total iterations', this.iterations, newSize);
+      this.g.orchestrator.next(LaunchSteps.FontDetermined);
     }
   }
 

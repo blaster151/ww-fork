@@ -12,7 +12,7 @@ export class FillAllAvailableSpaceDirective {
     }, 100);
 
     this.elementRef.nativeElement.addEventListener('resize', () => {
-      console.log('JCB FillAllAvailableSpaceDirective Resize handler ON ELEMENT');
+      //console.log('JCB FillAllAvailableSpaceDirective Resize handler ON ELEMENT');
     });
   }
 
@@ -32,5 +32,7 @@ export class FillAllAvailableSpaceDirective {
 
     //this.elementRef.nativeElement.height = desiredHeight;
     this.elementRef.nativeElement.style.height = desiredHeight + "px";
+
+    console.log('FillAllAvailableSpaceDirective set height to ', desiredHeight);
   }
 }

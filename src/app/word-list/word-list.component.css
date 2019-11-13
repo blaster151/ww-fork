@@ -13,4 +13,6 @@ div {
     color: AFD275;
 }
 
-
+.stillLoading {
+    color: rgb(102, 102, 102);  /*  Blends into background of word list */
+}
