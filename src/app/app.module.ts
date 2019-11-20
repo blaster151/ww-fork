@@ -29,7 +29,6 @@ import * as extensions from './extensions';
 import { BiggestPossibleSquareDirective } from './biggest-possible-square.directive';
 import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
-import { EnlargeFontToFitDirective } from './enlarge-font-to-fit.directive';
 import { ContentPathService } from './content-path.service';
 import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
 import { TakeAllAvailableSpaceDirective } from './take-all-available-space.directive';
@@ -51,7 +50,6 @@ import { GameInitializationServiceService } from './game-initialization-service.
     BiggestPossibleSquareDirective,
     DynamicFontSizeDirective,
     EndOfGameComponent,
-    EnlargeFontToFitDirective,
     FillAllAvailableSpaceDirective,
     TakeAllAvailableSpaceDirective,
     SpinnerComponent

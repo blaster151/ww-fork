@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ContentChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ContentChild, Output, EventEmitter, ElementRef } from '@angular/core';
 import { ICellWithCoordinates, IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
 import { WordSelectionStateService } from './../word-selection-state.service';
 import { Observable } from 'rxjs';
@@ -36,7 +36,8 @@ export class GameplayComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private timerService: TimerService,
     private endOfGameCelebrationService: EndOfGameCelebrationService,
-    private gameInitializationService: GameInitializationServiceService) {
+    private gameInitializationService: GameInitializationServiceService,
+    private elementRef: ElementRef) {
     this.wordSelectionStateService = wordSelectionStateService;
 
     /* Prevent body scrolling when viewed from iOS */
@@ -105,6 +106,13 @@ export class GameplayComponent implements OnInit {
     console.log('gameplay calling its biggestPossibleSquareDirective.resizeSquare()');
 //    this.biggestPossibleSquareDirective.resizeSquare();
 // not picking up
+
+    console.log('gameplay component width', this.elementRef.nativeElement.getBoundingClientRect().width);
+          this.gameInitializationService.orchestrator.next(LaunchSteps.FontDetermined);
+
+    // setInterval(() => {
+    //   console.log('gameplay component width', this.elementRef.nativeElement.getBoundingClientRect().width);
+    // }, 3000);
   }
 
   ngOnInit() {

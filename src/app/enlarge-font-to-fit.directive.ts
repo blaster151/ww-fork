@@ -1,87 +1,89 @@
-import { Directive, ElementRef } from '@angular/core';
-import { GameInitializationServiceService, LaunchSteps } from './game-initialization-service.service';
+// import { Directive, ElementRef } from '@angular/core';
+// import { GameInitializationServiceService, LaunchSteps } from './game-initialization-service.service';
 
-@Directive({
-  selector: '[appEnlargeFontToFit]'
-})
-export class EnlargeFontToFitDirective {
+// @Directive({
+//   selector: '[appEnlargeFontToFit]'
+// })
+// export class EnlargeFontToFitDirective {
 
-  private readonly paddingDesired = 10;
-  private readonly increment = 0.75; //0.5;
+//   private readonly paddingDesired = 10;
+//   private readonly increment = 0.75; //0.5;
 
-  private hasModifiedFontSizeAtLeastOnce = false;
+//   private hasModifiedFontSizeAtLeastOnce = false;
 
-  constructor(private element: ElementRef, private g: GameInitializationServiceService) { }
+//   constructor(private element: ElementRef, private g: GameInitializationServiceService) { }
 
-  ngOnInit() {
-    this.g.orchestrator.subscribe(step => {
-      if (step == LaunchSteps.EnlargeFontToFitRequested)
-      {
-        if (this.hasModifiedFontSizeAtLeastOnce) {
-        }
-        else {
-          this.evaluateNeedToIncreaseFontSize();
-          //console.log(' EnlargeFontToFitDirective running first time');
-        }
-      }
-    });
-  }
+//   ngOnInit() {
+//     this.g.orchestrator.subscribe(step => {
+//       if (step == LaunchSteps.EnlargeFontToFitRequested)
+//       {
+//         if (this.hasModifiedFontSizeAtLeastOnce) {
+//         }
+//         else {
+//           this.g.orchestrator.next(LaunchSteps.FontDetermined);
 
-  private iterations = 0;
-  evaluateNeedToIncreaseFontSize() {
-    // Get actual height
-    let heightInformation = this.getHeightInformation();
+// //          this.evaluateNeedToIncreaseFontSize();
+//           //console.log(' EnlargeFontToFitDirective running first time');
+//         }
+//       }
+//     });
+//   }
 
-    if ((heightInformation.actualHeight + this.paddingDesired) < heightInformation.availableHeight) {
-      this.hasModifiedFontSizeAtLeastOnce = true;
+//   private iterations = 0;
+//   evaluateNeedToIncreaseFontSize() {
+//     // Get actual height
+//     let heightInformation = this.getHeightInformation();
 
-      this.increaseFontSize();
-      this.iterations++;
+//     if ((heightInformation.actualHeight + this.paddingDesired) < heightInformation.availableHeight) {
+//       this.hasModifiedFontSizeAtLeastOnce = true;
 
-      // This stepping function used to need a timeout!
-      this.evaluateNeedToIncreaseFontSize();
-    }
-    else {
-      // Decrement and be done
-      let existingSize: string = this.element.nativeElement.style.fontSize;
+//       this.increaseFontSize();
+//       this.iterations++;
 
-      // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
+//       // This stepping function used to need a timeout!
+//       this.evaluateNeedToIncreaseFontSize();
+//     }
+//     else {
+//       // Decrement and be done
+//       let existingSize: string = this.element.nativeElement.style.fontSize;
 
-      existingSize = existingSize.replace('px', '');
+//       // console.log('existingsize', existingSize, this.element.nativeElement.style, this.element.nativeElement);
 
-      let newSize = parseFloat(existingSize) - this.increment;
-      this.element.nativeElement.style.fontSize = newSize + 'px';
+//       existingSize = existingSize.replace('px', '');
 
-      console.log('total iterations', this.iterations, newSize);
-      this.g.orchestrator.next(LaunchSteps.FontDetermined);
-    }
-  }
+//       let newSize = parseFloat(existingSize) - this.increment;
+//       this.element.nativeElement.style.fontSize = newSize + 'px';
 
-  getHeightInformation() {
-    var actualHeight = 0;
-    var availableHeight = 0;
+//       console.log('total iterations', this.iterations, newSize);
+//       this.g.orchestrator.next(LaunchSteps.FontDetermined);
+//     }
+//   }
 
-    if (document.createRange) {
-        var range = document.createRange();
-        range.selectNodeContents(this.element.nativeElement.parentNode);
-        if (range.getBoundingClientRect) {
-            var rect = range.getBoundingClientRect();
-            if (rect) {
-                actualHeight = rect.bottom - rect.top;
-                availableHeight = this.element.nativeElement.parentNode.offsetHeight;
-            }
-        }
-    }
+//   getHeightInformation() {
+//     var actualHeight = 0;
+//     var availableHeight = 0;
 
-    return { actualHeight, availableHeight };
-  }
+//     if (document.createRange) {
+//         var range = document.createRange();
+//         range.selectNodeContents(this.element.nativeElement.parentNode);
+//         if (range.getBoundingClientRect) {
+//             var rect = range.getBoundingClientRect();
+//             if (rect) {
+//                 actualHeight = rect.bottom - rect.top;
+//                 availableHeight = this.element.nativeElement.parentNode.offsetHeight;
+//             }
+//         }
+//     }
 
-  increaseFontSize() {
-    let existingSize: string = this.element.nativeElement.style.fontSize;
+//     return { actualHeight, availableHeight };
+//   }
 
-    existingSize = existingSize.replace('px', '');
+//   increaseFontSize() {
+//     let existingSize: string = this.element.nativeElement.style.fontSize;
 
-    let newSize = parseFloat(existingSize) + this.increment;
-    this.element.nativeElement.style.fontSize = newSize + 'px';
-  }
-}
+//     existingSize = existingSize.replace('px', '');
+
+//     let newSize = parseFloat(existingSize) + this.increment;
+//     this.element.nativeElement.style.fontSize = newSize + 'px';
+//   }
+// }
