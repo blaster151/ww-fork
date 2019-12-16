@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer, HostBinding, SimpleChanges, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
 import { WordSelectionStateService } from './word-selection-state.service';
 import { ICellWithCoordinates } from './ww.interfaces';
 
@@ -83,33 +83,20 @@ export class CellDirective implements OnInit {
                     const myLocation = evt.changedTouches[0];
                     const realTarget = document.elementFromPoint(myLocation.clientX, myLocation.clientY);
 
-                    if (realTarget === this.element.nativeElement) {
-                        //console.log('same');
-                    } else {
-                        //console.log('dispatching', realTarget.innerHTML);
-                        let a = realTarget.getAttribute("ngReflectCellcontents");
-                        //console.log('actual target, we think', JSON.stringify(a));
-
-                       if ((<any>realTarget).dispatchEvent) {
+                    if (realTarget !== this.element.nativeElement) {
+                        if ((<any>realTarget).dispatchEvent) {
                             (<any>realTarget).dispatchEvent(<any>new Event(controlScheme.move, {}));
-
-
-
                         }
 
                         if ((<any>realTarget).trigger) {
-                            //console.log('realTarget has a dispatchEvent AND it also has trigger');
                             (<any>realTarget).trigger(controlScheme.move);
                         }
                         else {
-                            //console.log('weird short circuit - does this make selection work again?');
                             evt.stopPropagation();
                             evt.preventDefault();
                             return false;
-
                         }
                     }
-
                 }
 
                 if (!this.sameCellAsBefore())
@@ -133,7 +120,6 @@ export class CellDirective implements OnInit {
             }
         }
 
-        console.log('returned false');
         return false;
     } 
 }

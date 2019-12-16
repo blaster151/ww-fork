@@ -85,7 +85,6 @@ export class WordSelectionStateService {
   addLetter(letter: ICellWithCoordinates) {
     if (this.wordBeingSelected.length > 0)
     {
-      //console.log('in addLetter');
       const directionAndLength = this.getDirection(letter);
 
       // Choose which letter should ACTUALLY be considered the "end letter" of the word

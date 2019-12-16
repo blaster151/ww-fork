@@ -6,15 +6,11 @@ import { Puzzle } from "../models/puzzle";
   templateUrl: "./end-of-game.component.html",
   styleUrls: ["./end-of-game.component.css"]
 })
-export class EndOfGameComponent implements OnInit {
+export class EndOfGameComponent {
   public step: number = 1;
   @Input() puzzle: Puzzle;
   @Output() resetRequested = new EventEmitter<boolean>();
   constructor() {}
-
-  ngOnInit() {
-    console.log('endofgame oninit');
-  }
 
   nextMessage() {
     this.step++;

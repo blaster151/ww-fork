@@ -33,18 +33,14 @@ export class WordListComponent implements OnInit {
 
   ngOnInit() {
     this.sortedWords = this.words;
-    console.log('Word list done initting');
   }
 
   ngAfterViewInit() {
-    console.log('Word list done viewInitting');
-
     this.g.orchestrator.subscribe(step => {
       if (step == LaunchSteps.FontDetermined)
       {
         setTimeout(() => {
-          console.log('Notified that font has been determined');
-        
+          // Notified that font has been determined
           this.doneLoading = true;
           this.c.detectChanges();
         }, 200);
@@ -54,12 +50,10 @@ export class WordListComponent implements OnInit {
 
   onWordSelected(selectionChange: IWordSelectionChange) {
     this.wordSelected.emit(selectionChange);
-    // this.wordSelected.emit({ event: event, ui: word });
   }
 
   onWordIndicated(selectionChange: IWordSelectionChange) {
     this.wordIndicated.emit(selectionChange);
-    // this.wordSelected.emit({ event: event, ui: word });
   }
 
   private sortWords() {

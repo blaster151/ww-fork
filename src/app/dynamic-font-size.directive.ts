@@ -20,24 +20,12 @@ export class DynamicFontSizeDirective {
     setTimeout(() => {
       this.resizeFont();
     }, 100);
-
-    let setBodyAttribute = this.elementRef.nativeElement.getAttribute('setbody');
-    // window.addEventListener('resize', () => {
-    //   console.log('Resize handler: DynamicFontSizeDirective');
-
-    //   setTimeout(() => {
-    //     this.detectPortraitMode();
-    //     this.resizeFont()
-    //   }, 50)
-    // }, false);
   }
 
   private detectPortraitMode() {
     if (window.innerHeight > window.innerWidth){
       this.portraitMode = true;
     }
-
-//    console.log('detectPortraitMode says ', JSON.stringify(this.portraitMode));
   }
 
   private getInitialBodyHeight() {
@@ -48,7 +36,7 @@ export class DynamicFontSizeDirective {
   }
   
   resizeFont() {
-    // Discern somehow whether we're in portrait mode
+    // Ascertain whether we're in portrait mode
     let ratioToUse = this.ratio * 1.0;  // Default to landscape
 
     // Adjust for portrait mode

@@ -1,15 +1,12 @@
-import { Component, OnInit, Input, ViewChild, ContentChild, Output, EventEmitter, ElementRef } from '@angular/core';
-import { ICellWithCoordinates, IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
+import { Component, OnInit, Input, ContentChild, Output, EventEmitter, ElementRef } from '@angular/core';
+import { IWordSelectionChange, IWordWithCoordinates } from './../ww.interfaces';
 import { WordSelectionStateService } from './../word-selection-state.service';
-import { Observable } from 'rxjs';
 import 'rxjs/add/operator/filter';
 
-import { TimerComponent } from './../timer/timer.component';
 import { LocalStorageService } from './../local-storage.service';
-import { TimerService, ITimer } from '../timer.service';
+import { TimerService } from '../timer.service';
 import { ISavedPuzzle } from '../ww.interfaces';
 import { Puzzle } from '../models/puzzle';
-import { PuzzleCell } from '../models/puzzleCell';
 import { EndOfGameCelebrationService } from '../end-of-game-celebration.service';
 import { BiggestPossibleSquareDirective } from '../biggest-possible-square.directive';
 import { GameInitializationServiceService, LaunchSteps } from 'app/game-initialization-service.service';
@@ -44,9 +41,8 @@ export class GameplayComponent implements OnInit {
     // document.ontouchstart = function(e) {
     //   e.preventDefault();
     // };
-    // This helps prevent body scrolling in WBG
+    // This helps prevent body scrolling
     (<any>document).addEventListener('touchmove', function (e) {
-      console.log('touchmove preventing');
       e.preventDefault();
       return false;
     });
@@ -59,13 +55,10 @@ export class GameplayComponent implements OnInit {
         setTimeout(() => {
           this._showWordList = true;
 
-          console.log('After showing word list, before invoking FillAllAvailableSpaceRequested');
           setTimeout(() => {
-            console.log('invoking FillAllAvailableSpaceRequested');
             this.gameInitializationService.orchestrator.next(LaunchSteps.FillAllAvailableSpaceRequested);
 
             setTimeout(() => {
-              console.log('About to invoke EnlargeFontToFitRequested');
               this.gameInitializationService.orchestrator.next(LaunchSteps.EnlargeFontToFitRequested);
             }, 0);
           }, 10);
@@ -91,28 +84,18 @@ export class GameplayComponent implements OnInit {
     coords.forEach(cell => cell.cell.isCircled = true);
   }
 
-  onWordSelected(x: IWordSelectionChange) {
-    if (x.selected) {
-      this.puzzle.highlightLetter(x.word.word.substring(0, 1));
+  onWordSelected(wordSelectionChange: IWordSelectionChange) {
+    if (wordSelectionChange.selected) {
+      this.puzzle.highlightLetter(wordSelectionChange.word.word.substring(0, 1));
     }
     else
-      this.puzzle.highlightLetter(x.word.word.substring(0, 1), false);
+      this.puzzle.highlightLetter(wordSelectionChange.word.word.substring(0, 1), false);
   }
 
   ngAfterViewInit() {
-    console.log('gameplay ngAfterViewInit');
     this.viewInitialized.emit();
 
-    console.log('gameplay calling its biggestPossibleSquareDirective.resizeSquare()');
-//    this.biggestPossibleSquareDirective.resizeSquare();
-// not picking up
-
-    console.log('gameplay component width', this.elementRef.nativeElement.getBoundingClientRect().width);
-          this.gameInitializationService.orchestrator.next(LaunchSteps.FontDetermined);
-
-    // setInterval(() => {
-    //   console.log('gameplay component width', this.elementRef.nativeElement.getBoundingClientRect().width);
-    // }, 3000);
+    this.gameInitializationService.orchestrator.next(LaunchSteps.FontDetermined);
   }
 
   ngOnInit() {
@@ -195,29 +178,8 @@ export class GameplayComponent implements OnInit {
       }
     }
 
-    // Is this needed?  This seems to only make things
-    // jerkier
-
-
-    window.addEventListener('resize', this.resizeHandler);
-
     this.timerService.intervals.subscribe(i => this.persistProgress());
   }
-
-  ngOnDestroy() {
-    console.log('JCB GameplayComponent onDestroy; unsubscribing from windows resize events');
-    window.removeEventListener('resize', this.resizeHandler);
-  }
-
-  private resizeHandler = () => {
-    // Might help with initial render in some cases
-    // console.log('JCB GameplayComponent Resize handler');
-
-    // this.isVisible = false;
-    // setTimeout(() => {
-    //   this.isVisible = true;
-    // }, 1000);
-  };
 
   persistProgress() {
     const key = this.puzzle.title;

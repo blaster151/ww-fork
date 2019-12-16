@@ -20,8 +20,7 @@ export class WordGridComponent {
   }
 
   ngAfterViewInit() {
-    // Deterministically call resizeSquare
-//    console.log('wordGrid resizing its child square');
+    // WordGrid resizing its child square
     this.biggestPossibleSquareDirective.resizeSquare();
   }
 

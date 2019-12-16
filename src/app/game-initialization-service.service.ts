@@ -7,8 +7,6 @@ export class GameInitializationServiceService {
   public orchestrator = new ReplaySubject<LaunchSteps>(3);
 
   constructor() {
-    console.log('GIS ctr');
-
     this.orchestrator.next(LaunchSteps.SpinnerShowing);
 
     // Begin loading content
@@ -18,7 +16,6 @@ export class GameInitializationServiceService {
       if (step == LaunchSteps.ContentLoaded)
       {
         setTimeout(() => {
-          console.log('nextING from orchestrator');
           this.orchestrator.next(LaunchSteps.GameShowing);
         }, 200);
       }
