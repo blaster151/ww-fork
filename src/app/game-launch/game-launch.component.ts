@@ -41,7 +41,7 @@ export class GameLaunchComponent {
       }
     });
 
-    // FIres before resize, as we would hope
+    // Fires before resize, as we would hope
     window.addEventListener("orientationchange", (rsp) => {
       resizeCtr = 0;
     }, false);
@@ -55,7 +55,6 @@ export class GameLaunchComponent {
         return false;
       }
 
-      // I don't know if this helps anything
       return false;
     }, false);
   }

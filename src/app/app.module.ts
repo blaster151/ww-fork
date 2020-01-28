@@ -19,7 +19,6 @@ import { WordSelectionOverlayComponent } from './word-selection-overlay/word-sel
 import { TimerService } from './timer.service';
 import { TimerComponent } from './timer/timer.component';
 import { LocalStorageService } from './local-storage.service';
-// import { Observable } from 'RxJs';
 import { EndOfGameCelebrationService } from './end-of-game-celebration.service';
 import { Overlay, OverlayRenderer, ModalModule } from 'ngx-modialog';
 import { LogoComponent } from './logo/logo.component';
@@ -31,7 +30,6 @@ import { DynamicFontSizeDirective } from './dynamic-font-size.directive';
 import { EndOfGameComponent } from './end-of-game/end-of-game.component';
 import { ContentPathService } from './content-path.service';
 import { FillAllAvailableSpaceDirective } from './fill-all-space-available';
-import { TakeAllAvailableSpaceDirective } from './take-all-available-space.directive';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { GameInitializationServiceService } from './game-initialization-service.service';
 
@@ -51,7 +49,6 @@ import { GameInitializationServiceService } from './game-initialization-service.
     DynamicFontSizeDirective,
     EndOfGameComponent,
     FillAllAvailableSpaceDirective,
-    TakeAllAvailableSpaceDirective,
     SpinnerComponent
   ],
   imports: [

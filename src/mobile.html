@@ -13,19 +13,13 @@
     <div style="height: 100%; padding: 0px 0px; background: #666666;">
       <!-- I can reproduce the cropping weirdness with either padding or margin here  -->
       <iframe src="./?puzzle=170106" data-content-path="./app/xml_samples" style="width:0; height:0; border:0; border:none"></iframe>
-      <!--  -->
     </div>
   </div>
 
     <script type="text/javascript">
     setIFrameToFillAvailableSpace();
-    window.addEventListener('resize', () => {
-      // console.log('Resize handler: mobile.html (about to set iframe to fill available space)');
-      // setIFrameToFillAvailableSpace();
-    });
 
     setTimeout(() => {
-      console.log('About to setIFrameToFillAVailableSpace');
       setIFrameToFillAvailableSpace();
     }, 10);
 

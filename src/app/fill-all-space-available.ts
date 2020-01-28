@@ -17,7 +17,7 @@ export class FillAllAvailableSpaceDirective {
   }
 
   triage() {
-    // What should height be?
+    // Determine what height should be
     var parentHeight = this.elementRef.nativeElement.parentElement.offsetHeight;
     var thisTop = this.elementRef.nativeElement.offsetTop;
     var desiredHeight = parentHeight - thisTop;

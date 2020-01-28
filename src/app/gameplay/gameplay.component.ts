@@ -37,11 +37,6 @@ export class GameplayComponent implements OnInit {
     private elementRef: ElementRef) {
     this.wordSelectionStateService = wordSelectionStateService;
 
-    /* Prevent body scrolling when viewed from iOS */
-    // document.ontouchstart = function(e) {
-    //   e.preventDefault();
-    // };
-    // This helps prevent body scrolling
     (<any>document).addEventListener('touchmove', function (e) {
       e.preventDefault();
       return false;
@@ -147,7 +142,7 @@ export class GameplayComponent implements OnInit {
 
     // When a word completes, we're not mid-selection anymore
     this.wordSelectionStateService.wordsSelected.subscribe(w => {
-      this.wordBeingSelected = null;// { word: '', coords: [] };
+      this.wordBeingSelected = null;
     });
 
     // Check for persisted version
@@ -157,7 +152,6 @@ export class GameplayComponent implements OnInit {
     if (savedPuzzle) {
 
       savedPuzzle.foundWords.forEach(w => {
-        // TODO - Move this logic elsewhere
         const coords = this.puzzle.getCoordinates(w);
         const wordInPuzzle = this.puzzle.words.find(pw => pw.word === w);
 

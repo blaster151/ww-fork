@@ -19,11 +19,6 @@
 
     <script type="text/javascript">
     setIFrameToFillAvailableSpace();
-    window.addEventListener('resize', () => {
-      // When I run in Chrome device emulator, this doesn't appear to fire ever
-      console.log('JCB Resize handler: vorlon.html (about to set iframe to fill available space)');
-      //setIFrameToFillAvailableSpace();
-    });
 
     function setIFrameToFillAvailableSpace() {
 
@@ -37,8 +32,6 @@
 
         let desiredHeight = windowHeight - existingIFrameTop;
         let desiredWidth = windowWidth - (existingIFrameLeft * 2);
-
-        console.log('   setIFrameToFillAvailableSpace, iframe set to ', desiredWidth, desiredHeight - 4, );
 
         iframe.style.height = `${desiredHeight - 4}px`;
         iframe.style.width = `${desiredWidth}px`;
