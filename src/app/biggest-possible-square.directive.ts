@@ -26,7 +26,7 @@ export class BiggestPossibleSquareDirective {
     this.elementRef.nativeElement.style.height = "0px";
     this.elementRef.nativeElement.style.width = "0px";
 
-    this.elementRef.nativeElement.style.height = squareSize + "px";
-    this.elementRef.nativeElement.style.width = squareSize + "px";
+    this.elementRef.nativeElement.style.height = squareSize - ((squareSize / 100) * 5) + "px";
+    this.elementRef.nativeElement.style.width = squareSize - ((squareSize / 100) * 5) + "px";
  }
 }
